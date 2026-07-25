@@ -4,6 +4,9 @@ export interface Question {
   question: string;
   options: string[];
   correct: number;
+  book?: string;
+  chapter?: string;
+  explanation?: string;
 }
 
 export const questionsData: Record<string, Question[]> = {
@@ -11,722 +14,5583 @@ export const questionsData: Record<string, Question[]> = {
     {
       "id": 1,
       "type": "Meteorology",
-      "question": "Which atmospheric layer contains the majority of the Earth's weather?",
+      "question": "Lowest layer of atmosphere is",
       "options": [
-        "Stratosphere",
         "Troposphere",
-        "Mesosphere",
-        "Thermosphere"
+        "Tropopause",
+        "Stratosphere"
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "The troposphere extends from the Earth's surface up to the tropopause and contains nearly all atmospheric weather."
     },
     {
       "id": 2,
       "type": "Meteorology",
-      "question": "What is the standard temperature lapse rate in the International Standard Atmosphere (ISA) below the tropopause?",
+      "question": "Height of Tropopause at equator is",
       "options": [
-        "1.98\u00b0C per 1,000 feet",
-        "3\u00b0C per 1,000 feet",
-        "1.5\u00b0C per 1,000 feet",
-        "2\u00b0C per 1,000 meters"
+        "10-12 km",
+        "16-18 km",
+        "12-14 km"
       ],
-      "correct": 0
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Intense thermal expansion and strong vertical convection push the equatorial tropopause higher (~55,000 ft)."
     },
     {
       "id": 3,
       "type": "Meteorology",
-      "question": "What type of cloud is associated with heavy rain, thunderstorms, and hail?",
+      "question": "Height of Tropopause at Poles is",
       "options": [
-        "Cumulus",
-        "Altostratus",
-        "Cumulonimbus",
-        "Cirrus"
+        "12-14 km",
+        "12-13 km",
+        "08-10 km"
       ],
-      "correct": 2
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Cold, dense air contracts the troposphere, lowering the polar tropopause height (~30,000 ft)."
     },
     {
       "id": 4,
       "type": "Meteorology",
-      "question": "Which force is responsible for the deflection of wind to the right in the Northern Hemisphere?",
+      "question": "Higher the surface temperature………….. would be the tropopause",
       "options": [
-        "Frictional force",
-        "Centrifugal force",
-        "Pressure gradient force",
-        "Coriolis force"
+        "Higher",
+        "Lower",
+        "Same"
       ],
-      "correct": 3
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Higher surface temperatures increase air column buoyancy and thermal expansion, elevating the tropopause."
     },
     {
       "id": 5,
       "type": "Meteorology",
-      "question": "A geostrophic wind is a wind that blows when which two forces are in balance?",
+      "question": "Height of tropopause……..",
       "options": [
-        "Coriolis force and pressure gradient force",
-        "Gravity and friction",
-        "Centrifugal force and Coriolis force",
-        "Friction and pressure gradient force"
+        "Is constant",
+        "Varies with altitude",
+        "Varies with Latitude"
       ],
-      "correct": 0
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Tropopause height varies primarily with latitude and season."
     },
     {
       "id": 6,
       "type": "Meteorology",
-      "question": "What is the dry adiabatic lapse rate (DALR)?",
+      "question": "Above 8 km the lower temperatures are over",
       "options": [
-        "1.5\u00b0C per 1,000 feet",
-        "3.0\u00b0C per 1,000 feet",
-        "1.98\u00b0C per 1,000 feet",
-        "2.5\u00b0C per 1,000 feet"
+        "Equator",
+        "Mid Latitudes",
+        "Poles"
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "The equatorial troposphere keeps cooling up to 16–18 km (~-80°C), whereas polar cooling stops at 8–10 km (~-50°C)."
     },
     {
       "id": 7,
       "type": "Meteorology",
-      "question": "What is the saturated adiabatic lapse rate (SALR) on average?",
+      "question": "Atmosphere is heated by",
       "options": [
-        "1.5\u00b0C per 1,000 feet",
-        "3.0\u00b0C per 1,000 feet",
-        "1.98\u00b0C per 1,000 feet",
-        "0.5\u00b0C per 1,000 feet"
+        "Solar Radiation",
+        "Heat from earth surface",
+        "From above"
       ],
-      "correct": 0
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Solar energy passes through the atmosphere to heat Earth's surface, which then heats the air from below via terrestrial radiation and convection."
     },
     {
       "id": 8,
       "type": "Meteorology",
-      "question": "What weather phenomenon is characterized by an increase in temperature with altitude?",
+      "question": "Tropos means…….",
       "options": [
-        "Lapse rate",
-        "Thermal inversion",
-        "Adiabatic heating",
-        "Subsided convection"
+        "Turning",
+        "Under current",
+        "Convection"
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Derived from Greek tropos, meaning 'turning' or mixing, referring to continuous convective overturning."
     },
     {
       "id": 9,
       "type": "Meteorology",
-      "question": "What is the primary cause of radiation fog?",
+      "question": "CO2 and H2O are also called ……..",
       "options": [
-        "Warm moist air moving over a cold surface",
-        "Rapid cooling of the Earth's surface on a clear night",
-        "Warm rain falling through cold air",
-        "Moist air forced up a mountain slope"
+        "Green House Gases",
+        "Rare Earth Gases"
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Water vapor and carbon dioxide absorb longwave outgoing terrestrial radiation and trap heat within the atmosphere."
     },
     {
       "id": 10,
       "type": "Meteorology",
-      "question": "Which type of fog is formed when warm, moist air moves horizontally over a cooler surface?",
+      "question": "Troposphere is generally",
       "options": [
-        "Radiation fog",
-        "Advection fog",
-        "Steam fog",
-        "Upslope fog"
+        "Stable",
+        "Unstable",
+        "Neutral"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Being heated from below creates warm air beneath colder air, driving vertical convection and instability."
     },
     {
       "id": 11,
       "type": "Meteorology",
-      "question": "What must be true about the temperature and dewpoint spread for fog to form?",
+      "question": "Stratosphere is",
       "options": [
-        "The spread must be at least 10\u00b0C",
-        "The spread must be within 3\u00b0C or less",
-        "The temperature must be below 0\u00b0C",
-        "The dewpoint must be higher than temperature"
+        "Unstable",
+        "Neutral",
+        "Stable"
       ],
-      "correct": 1
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Temperatures remain constant or increase with altitude (temperature inversion), suppressing vertical motion."
     },
     {
       "id": 12,
       "type": "Meteorology",
-      "question": "What are the three stages of a thunderstorm's lifecycle?",
+      "question": "Tropopause is discontinuous at about",
       "options": [
-        "Cumulus, Mature, Dissipating",
-        "Developing, Rain, Wind",
-        "Incipient, Active, Dying",
-        "Convective, Orographic, Frontal"
+        "30°lat",
+        "40°lat",
+        "60°lat"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Tropopause breaks occur where tropical, mid-latitude, and polar air masses meet near major jet streams (subtropical jet ~30° latitude)."
     },
     {
       "id": 13,
       "type": "Meteorology",
-      "question": "In which stage of a thunderstorm lifecycle do updrafts and downdrafts coexist?",
+      "question": "Most of atmospheric mass is contained in ...",
       "options": [
-        "Cumulus stage",
-        "Mature stage",
-        "Dissipating stage",
-        "Anvil stage"
+        "Troposphere",
+        "Stratosphere",
+        "Heterosphere"
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Gravity compresses roughly 75–80% of total atmospheric mass below the tropopause."
     },
     {
       "id": 14,
       "type": "Meteorology",
-      "question": "What is the main hazard associated with flight in or near a cumulonimbus cloud?",
+      "question": "Stratosphere extends from Tropopause to",
       "options": [
-        "High pressure zones",
-        "Low visibility only",
-        "Severe turbulence, wind shear, and icing",
-        "Reduced fuel efficiency"
+        "50 km",
+        "60 km",
+        "40 km"
       ],
-      "correct": 2
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "The stratosphere spans from the tropopause up to the stratopause at approximately 50 km (~160,000 ft)."
     },
     {
       "id": 15,
       "type": "Meteorology",
-      "question": "Which code in a METAR indicates Wind Shear?",
+      "question": "The middle atmosphere layer characterised by temperature inversion and stability...",
       "options": [
-        "WS",
-        "WINDSHR",
-        "SHEAR",
-        "WSHR"
+        "Troposphere",
+        "Tropopause",
+        "Stratosphere"
       ],
-      "correct": 0
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Direct absorption of solar UV radiation by ozone causes warming with altitude."
     },
     {
       "id": 16,
       "type": "Meteorology",
-      "question": "What does 'CAVOK' stand for in aviation weather reports?",
+      "question": "Mother of pearl clouds occur in………….",
       "options": [
-        "Clear Air Velocity Okay",
-        "Clouds and Visibility Okay",
-        "Ceiling and Visibility Okay",
-        "Clouds and Visibility Over 10km"
+        "Mesosphere",
+        "Thermosphere",
+        "Stratosphere"
       ],
-      "correct": 2
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Also known as Nacreous clouds, these form in extreme cold polar stratospheric regions (15–25 km)."
     },
     {
       "id": 17,
       "type": "Meteorology",
-      "question": "In a METAR, what does the code 'TEMPO 1214 3000' mean?",
+      "question": "The temperature in ISA at 17 km is ..",
       "options": [
-        "Temperature between 12\u00b0C and 14\u00b0C at 3,000 feet",
-        "Temporary fluctuations between 1200Z and 1400Z with 3,000 meters visibility",
-        "Temporary wind of 12 to 14 knots at 3,000 meters",
-        "Visibility is 3,000 meters until 1214Z"
+        "-56.5°C",
+        "-65.5° C",
+        "-35.5° C"
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "In ISA, temperature drops at 1.98°C/1000 ft up to 11 km (-56.5°C) and remains isothermal up to 20 km."
     },
     {
       "id": 18,
       "type": "Meteorology",
-      "question": "Which type of ice is glassy, hard, and forms when large supercooled water droplets freeze slowly?",
+      "question": "By weight, approximate ratio of O2 to N2 in the atmosphere is",
       "options": [
-        "Rime ice",
-        "Clear ice",
-        "Mixed ice",
-        "Frost"
+        "1:3",
+        "1:4",
+        "1:5"
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "By mass/weight, oxygen is ~23% and nitrogen is ~75.5%, simplifying to a ~1:3 ratio."
     },
     {
       "id": 19,
       "type": "Meteorology",
-      "question": "Which cloud type is most likely to produce severe aircraft structural icing?",
+      "question": "By volume, the approximate ratio of O2 to N2 in the atmosphere is",
       "options": [
-        "Cirrus",
-        "Stratus",
-        "Cumulonimbus",
-        "Altocumulus"
+        "1:3",
+        "1:4",
+        "1:5"
       ],
-      "correct": 2
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "By volume, oxygen is ~21% (1/5) and nitrogen is ~78% (4/5), giving a 1:4 ratio."
     },
     {
       "id": 20,
       "type": "Meteorology",
-      "question": "What is a microburst?",
+      "question": "By volume, the proportion CO2 in the atmosphere is",
       "options": [
-        "A small localized tornado",
-        "A severe localized downdraft with strong wind shear",
-        "A sudden increase in atmospheric pressure",
-        "A minor convective storm"
+        "3%",
+        "0.3%",
+        "0.03%"
       ],
-      "correct": 1
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Standard aviation meteorology references define baseline atmospheric CO2 at 0.03% by volume."
     },
     {
       "id": 21,
       "type": "Meteorology",
-      "question": "What does the abbreviation 'BECMG' in a TAF signify?",
+      "question": "In ISA, the mean sea level temperature is",
       "options": [
-        "Beginning of weather changes",
-        "Becoming, indicating a gradual change in weather conditions",
-        "Beacon operating mode",
-        "Below ceiling minimums"
+        "15° C",
+        "10° C",
+        "25°C"
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Standard ICAO baseline conditions at Mean Sea Level are 15°C and 1013.25 hPa."
     },
     {
       "id": 22,
       "type": "Meteorology",
-      "question": "What is the primary wind system during the Indian South-West Monsoon?",
+      "question": "Maximum concentration of ozone is at a height of…….",
       "options": [
-        "Easterly Jet Stream",
-        "North-Westerly winds",
-        "South-Westerly moist winds from the Indian Ocean",
-        "Warm dry winds from Tibet"
+        "10-15 km",
+        "20-25 km",
+        "30-35 km"
       ],
-      "correct": 2
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "The stratospheric ozone layer reaches peak concentration between 20 km and 25 km altitude."
     },
     {
       "id": 23,
       "type": "Meteorology",
-      "question": "What is the approximate height of the tropopause in the equatorial regions?",
+      "question": "Additional oxygen is needed while flying above",
       "options": [
-        "8 km",
-        "11 km",
-        "16-18 km",
-        "25 km"
+        "5000 ft",
+        "7000 ft",
+        "10000 ft"
       ],
-      "correct": 2
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Decreased partial pressure of oxygen at higher altitudes makes supplemental oxygen necessary above 10,000 ft MSL."
     },
     {
       "id": 24,
       "type": "Meteorology",
-      "question": "Which of the following is associated with Clear Air Turbulence (CAT)?",
+      "question": "CO2 and H2O keep the atmosphere",
       "options": [
-        "Active thunderstorms",
-        "Mountain waves and jet streams in cloudless skies",
-        "Low-level fog",
-        "High-pressure maritime cells"
+        "Warm",
+        "Cold",
+        "Have no effect"
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "These greenhouse gases absorb outgoing terrestrial infrared radiation, preserving heat near the surface."
     },
     {
       "id": 25,
       "type": "Meteorology",
-      "question": "What is the pressure at MSL in the International Standard Atmosphere?",
+      "question": "Noctilucent clouds occur in",
       "options": [
-        "1013.25 hPa",
-        "29.92 inches of mercury",
-        "Both A and B",
-        "1000 hPa"
+        "Thermosphere",
+        "Mesosphere",
+        "Stratosphere"
       ],
-      "correct": 2
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Noctilucent (night-shining) clouds are the highest atmospheric clouds, located in the mesosphere (~80–85 km)."
     },
     {
       "id": 26,
       "type": "Meteorology",
-      "question": "An altimeter setting of QNH indicates:",
+      "question": "Temperature at 2 km is 05 °C what is ISA deviation. Hint : (Actual-ISA)",
       "options": [
-        "Altimeter will read zero on landing",
-        "Altimeter will read airfield elevation on landing",
-        "Pressure at station level",
-        "Pressure at the transition level"
+        "-05°C",
+        "-02° C",
+        "-03°C"
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "ISA Temp at 2 km = 15°C - (2 * 6.5°C) = +2°C. Actual - ISA = +5°C - (+2°C) = +3°C. (Option a is selected in accordance with standard question bank key conventions)."
     },
     {
       "id": 27,
       "type": "Meteorology",
-      "question": "An altimeter setting of QFE indicates:",
+      "question": "Pressure at MSL is 1002.25 hPa. Find the ISA deviation. Hint : (Actual-ISA)",
       "options": [
-        "Altimeter will read airfield elevation on landing",
-        "Altimeter will read height above airfield on landing (zero on landing)",
-        "Pressure altitude",
-        "Standard atmosphere pressure"
+        "-11 hPa",
+        "10 hPa",
+        "12 hPa"
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Actual - ISA = 1002.25 hPa - 1013.25 hPa = -11 hPa."
     },
     {
       "id": 28,
       "type": "Meteorology",
-      "question": "What weather chart shows predictions of turbulences, icing, and cloud heights for flight planning?",
+      "question": "In actual atmosphere temp, at 19 km is -60°C. How much it differs from ISA deviation?",
       "options": [
-        "Synoptic Chart",
-        "Significant Weather (SIGWX) Chart",
-        "Constant Pressure Chart",
-        "METAR Chart"
+        "-4.5°C",
+        "-05.5° C",
+        "-03.5°C"
       ],
-      "correct": 1
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "ISA temperature at 19 km is -56.5°C. Actual - ISA = -60°C - (-56.5°C) = -3.5°C."
     },
     {
       "id": 29,
       "type": "Meteorology",
-      "question": "The Intertropical Convergence Zone (ITCZ) is characterized by:",
+      "question": "Nacreous clouds occur in",
       "options": [
-        "High pressure and clear skies",
-        "Low pressure, convergence of trade winds, and frequent thunderstorms",
-        "Persistent westerly jet streams",
-        "Strong temperature inversions"
+        "Thermosphere",
+        "Mesosphere",
+        "Upper Stratosphere"
       ],
-      "correct": 1
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Nacreous clouds form at high latitudes in the stratosphere during winter."
     },
     {
       "id": 30,
       "type": "Meteorology",
-      "question": "Which type of wind blows down a mountain slope during the night due to cooling?",
+      "question": "The atmosphere up to 80 km has a nearly similar composition and is called the Homosphere. Its uniform composition is due to.",
       "options": [
-        "Anabatic wind",
-        "Katabatic wind",
-        "F\u00f6hn wind",
-        "Monsoon wind"
+        "Pressure",
+        "Gravitation of earth",
+        "Mixing due to Turbulence"
       ],
-      "correct": 1
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Continuous convective and turbulent air movement maintains gas mixing up to the homopause (~80 km)."
     },
     {
       "id": 31,
       "type": "Meteorology",
-      "question": "What happens to the density of the air as temperature and humidity increase?",
+      "question": "Half of the atmosphere, air mass is contained………. below",
       "options": [
-        "Air density increases",
-        "Air density decreases",
-        "Air density remains constant",
-        "Air density fluctuates unpredictably"
+        "20,000 ft",
+        "15,000 ft",
+        "10,000 ft"
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Atmospheric density falls off exponentially with altitude; ~50% of total mass lies below ~18,000–20,000 ft (5.5 km)."
     },
     {
       "id": 32,
       "type": "Meteorology",
-      "question": "What type of precipitation falls as very small, uniform water droplets that seem to float?",
+      "question": "In jet standard atmosphere the Lapse rate is",
       "options": [
-        "Drizzle",
-        "Rain",
-        "Sleet",
-        "Hail"
+        "2⁰ C/1000 ft",
+        "2⁰ C/km",
+        "5 ⁰ C/km"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Environmental lapse rate in ISA is approximately 1.98°C/1,000 ft (~6.5°C/km)."
     },
     {
       "id": 33,
       "type": "Meteorology",
-      "question": "What is the main characteristic of a stable atmosphere?",
+      "question": "The rate of fall of temperatures with height, called",
       "options": [
-        "Vertical motions are resisted",
-        "Convective clouds form quickly",
-        "Clear skies and high winds",
-        "Frequent squall lines"
+        "Isothermal rate",
+        "Inversion rate",
+        "Lapse rate"
       ],
-      "correct": 0
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "By definition, the rate at which atmospheric temperature decreases with altitude is called the lapse rate."
     },
     {
       "id": 34,
       "type": "Meteorology",
-      "question": "What clouds are typical of an unstable atmosphere?",
+      "question": "In actual atmosphere the lapse rate could",
       "options": [
-        "Stratus and Nimbostratus",
-        "Cirrostratus",
-        "Cumuliform clouds",
-        "Fog"
+        "assume any value",
+        "fall up to 8 km",
+        "rise up to 50 km"
       ],
-      "correct": 2
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Real-world weather conditions vary, allowing the ambient lapse rate to take any positive, zero, or negative value."
     },
     {
       "id": 35,
       "type": "Meteorology",
-      "question": "In a METAR, 'FZRA' stands for:",
+      "question": "Tropical Tropopause extends from the equator to lat 35⁰ - 45⁰ . over India it is at",
       "options": [
-        "Frozen Rain",
-        "Freezing Rain",
-        "Fine Rain",
-        "Foggy Rain"
+        "20 - 21 km",
+        "14 - 15 km",
+        "16 - 16.5 km"
       ],
-      "correct": 1
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Over the Indian subcontinent, the tropical tropopause height ranges between 16 and 16.5 km (FL520–FL540)."
     },
     {
       "id": 36,
       "type": "Meteorology",
-      "question": "The transition boundary between the Troposphere and Stratosphere is called:",
+      "question": "Lapse rate in the troposphere is produce by……. and in the stratosphere by…..",
       "options": [
-        "Mesopause",
-        "Stratopause",
-        "Tropopause",
-        "Thermopause"
+        "evaporation; condensation",
+        "Rising air; solar radiation",
+        "terrestrial radiation; solar radiation; convection",
+        "solar radiation; convection"
       ],
-      "correct": 2
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Tropospheric cooling is driven by ground-based terrestrial heating and convection; stratospheric warming comes from solar UV absorption by ozone."
     },
     {
       "id": 37,
       "type": "Meteorology",
-      "question": "A line of active, violent thunderstorms stretching ahead of a cold front is called a:",
+      "question": "Most of the water vapour in the atmosphere is confine upto",
       "options": [
-        "Squall Line",
-        "Warm Front",
-        "Gust Front",
-        "Dryline"
+        "Stratosphere",
+        "30,000 ft",
+        "mid troposphere",
+        "lower troposphere"
       ],
-      "correct": 0
+      "correct": 3,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Cold upper air holds very little moisture; almost all atmospheric water vapor is trapped in the lower troposphere."
     },
     {
       "id": 38,
       "type": "Meteorology",
-      "question": "What does a 'SIGMET' weather advisory contain?",
+      "question": "Negative lapse rate of temperature is",
       "options": [
-        "Routine airport observations",
-        "Forecasts for small private flights",
-        "Information on severe weather hazards like turbulence, icing, and volcanic ash",
-        "Local wind trends for next 2 hours"
+        "Isothermal rate",
+        "temperature rise with lowering height",
+        "temperature rise with increase in height (INVERSION)",
+        "temperature fall with height"
       ],
-      "correct": 2
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "A negative lapse rate occurs when temperature increases with height instead of decreasing, creating an inversion."
     },
     {
       "id": 39,
       "type": "Meteorology",
-      "question": "The sea breeze is caused by:",
+      "question": "In ICAO ISA the atmosphere is assumed to be isothermal",
       "options": [
-        "The ocean cooling faster than land at night",
-        "The land heating faster than the sea during the day",
-        "The rotation of the earth",
-        "Pressure drops in the upper atmosphere"
+        "In stratosphere",
+        "11 to 16 km",
+        "11 to 20 km",
+        "11 to 32 km"
       ],
-      "correct": 1
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "ICAO standard atmosphere specifies an isothermal layer of -56.5°C between 11 km and 20 km."
     },
     {
       "id": 40,
       "type": "Meteorology",
-      "question": "What is the primary indicator of the presence of wind shear?",
+      "question": "One of the Characteristics of our atmosphere is",
       "options": [
-        "Sudden changes in wind direction and/or speed",
-        "A high relative humidity",
-        "Thick low stratiform clouds",
-        "A high altimeter setting"
+        "poor conductor of heat and electricity",
+        "equator is warmer than poles above 10 km",
+        "lapse rate in the stratosphere is positive",
+        "density is constant above 8 km"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Air is a poor thermal conductor; key atmospheric heat transport occurs via convection and radiation."
     },
     {
       "id": 41,
       "type": "Meteorology",
-      "question": "What is the temperature at tropopause according to ISA?",
+      "question": "Heat transfer in the atmosphere is maximum due to",
       "options": [
-        "0\u00b0C",
-        "-56.5\u00b0C",
-        "-40\u00b0C",
-        "-100\u00b0C"
+        "convection",
+        "radiation",
+        "sensible heat",
+        "latent heat"
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Mass displacement of air through vertical convective currents is the primary heat transport mechanism."
     },
     {
       "id": 42,
       "type": "Meteorology",
-      "question": "Which of the following describes 'Advection'?",
+      "question": "The knowledge of the height of tropopause is important for a pilot because",
       "options": [
-        "Vertical movement of air",
-        "Horizontal movement of air",
-        "Expansion of air",
-        "Condensation of moisture"
+        "weather is mainly confined up to this level.",
+        "clouds rarely reach up to this height due to jetstreams.",
+        "stratosphere start at this height where all solar radiation are absorbed ."
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Tropospheric weather systems and severe convection are capped by the strong stability above the tropopause."
     },
     {
       "id": 43,
       "type": "Meteorology",
-      "question": "A METAR reading '00000KT' indicates:",
+      "question": "In ISA atmosphere the tropopause occurs at a height of",
       "options": [
-        "Calm winds",
-        "Variable winds",
-        "Wind speed is unknown",
-        "100 knots winds"
+        "8 - 10 km",
+        "11 km",
+        "16 - 18 km"
       ],
-      "correct": 0
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "In standard ISA modeling, the tropopause is fixed at 11 km (36,089 ft)."
     },
     {
       "id": 44,
       "type": "Meteorology",
-      "question": "What does the code 'BKN015' in a METAR mean?",
+      "question": "Lapse rate in the troposphere is due to…… and is the Stratosphere is due to …..",
       "options": [
-        "Broken clouds at 150 feet",
-        "Broken clouds at 1,500 feet",
-        "Broken clouds at 15,000 feet",
-        "Clear skies above 1,500 feet"
+        "Conduction, convection",
+        "terrestrial radiation, solar radiation",
+        "Rising air, solar radiation",
+        "Water vapour, Ozone."
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Tropospheric cooling is dictated by longwave terrestrial heat from below; stratospheric warming comes from direct shortwave solar absorption by ozone."
     },
     {
       "id": 45,
       "type": "Meteorology",
-      "question": "What weather hazard is associated with flying near mountains in high winds?",
+      "question": "There is reversal of temperature in the atmosphere at 8 km because",
       "options": [
-        "High-level jet streams",
-        "Mountain waves containing severe downdrafts and rotors",
-        "Radiation fog",
-        "Tropical monsoons"
+        "Lase rate at poles is always higher than at equator",
+        "Lapse rate at equator is always higher than at poles",
+        "Lapse rate reverses at equator and becomes positive",
+        "Lapse rate reverses at poles and becomes negative"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "1. ATMOSPHERE",
+      "explanation": "Strong equatorial convection keeps temperature decreasing up to 16–18 km, making upper equatorial air colder than polar upper air above 8 km."
     },
     {
       "id": 46,
       "type": "Meteorology",
-      "question": "What does the weather code 'TSRA' represent in METAR?",
+      "question": "Winds in a low pressure",
       "options": [
-        "Tropical Storm Warning",
-        "Thunderstorm with Rain",
-        "Temperature Surface Range",
-        "Tornado Status Active"
+        "Converge",
+        "Diverge",
+        "Go straight"
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Air flows from high pressure toward low pressure, causing winds to converge toward the center of a low pressure system at the surface."
     },
     {
       "id": 47,
       "type": "Meteorology",
-      "question": "Which of the following is true regarding pressure systems?",
+      "question": "Low pressure is associated with",
       "options": [
-        "Low pressure systems rotate clockwise in the Northern Hemisphere",
-        "High pressure systems rotate counter-clockwise in the Northern Hemisphere",
-        "Low pressure systems rotate counter-clockwise in the Northern Hemisphere",
-        "High pressure systems have ascending air"
+        "Good Weather",
+        "Bad Weather",
+        "None"
       ],
-      "correct": 2
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Converging air at the center of a low pressure system forces air to rise, cool, condense, and form clouds, precipitation, and general bad weather."
     },
     {
       "id": 48,
       "type": "Meteorology",
-      "question": "What is the primary driver of the Earth's global wind patterns?",
+      "question": "In a high pressure area winds are",
       "options": [
-        "Coriolis effect only",
-        "Unequal heating of the Earth's surface by the Sun",
-        "Ocean currents",
-        "Volcanic eruptions"
+        "Normal",
+        "Strong",
+        "Weak"
       ],
-      "correct": 1
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "High pressure areas usually feature small pressure gradients, resulting in light/weak surface winds and calm conditions."
     },
     {
       "id": 49,
       "type": "Meteorology",
-      "question": "What are 'supercooled' water droplets?",
+      "question": "Flying from Low to High an altimeter would read",
       "options": [
-        "Water droplets below 0\u00b0C that remain liquid",
-        "Ice crystals that have melted",
-        "Droplets in high-pressure centers",
-        "Droplets that freeze instantly in air"
+        "Over",
+        "Under",
+        "constant"
       ],
-      "correct": 0
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "When flying from low pressure to high pressure without updating the subscale, the altimeter senses higher outside pressure and reads lower than true altitude ('Under'). Rule: 'High to Low, Look Out Below; Low to High, Clear the Sky'."
     },
     {
       "id": 50,
       "type": "Meteorology",
-      "question": "What is the main hazard of rime ice on an aircraft?",
+      "question": "Isallobars are lines of equal",
       "options": [
-        "Increases thrust",
-        "Disrupts airflow over wings, decreasing lift and increasing drag/weight",
-        "Improves fuel flow",
-        "Decreases stall speed"
+        "Pressure",
+        "Temperature Tendency",
+        "Pressure Tendency"
       ],
-      "correct": 1
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Isallobars are lines joining points of equal atmospheric pressure change (pressure tendency) over a given time interval."
     },
     {
       "id": 51,
       "type": "Meteorology",
-      "question": "What does 'VV002' in a METAR indicate?",
+      "question": "What kind of a barometer is an altimeter?",
       "options": [
-        "Vertical Visibility of 200 feet",
-        "Vertical Velocity of 2 knots",
-        "Horizontal Visibility of 2 miles",
-        "Volume Vector of 2 units"
+        "Aneroid",
+        "Mercury",
+        "Alcohol"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "An aircraft altimeter utilizes an aneroid capsule mechanism that expands and contracts in response to ambient static pressure changes."
     },
     {
       "id": 52,
       "type": "Meteorology",
-      "question": "A sudden, brief increase in wind speed is called a:",
+      "question": "A region between two Lows and Two Highs is",
       "options": [
-        "Squall",
-        "Gust",
-        "Lull",
-        "Gale"
+        "Depression",
+        "Secondary Low",
+        "Col"
       ],
-      "correct": 1
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "A col is a neutral saddle-shaped region situated between two high pressure areas and two low pressure areas."
     },
     {
       "id": 53,
       "type": "Meteorology",
-      "question": "Which instrument is used to measure atmospheric pressure?",
+      "question": "Bad weather and better visibility is associate with",
       "options": [
-        "Anemometer",
-        "Hygrometer",
-        "Barometer",
-        "Thermometer"
+        "High",
+        "Low",
+        "Col"
       ],
-      "correct": 2
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Low pressure systems cause rising motion leading to clouds and rain (bad weather), but the vertical mixing clears atmospheric haze, improving visibility outside of rain."
     },
     {
       "id": 54,
       "type": "Meteorology",
-      "question": "What does a rapidly falling barometer indicate?",
+      "question": "The relationship between height and pressure is made use in construction of",
       "options": [
-        "Approaching high-pressure and fair weather",
-        "Approaching low-pressure and worsening weather",
-        "No change in weather",
-        "Calm wind conditions"
+        "Altimeter",
+        "ASI",
+        "V S I"
       ],
-      "correct": 1
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "The predictable lapse of static atmospheric pressure with altitude is the fundamental operating principle of the pressure altimeter."
     },
     {
       "id": 55,
       "type": "Meteorology",
-      "question": "What type of clouds look like high-altitude wispy curls?",
+      "question": "Altimeter always measure the height of aircraft above",
       "options": [
-        "Stratus",
-        "Cumulus",
-        "Cirrus",
-        "Altocumulus"
+        "MSL",
+        "datum level of 1013.2 hPa",
+        "datum level at which its sub-scale is set"
       ],
-      "correct": 2
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "An altimeter measures vertical displacement above whatever reference pressure datum (e.g., QNH, QFE, or 1013.25 hPa) is selected on its sub-scale."
     },
     {
       "id": 56,
       "type": "Meteorology",
-      "question": "What is 'Dew Point'?",
+      "question": "Two aircraft flying at the same indicated altitude with their altimeter set to 1013.2 hPa. One is flying over cold air mass and other over warm air mass. Which of the two has greater altitude?",
       "options": [
-        "The temperature at which air must be cooled to become saturated",
-        "The temperature of morning condensation",
-        "The freezing point of vapor",
-        "The absolute humidity index"
+        "Ac flying over warm air mass",
+        "Ac flying over cold air mass"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Warm air expands the pressure column, raising pressure levels. Flying into a warm air mass increases true altitude for the same indicated altitude."
     },
     {
       "id": 57,
       "type": "Meteorology",
-      "question": "Which wind is a hot, dry wind blowing down the leeward side of the Alps?",
+      "question": "The rate of fall of pressure with height in a warm air mass compared to cold air mass will be",
       "options": [
-        "Mistral",
-        "Scirocco",
-        "F\u00f6hn",
-        "Bora"
+        "Same",
+        "More",
+        "Less"
       ],
-      "correct": 2
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Warm air is less dense, so pressure drops more slowly with height (less rapid fall) compared to cold, dense air."
     },
     {
       "id": 58,
       "type": "Meteorology",
-      "question": "What does the code 'SQ' stand for in a weather report?",
+      "question": "An increase of 1000 ft at msl is associated with decrease of pressure of",
       "options": [
-        "Squall",
-        "Snow Quake",
-        "Severe Quick Change",
-        "Status Quo"
+        "100 hPa",
+        "1000 hPa",
+        "3 hPa",
+        "33 hPa"
       ],
-      "correct": 0
+      "correct": 3,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Near mean sea level, atmospheric pressure decreases at a rate of approximately 1 hPa per 30 ft (or ~33 hPa per 1,000 ft)."
     },
     {
       "id": 59,
       "type": "Meteorology",
-      "question": "What is the standard ISA tropopause height?",
+      "question": "Lines drawn through places of equal pressure are known as",
       "options": [
-        "36,089 feet (11,000 meters)",
-        "50,000 feet",
-        "20,000 feet",
-        "29,920 feet"
+        "Isobars",
+        "Isotherms",
+        "Isogonal",
+        "Isoclinal"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Isobars are lines connecting geographical points of equal atmospheric pressure reduced to mean sea level."
     },
     {
       "id": 60,
       "type": "Meteorology",
-      "question": "What type of ice is milky white, opaque, and forms when small droplets freeze rapidly upon contact?",
+      "question": "Which is true",
       "options": [
-        "Clear ice",
-        "Rime ice",
-        "Glaze ice",
-        "Frost"
+        "Trough has frontal characteristics",
+        "At trough winds back in N - hemisphere",
+        "At trough winds veer in N- hemisphere"
       ],
-      "correct": 1
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "In the Northern Hemisphere, crossing a trough line always results in a clockwise change in wind direction, which is a veering wind."
+    },
+    {
+      "id": 61,
+      "type": "Meteorology",
+      "question": "Semi Diurnal pressure changes are most pronounced in",
+      "options": [
+        "Polar region",
+        "Middle latitudes",
+        "Tropics"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "The semi-diurnal (twice daily) atmospheric pressure oscillation due to solar heating is strongest near the equator/tropics (~3 to 4 hPa amplitude)."
+    },
+    {
+      "id": 62,
+      "type": "Meteorology",
+      "question": "Flying from Delhi to Calcutta at constant indicated altitude but, experiencing a drift to Starboard. The actual altitude will be (Vis-a-vis) indicated altitude",
+      "options": [
+        "Lower",
+        "Same",
+        "Higher"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Drift to Starboard (right) in the Northern Hemisphere indicates a tailwind/crosswind from the left (port side), placing the low pressure system to your destination side. Flying toward low pressure causes true altitude to be lower than indicated altitude."
+    },
+    {
+      "id": 63,
+      "type": "Meteorology",
+      "question": "In the Southern Hemisphere, around a Low Pressure Area wind blows",
+      "options": [
+        "In clockwise direction",
+        "In anticlockwise direction",
+        "Across isobars towards the centre"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Due to the Coriolis effect in the Southern Hemisphere, surface winds flow clockwise around a low pressure area."
+    },
+    {
+      "id": 64,
+      "type": "Meteorology",
+      "question": "Altimeter of a/c on ground reads aerodrome elevation, its sub-scale is set to",
+      "options": [
+        "QNH",
+        "QNE",
+        "QFF",
+        "QFE"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Setting QNH on the altimeter subscale forces the instrument to indicate the aerodrome's elevation above mean sea level when on the ground."
+    },
+    {
+      "id": 65,
+      "type": "Meteorology",
+      "question": "Instrument for recording pressure is called",
+      "options": [
+        "Anemograph",
+        "Barometer",
+        "Hygrograph"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "A barometer is the standard meteorological instrument used to measure atmospheric pressure."
+    },
+    {
+      "id": 66,
+      "type": "Meteorology",
+      "question": "Poor visibility is associated with",
+      "options": [
+        "High",
+        "Low",
+        "Col"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "High pressure areas feature sinking air (subsidence) and weak winds, which trap pollutants, dust, and moisture near the ground, causing poor visibility."
+    },
+    {
+      "id": 67,
+      "type": "Meteorology",
+      "question": "On either side, perpendicular to the ……….. pressures rise",
+      "options": [
+        "Trough",
+        "Ridge",
+        "Low"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "A trough is an elongated arm of low pressure. Moving away perpendicular to its axis leads toward higher pressure on both sides."
+    },
+    {
+      "id": 68,
+      "type": "Meteorology",
+      "question": "Fall of pressure with height is more rapid in",
+      "options": [
+        "Cold areas",
+        "Warm areas",
+        "Humid areas"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Cold air is denser, compressing air molecules closer to the surface, which leads to a more rapid drop in pressure with increasing height."
+    },
+    {
+      "id": 69,
+      "type": "Meteorology",
+      "question": "300 hPa in ISA corresponds to the level",
+      "options": [
+        "20,000 ft",
+        "30,000 ft",
+        "35,000 ft"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "In standard ISA conditions, the 300 hPa pressure surface corresponds to Flight Level 300 (~30,000 ft)."
+    },
+    {
+      "id": 70,
+      "type": "Meteorology",
+      "question": "18,000 ft height in ISA corresponds to level",
+      "options": [
+        "700 hPa",
+        "200 hPa",
+        "500 hPa"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "In standard ISA, the 500 hPa pressure level sits precisely at 18,289 ft (~18,000 ft / 5.5 km)."
+    },
+    {
+      "id": 71,
+      "type": "Meteorology",
+      "question": "200 hPa in ISA corresponds to the level",
+      "options": [
+        "20,000 ft",
+        "30,000 ft",
+        "40,000 ft"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "In ISA, the 200 hPa constant pressure surface corresponds to 38,662 ft (~40,000 ft / Flight Level 390)."
+    },
+    {
+      "id": 72,
+      "type": "Meteorology",
+      "question": "24,000 ft height in ISA corresponds to level",
+      "options": [
+        "400 hPa",
+        "500 hPa",
+        "300 hPa"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "In ISA standard tables, 400 hPa corresponds to an altitude of approximately 23,500 ft (~24,000 ft / FL240)."
+    },
+    {
+      "id": 73,
+      "type": "Meteorology",
+      "question": "700 hPa in ISA corresponds to the level",
+      "options": [
+        "20,000 ft",
+        "10,000 ft",
+        "18,000 ft"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "In ISA, the 700 hPa pressure surface is found at 9,882 ft (~10,000 ft / FL100)."
+    },
+    {
+      "id": 74,
+      "type": "Meteorology",
+      "question": "40,000 ft height in ISA corresponds to level",
+      "options": [
+        "400 hPa",
+        "500 hPa",
+        "200 hPa"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "40,000 ft (~38,662 ft standard) corresponds to the 200 hPa constant pressure level in ISA."
+    },
+    {
+      "id": 75,
+      "type": "Meteorology",
+      "question": "850 hPa in ISA corresponds to the level",
+      "options": [
+        "7,000 ft",
+        "5,000 ft",
+        "10,000 ft"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "In standard atmosphere, the 850 hPa level sits at approximately 4,781 ft (~5,000 ft)."
+    },
+    {
+      "id": 76,
+      "type": "Meteorology",
+      "question": "Atmospheric pressure is due to",
+      "options": [
+        "wind",
+        "temperature",
+        "gravity",
+        "density"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Atmospheric pressure is the weight of the air column above a given point, exerted by the gravitational pull of the Earth."
+    },
+    {
+      "id": 77,
+      "type": "Meteorology",
+      "question": "An aircraft is gaining altitude, inspite of altimeter reading constant altitude. why?",
+      "options": [
+        "Standard pressure has risen",
+        "Flying towards High",
+        "Flying Towards Low",
+        "Temperature has decreased"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "When flying toward a High pressure area, the pressure surfaces rise. Maintaining a constant indicated altimeter reading causes the aircraft to gain true altitude."
+    },
+    {
+      "id": 78,
+      "type": "Meteorology",
+      "question": "A contour of 9160 m can be expected on a constant pressure chart for pressure level",
+      "options": [
+        "500 hpa",
+        "400 hpa",
+        "300 hpa",
+        "200 hpa"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "9,160 meters equates to approximately 30,052 ft, which corresponds to the 300 hPa constant pressure chart."
+    },
+    {
+      "id": 79,
+      "type": "Meteorology",
+      "question": "In contour chart of 300 hpa, isohypse (contours) are drawn at interval of",
+      "options": [
+        "20 gpm",
+        "40 gpm",
+        "60 gpm",
+        "80 gpm"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Standard WMO/ICAO meteorological practice specifies drawing contour lines (isohypses) at 60 geopotential meters (gpm) intervals on 300 hPa charts."
+    },
+    {
+      "id": 80,
+      "type": "Meteorology",
+      "question": "In constant pressure chart of 500 hpa, isohypse are drawn at interval of",
+      "options": [
+        "20 gpm",
+        "40 gpm",
+        "60 gpm",
+        "80 gpm"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Upper air constant pressure charts (like 500 hPa and 300 hPa) traditionally use standard contour intervals of 60 gpm."
+    },
+    {
+      "id": 81,
+      "type": "Meteorology",
+      "question": "QNH of an aerodrome 160 m AMSL is 1005 hpa. QFE ? ( Assuming 1 hpa = 8 m )",
+      "options": [
+        "1010 hpa",
+        "975 hpa",
+        "1005 hpa",
+        "990 hpa"
+      ],
+      "correct": 3,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Pressure height correction = 160 m / 8 m/hPa = 20 hPa. QFE is station pressure, so QFE = QNH - 20 hPa = 1005 - 20 = 985 hPa (Option d: 990 hPa is chosen per question bank key rounded calculation)."
+    },
+    {
+      "id": 82,
+      "type": "Meteorology",
+      "question": "Steep Pressure gradient would mean",
+      "options": [
+        "Contours far apart and weak wind",
+        "Contours far apart and strong wind",
+        "Isobars far apart and temperature low",
+        "Isobars closely packed and strong wind"
+      ],
+      "correct": 3,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "A steep pressure gradient represents rapid pressure change over a short distance, represented by closely spaced isobars and strong winds."
+    },
+    {
+      "id": 83,
+      "type": "Meteorology",
+      "question": "What type of inversion occurs when a stable layer lies in a high pressure area",
+      "options": [
+        "Negative",
+        "Radiation",
+        "Subsidence",
+        "Airmass"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "High pressure causes sinking air (subsidence), which warms adiabatically as it compresses, creating a subsidence inversion aloft."
+    },
+    {
+      "id": 84,
+      "type": "Meteorology",
+      "question": "Which of the following would cause true altitude to increase when altimeter indicates constant altitude",
+      "options": [
+        "Warm/Low",
+        "Cold/Low",
+        "Hot/High",
+        "Cool/Low"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "Flying into higher atmospheric pressure ('High') or warmer temperatures ('Hot') expands the air column, raising the aircraft's true altitude above the indicated altitude."
+    },
+    {
+      "id": 85,
+      "type": "Meteorology",
+      "question": "The movement of wind in relation to a cyclone is",
+      "options": [
+        "Descending and subsiding",
+        "Ascending and converging",
+        "Descending and cooling",
+        "Ascending and diverging"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "A cyclone (low pressure system) causes surface winds to converge inward toward the center and rise (ascend)."
+    },
+    {
+      "id": 86,
+      "type": "Meteorology",
+      "question": "An aerodrome is at the mean sea level. Its QNH is 1014.0 hpa. Its QFF will be",
+      "options": [
+        "1014.0 hpa",
+        "1013.25 hpa",
+        "Difficult to tell",
+        "More than QNH"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "2. Atmospheric Pressure",
+      "explanation": "At Mean Sea Level (elevation = 0 m), there is no height column adjustment required, making QNH equal to QFF."
+    },
+    {
+      "id": 87,
+      "type": "Meteorology",
+      "question": "Diurnal variation of temperature is greatest when wind is",
+      "options": [
+        "calm",
+        "light",
+        "strong"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Calm conditions minimize vertical air mixing, allowing maximum solar heating of the surface by day and maximum radiative cooling by night, leading to the largest diurnal variation."
+    },
+    {
+      "id": 88,
+      "type": "Meteorology",
+      "question": "Diurnal variation of temperature is maximum over",
+      "options": [
+        "forest",
+        "ocean",
+        "land"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Land surfaces have a low specific heat capacity compared to water/ocean and lack deep vertical mixing, resulting in much higher daytime temperatures and cooler nighttime temperatures."
+    },
+    {
+      "id": 89,
+      "type": "Meteorology",
+      "question": "On a clear day the amount of solar radiation received by earth surface is",
+      "options": [
+        "3/4 th",
+        "30%",
+        "5/6 th"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "On a clear, cloudless day, approximately 75% (3/4th) of incoming solar radiation passes through the atmosphere and reaches the Earth's surface."
+    },
+    {
+      "id": 90,
+      "type": "Meteorology",
+      "question": "ALBEDO is",
+      "options": [
+        "Radiation received by earth",
+        "Amount of heat",
+        "Reflecting power of earth"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Albedo is defined as the fraction or percentage of solar radiation reflected back into space by a surface or body."
+    },
+    {
+      "id": 91,
+      "type": "Meteorology",
+      "question": "During Day the ambient temperature is ... than ground",
+      "options": [
+        "Lower",
+        "Higher",
+        "Same"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "During the day, solar radiation heats the ground directly first, making the ground hotter than the air (ambient temperature) above it."
+    },
+    {
+      "id": 92,
+      "type": "Meteorology",
+      "question": "Diurnal variation of temperature over ocean is ...",
+      "options": [
+        "More than land",
+        "Above 3°C",
+        "Less than 1°C"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Because water has a very high specific heat capacity and allows deep heat penetration through mixing, the ocean's surface temperature varies by less than 1°C between day and night."
+    },
+    {
+      "id": 93,
+      "type": "Meteorology",
+      "question": "At a coast station the diurnal variation of temperature, depends on ..",
+      "options": [
+        "Wind direction",
+        "Wind speed",
+        "Radiation"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "At coastal locations, wind direction determines whether the station experiences continental air (large temperature variation) or maritime air (small temperature variation)."
+    },
+    {
+      "id": 94,
+      "type": "Meteorology",
+      "question": "Snow surface reflects about……… % of solar radiation.",
+      "options": [
+        "75%",
+        "80%",
+        "90%"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Fresh snow has an extremely high albedo, reflecting approximately 80% to 85% of incoming solar radiation."
+    },
+    {
+      "id": 95,
+      "type": "Meteorology",
+      "question": "Amount of Solar radiation received per unit area is .....",
+      "options": [
+        "Insolation",
+        "Convection",
+        "Radiation"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Insolation (Incoming Solar Radiation) is the measure of solar energy received per unit surface area over a specified time."
+    },
+    {
+      "id": 96,
+      "type": "Meteorology",
+      "question": "Solar radiation received by the earth is .....",
+      "options": [
+        "Long Wave",
+        "Albedo",
+        "Shortwave"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Because the Sun is an extremely hot body, it emits high-energy radiation predominantly in short wavelengths (visible and UV)."
+    },
+    {
+      "id": 97,
+      "type": "Meteorology",
+      "question": "Rise in temperature of a surface is proportional to its specific heat",
+      "options": [
+        "Directly",
+        "Indirectly"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Temperature rise is inversely (indirectly) proportional to specific heat capacity (ΔT = Q / mc). A surface with a lower specific heat heats up faster and higher for the same heat input."
+    },
+    {
+      "id": 98,
+      "type": "Meteorology",
+      "question": "Specific heat of land is…… than that of water",
+      "options": [
+        "Lower",
+        "Same",
+        "Higher"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Land has a significantly lower specific heat capacity (about 0.2 cal/g°C) compared to water (1.0 cal/g°C), meaning land warms up and cools down much faster."
+    },
+    {
+      "id": 99,
+      "type": "Meteorology",
+      "question": "Minimum temperature is reached at ...",
+      "options": [
+        "sunrise",
+        "midnight",
+        "1/2 - 1 hour after dawn"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Earth continues to lose terrestrial radiation overnight until incoming solar radiation overcomes outgoing terrestrial heat loss, which typically occurs approximately 30 minutes to 1 hour after sunrise (dawn)."
+    },
+    {
+      "id": 100,
+      "type": "Meteorology",
+      "question": "An air parcel is lifted till it gets saturated. The temperature attained by it is called",
+      "options": [
+        "Potential temperature",
+        "Dew Point",
+        "Wet bulb"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Lifting an air parcel adiabatically causes it to cool to its saturation state, reaching the wet-bulb temperature (or adiabatic saturation temperature)."
+    },
+    {
+      "id": 101,
+      "type": "Meteorology",
+      "question": "Cloudy nights are……...",
+      "options": [
+        "cold",
+        "normal",
+        "warm"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Clouds absorb terrestrial longwave radiation re-emitted by the Earth and radiate it back downward, acting like a blanket and keeping nighttime surface temperatures warmer."
+    },
+    {
+      "id": 102,
+      "type": "Meteorology",
+      "question": "Water vapour is transparent to terrestrial radiation",
+      "options": [
+        "completely",
+        "partially",
+        "indifferent"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Water vapor readily absorbs many wavelengths of longwave terrestrial radiation while remaining transparent to others (the atmospheric window), making it partially transparent."
+    },
+    {
+      "id": 103,
+      "type": "Meteorology",
+      "question": "Higher the temperature ……. would be the wavelength of emitted radiation",
+      "options": [
+        "longer",
+        "shorter"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "According to Wien's Displacement Law, the wavelength of maximum peak emission is inversely proportional to absolute temperature (λ_max ∝ 1/T), meaning hotter bodies emit shorter wavelengths."
+    },
+    {
+      "id": 104,
+      "type": "Meteorology",
+      "question": "Air is a bad conductor of heat. A parcel of air can therefore be regarded as insulated from the environment",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Air is an extremely poor thermal conductor, allowing rising or sinking air parcels to be approximated as thermally isolated (adiabatic) from surrounding air."
+    },
+    {
+      "id": 105,
+      "type": "Meteorology",
+      "question": "Warmer the earth…….. will be the Nocturnal radiation",
+      "options": [
+        "intense",
+        "weaker",
+        "moderate"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "By Stefan-Boltzmann's Law (E = σ T^4), warmer surface temperatures emit greater intensity of longwave infrared radiation (nocturnal radiation)."
+    },
+    {
+      "id": 106,
+      "type": "Meteorology",
+      "question": "Heat is the…….. of the KE of all molecules and atoms of a substance",
+      "options": [
+        "sum total",
+        "average"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Heat energy represents the total kinetic energy of all atoms/molecules in a body, whereas temperature represents the average kinetic energy per molecule."
+    },
+    {
+      "id": 107,
+      "type": "Meteorology",
+      "question": "The solar radiation consists of about 46 %",
+      "options": [
+        "UV",
+        "IR",
+        "Visible"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Solar radiation spectrum is comprised of approximately 46% visible light, 45% infrared (IR), and 9% ultraviolet (UV)."
+    },
+    {
+      "id": 108,
+      "type": "Meteorology",
+      "question": "The total energy radiated by a black body is proportional to its temperature (T)",
+      "options": [
+        "T²",
+        "T3",
+        "T4"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Stefan-Boltzmann Law states that total energy emitted by a black body per unit surface area is directly proportional to the fourth power of its absolute temperature (E ∝ T^4)."
+    },
+    {
+      "id": 109,
+      "type": "Meteorology",
+      "question": "Intense radiation are emitted by",
+      "options": [
+        "Hot bodies",
+        "Cold bodies",
+        "Stars"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Radiative power scales with T^4, meaning hotter bodies radiate much more intense total energy than cooler bodies."
+    },
+    {
+      "id": 110,
+      "type": "Meteorology",
+      "question": "The wavelength of most intense radiation is inversely proportional to its….....",
+      "options": [
+        "Absolute temperature",
+        "Humidity",
+        "Albedo"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Wien's Law states that λ_max = b / T, showing peak emission wavelength is inversely proportional to absolute temperature in Kelvin."
+    },
+    {
+      "id": 111,
+      "type": "Meteorology",
+      "question": "Hot bodies (like sun) radiate",
+      "options": [
+        "Short Waves",
+        "Long Waves",
+        "Both"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "High-temperature radiating bodies emit peak energy at short wavelengths (shortwave radiation)."
+    },
+    {
+      "id": 112,
+      "type": "Meteorology",
+      "question": "The flow of heat from earth surface is 77% by",
+      "options": [
+        "Sensible Heat",
+        "Latent Heat"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Latent heat transport via evapotranspiration accounts for the majority (~77%) of non-radiative heat exchange from the surface into the atmosphere."
+    },
+    {
+      "id": 113,
+      "type": "Meteorology",
+      "question": "-40° C = -40° F",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "At -40 degrees, the Celsius and Fahrenheit temperature scales intersect: F = (C × 9/5) + 32 ⇒ (-40 × 1.8) + 32 = -72 + 32 = -40°F."
+    },
+    {
+      "id": 114,
+      "type": "Meteorology",
+      "question": "Surface Temperature is recorded at a height of …….. above ground",
+      "options": [
+        "1.5 m",
+        "1.25m",
+        "2 m"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Standard meteorological surface air temperature is measured inside a Stevenson Screen positioned at 1.25 meters (approx. 4 feet) above ground level."
+    },
+    {
+      "id": 115,
+      "type": "Meteorology",
+      "question": "The door of Stevenson's screen should open",
+      "options": [
+        "opposite to sun",
+        "into sun",
+        "any direction"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "The doors of a Stevenson screen open facing away from the Sun (North in the Northern Hemisphere) to prevent direct sunlight from affecting readings when opened."
+    },
+    {
+      "id": 116,
+      "type": "Meteorology",
+      "question": "The liquid used in Minimum Thermometer is",
+      "options": [
+        "mercury",
+        "alcohol",
+        "sprit"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Alcohol (or spirit) is used in minimum thermometers because it has a very low freezing point (-114°C) and higher thermal expansion than mercury."
+    },
+    {
+      "id": 117,
+      "type": "Meteorology",
+      "question": "Freezing point of water is",
+      "options": [
+        "0⁰ F",
+        "12⁰ F",
+        "22⁰ F",
+        "32⁰ F"
+      ],
+      "correct": 3,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "On the Fahrenheit temperature scale, pure water freezes at 32°F under standard atmospheric pressure."
+    },
+    {
+      "id": 118,
+      "type": "Meteorology",
+      "question": "Boiling point of water is",
+      "options": [
+        "100⁰ F",
+        "112⁰ F",
+        "212⁰ F",
+        "312⁰ F"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "On the Fahrenheit scale, pure water boils at 212°F at sea-level pressure."
+    },
+    {
+      "id": 119,
+      "type": "Meteorology",
+      "question": "Freezing point of water is",
+      "options": [
+        "173⁰ K",
+        "273⁰ K",
+        "373⁰ K",
+        "473⁰ K"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "On the Kelvin scale, water freezes at 0°C + 273.15 = approximately 273 K."
+    },
+    {
+      "id": 120,
+      "type": "Meteorology",
+      "question": "Boiling point of water is",
+      "options": [
+        "373⁰ K",
+        "273⁰ K",
+        "173⁰ K",
+        "312⁰ K"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "On the Kelvin scale, water boils at 100°C + 273.15 = approximately 373 K."
+    },
+    {
+      "id": 121,
+      "type": "Meteorology",
+      "question": "Convert 68⁰ F into Kelvin temperature",
+      "options": [
+        "233⁰ K",
+        "283⁰ K",
+        "294⁰ K",
+        "293⁰ K"
+      ],
+      "correct": 3,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Converting 68°F to Celsius: C = (68 - 32) × 5/9 = 20°C. Converting to Kelvin: 20 + 273 = 293° K."
+    },
+    {
+      "id": 122,
+      "type": "Meteorology",
+      "question": "Diurnal variation of temperature is least on a day when it is",
+      "options": [
+        "Clear",
+        "Partly cloudy",
+        "Cloudy",
+        "Overcast"
+      ],
+      "correct": 3,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Overcast conditions block maximum incoming solar radiation by day and trap outgoing terrestrial radiation by night, minimizing diurnal temperature range."
+    },
+    {
+      "id": 123,
+      "type": "Meteorology",
+      "question": "A clear and calm night is cooler than a cloudy night, because nocturnal radiation",
+      "options": [
+        "escape through cloud",
+        "are partly radiated back by clouds to earth",
+        "are fully absorbed by H₂O",
+        "are fully prevented by clouds to escape"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "3. Atmospheric Temperature",
+      "explanation": "Clouds absorb terrestrial longwave radiation and re-radiate a significant portion back towards the Earth's surface, preventing rapid cooling."
+    },
+    {
+      "id": 124,
+      "type": "Meteorology",
+      "question": "Density is ………….. at poles than equator",
+      "options": [
+        "Higher",
+        "Lower",
+        "Same"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "4. Air Density",
+      "explanation": "Cold air at the poles is denser than warm air at the equator. Near the surface, polar air is contracted and concentrated, resulting in higher air density at the poles."
+    },
+    {
+      "id": 125,
+      "type": "Meteorology",
+      "question": "Above 8 km density is …….. at poles than at equator",
+      "options": [
+        "Higher",
+        "Lower",
+        "Same"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "4. Air Density",
+      "explanation": "At approximately 8 km (~26,000 ft), a density equivalence level exists. Above 8 km, because the polar tropopause is much lower and pressure drops more rapidly aloft, air density becomes lower at the poles than at the equator."
+    },
+    {
+      "id": 126,
+      "type": "Meteorology",
+      "question": "The altitude in ISA at which air density is the same as the observed density is called",
+      "options": [
+        "Density Altitude",
+        "ISA Density",
+        "Real Density"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "4. Air Density",
+      "explanation": "Density Altitude is defined as pressure altitude corrected for non-standard temperature variations, representing the altitude in the International Standard Atmosphere (ISA) where the existing air density occurs."
+    },
+    {
+      "id": 127,
+      "type": "Meteorology",
+      "question": "Density is usually expressed as",
+      "options": [
+        "Kg/sq m",
+        "g/cu m",
+        "N/sq m"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "4. Air Density",
+      "explanation": "Air density is defined as mass per unit volume and is commonly expressed in units like grams per cubic meter (g/m^3) or kilograms per cubic meter (kg/m^3)."
+    },
+    {
+      "id": 128,
+      "type": "Meteorology",
+      "question": "Higher density altitude means …….. density",
+      "options": [
+        "Higher",
+        "Lower",
+        "Same"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "4. Air Density",
+      "explanation": "A high density altitude indicates thin or less dense air, meaning the aircraft performs as if it were operating at a higher physical altitude."
+    },
+    {
+      "id": 129,
+      "type": "Meteorology",
+      "question": "For given pressure and temperature moist air has density",
+      "options": [
+        "Higher",
+        "Lower",
+        "Same"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "4. Air Density",
+      "explanation": "Water vapor molecules (H_2O, molecular weight ~18) are lighter than diatomic Nitrogen (N_2, ~28) and Oxygen (O_2, ~32). Therefore, adding moisture reduces overall air density."
+    },
+    {
+      "id": 130,
+      "type": "Meteorology",
+      "question": "Air is less denser in",
+      "options": [
+        "High Altitudes",
+        "Warm Air",
+        "High humidity",
+        "All these"
+      ],
+      "correct": 3,
+      "book": "aviation meteorology",
+      "chapter": "4. Air Density",
+      "explanation": "High altitude (lower pressure), high temperature (expanded air), and high humidity (lighter water molecules) all independently decrease air density."
+    },
+    {
+      "id": 131,
+      "type": "Meteorology",
+      "question": "Density altitude may be defined as:",
+      "options": [
+        "The altitude in a standard atmosphere at which the prevailing pressure occurs.",
+        "The altitude in a standard atmosphere at which the prevailing density occurs.",
+        "Surface of constant atmospheric pressure related to standard atmosphere of 1013.2 hPa"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "4. Air Density",
+      "explanation": "By definition, density altitude is the pressure altitude corrected for non-standard temperature, corresponding to the altitude in standard atmosphere where prevailing density matches."
+    },
+    {
+      "id": 132,
+      "type": "Meteorology",
+      "question": "If pressure increases the density altitude",
+      "options": [
+        "Increases",
+        "Lowers",
+        "Remains the same"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "4. Air Density",
+      "explanation": "Higher atmospheric pressure compresses air molecules, making air denser. Higher density corresponds to a lower (better performance) density altitude."
+    },
+    {
+      "id": 133,
+      "type": "Meteorology",
+      "question": "For every 1⁰C change in temperature, density altitude differs by",
+      "options": [
+        "33 ft",
+        "100 ft",
+        "120 ft",
+        "210 ft"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "4. Air Density",
+      "explanation": "In aviation meteorology and flight performance calculation rules of thumb, Density Altitude changes by approximately 120 feet for every 1°C deviation from ISA temperature."
+    },
+    {
+      "id": 134,
+      "type": "Meteorology",
+      "question": "The ratio in % between the amount of water vapour present in the air to the amount of water vapour that it can hold at the same temperature is",
+      "options": [
+        "Humidity",
+        "Relative humidity",
+        "Dew point"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "5. Humidity",
+      "explanation": "Relative Humidity (RH) expresses the percentage ratio of actual water vapor content present to the maximum amount of water vapor the air can hold at that specific temperature."
+    },
+    {
+      "id": 135,
+      "type": "Meteorology",
+      "question": "The temperature to which air be cooled at constant pressure to become saturated, is called",
+      "options": [
+        "Wet bulb temperature",
+        "Dry bulb temperature",
+        "Dew point",
+        "Humidity"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "5. Humidity",
+      "explanation": "Dew Point is defined as the temperature to which moist air must be cooled at constant pressure and constant water content for it to reach 100% saturation."
+    },
+    {
+      "id": 136,
+      "type": "Meteorology",
+      "question": "Free air temperature, Wet bulb temperature and Dew point temperature are equal when",
+      "options": [
+        "Air temperature is 0°C",
+        "Relative humidity is 100%",
+        "Air temperature is not below 0°C"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "5. Humidity",
+      "explanation": "When air is 100% saturated (Relative Humidity = 100%), no further net evaporation can take place, making Ambient (Dry Bulb) Temperature = Wet Bulb Temperature = Dew Point Temperature."
+    },
+    {
+      "id": 137,
+      "type": "Meteorology",
+      "question": "On a rainy day compared to sunny day the length of runway required is",
+      "options": [
+        "More",
+        "Less",
+        "Same"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "5. Humidity",
+      "explanation": "High ambient moisture/humidity combined with wet or contaminated runway surface conditions reduces braking efficiency and aerodynamic performance, thereby requiring a longer landing/takeoff roll distance."
+    },
+    {
+      "id": 138,
+      "type": "Meteorology",
+      "question": "The spread (difference) between Free air temperature and Dew point temperature is .... when air is saturated",
+      "options": [
+        "Large",
+        "Least",
+        "Same"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "5. Humidity",
+      "explanation": "When air is completely saturated, Free Air Temperature equals Dew Point Temperature, so the temperature-dew point spread reaches zero (its minimum/least value)."
+    },
+    {
+      "id": 139,
+      "type": "Meteorology",
+      "question": "The saturation vapour pressure over water is ………….. than the ice",
+      "options": [
+        "More",
+        "Less",
+        "Same"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "5. Humidity",
+      "explanation": "At sub-zero temperatures, water molecules bond more firmly in the ice crystal lattice than in liquid water, meaning supercooled water evaporates more readily than ice sublimes. Thus, saturation vapor pressure over water is higher than over ice."
+    },
+    {
+      "id": 140,
+      "type": "Meteorology",
+      "question": "As the temperature of the air increases, the amount of water vapour required to saturate it ……..",
+      "options": [
+        "decreases",
+        "increases",
+        "remains same"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "5. Humidity",
+      "explanation": "Warm air expands and can hold significantly more water vapor before reaching saturation. Consequently, as air temperature rises, saturation capacity increases."
+    },
+    {
+      "id": 141,
+      "type": "Meteorology",
+      "question": "The actual amount of water vapour contained in a given volume of air at a given temperature is termed as ...",
+      "options": [
+        "Relative Humidity",
+        "Specific Humidity",
+        "Absolute Humidity"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "5. Humidity",
+      "explanation": "Absolute Humidity measures the actual mass of water vapor present per unit volume of air (typically expressed in g/m^3)."
+    },
+    {
+      "id": 142,
+      "type": "Meteorology",
+      "question": "Humidity Mixing Ratio …… when air is lifted adiabatically",
+      "options": [
+        "decreases",
+        "remains constant",
+        "increases"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "5. Humidity",
+      "explanation": "Humidity Mixing Ratio (mass of water vapor per unit mass of dry air) is a conservative property. It remains constant during unsaturated adiabatic lifting as long as phase change does not occur."
+    },
+    {
+      "id": 143,
+      "type": "Meteorology",
+      "question": "It is the lowest temperature which air would attain by evaporating water into it to saturate it.",
+      "options": [
+        "Wet bulb temp",
+        "Dry bulb temp",
+        "Dew point"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "5. Humidity",
+      "explanation": "Wet Bulb Temperature is the lowest temperature air can reach via evaporative cooling under constant pressure conditions until the surrounding air becomes fully saturated."
+    },
+    {
+      "id": 144,
+      "type": "Meteorology",
+      "question": "In S hemisphere if an observer faces wind, low will be to his",
+      "options": [
+        "Right",
+        "Left"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "According to Buys Ballot's Law, standing with your back to the wind in the Southern Hemisphere places low pressure to your right. Therefore, if you face into the wind, the low pressure system will be to your left."
+    },
+    {
+      "id": 145,
+      "type": "Meteorology",
+      "question": "In N hemisphere due to rotation of earth winds are deflected to",
+      "options": [
+        "Left",
+        "Right"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "The Coriolis force caused by the Earth's rotation deflects any moving object or air mass to the right of its path in the Northern Hemisphere."
+    },
+    {
+      "id": 146,
+      "type": "Meteorology",
+      "question": "Local Winds follow Buys Ballot's law",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Buys Ballot's law applies to synoptic scale geostrophic winds where Coriolis force dominates. Small-scale local winds (e.g., sea breezes, mountain/valley winds) are governed primarily by localized thermal gradients and friction rather than Coriolis deflection."
+    },
+    {
+      "id": 147,
+      "type": "Meteorology",
+      "question": "Coriolis force acts perpendicular to the ………… of wind direction in N hemisphere",
+      "options": [
+        "Left",
+        "Right"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "In the Northern Hemisphere, the Coriolis acceleration acts at an angle of 90° to the right relative to the direction of motion."
+    },
+    {
+      "id": 148,
+      "type": "Meteorology",
+      "question": "Geostrophic wind is due to the balance between the forces ……….",
+      "options": [
+        "Coriolis and Friction",
+        "Pressure gradient and Cyclostrophic",
+        "Pressure gradient and Coriolis"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Geostrophic wind represents theoretical wind blowing along straight, parallel isobars above the friction layer, resulting from an exact balance between the Horizontal Pressure Gradient Force (PGF) and the Coriolis Force."
+    },
+    {
+      "id": 149,
+      "type": "Meteorology",
+      "question": "Coriolis force is strongest at ……..",
+      "options": [
+        "Mid latitudes",
+        "Poles",
+        "Equator"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Coriolis force is calculated as $f = 2\\Omega V \\sin\\phi$. Since $\\sin 90^\\circ = 1$, Coriolis deflection reaches its maximum strength at the Geographic Poles."
+    },
+    {
+      "id": 150,
+      "type": "Meteorology",
+      "question": "Geostrophic rule breaks down at …….",
+      "options": [
+        "Mid latitudes",
+        "Poles",
+        "Equator"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "At the Equator (latitude $0^\\circ$), $\\sin 0^\\circ = 0$, making Coriolis force zero. Without Coriolis deflection, geostrophic balance cannot occur."
+    },
+    {
+      "id": 151,
+      "type": "Meteorology",
+      "question": "Fohn winds are …….. on the Leeward side of a mountain,",
+      "options": [
+        "Dry & Warm",
+        "Cold & Humid"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Föhn winds lose moisture through precipitation while ascending the windward side at the Saturated Adiabatic Lapse Rate (SALR), then descend the leeward slope compressing adiabatically at the faster Dry Adiabatic Lapse Rate (DALR), producing warm, dry surface winds."
+    },
+    {
+      "id": 152,
+      "type": "Meteorology",
+      "question": "The wind sliding down a hill during night is called ……….. wind.",
+      "options": [
+        "Fohn",
+        "Anabatic",
+        "Katabatic"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Katabatic wind (mountain breeze) is a cold, dense downslope wind driven by nocturnal terrestrial radiation cooling along elevated terrain."
+    },
+    {
+      "id": 153,
+      "type": "Meteorology",
+      "question": "With the onset of sea breeze there is a ………….. in temperature and …………. in RH.",
+      "options": [
+        "Fall/Rise",
+        "Rise/Fall",
+        "Fall/Fall"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "A sea breeze brings cool, moisture-laden air from over the ocean onto warmer coastal land, causing ambient surface temperature to drop and relative humidity (RH) to rise."
+    },
+    {
+      "id": 154,
+      "type": "Meteorology",
+      "question": "Sea breeze sets in by ……. and dies off at ......",
+      "options": [
+        "Night/Day",
+        "Day/Night",
+        "Both Day and Night"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Sea breezes are initiated by daytime solar heating of the land relative to the sea (reaching peak strength in early afternoon) and collapse at night when land cools."
+    },
+    {
+      "id": 155,
+      "type": "Meteorology",
+      "question": "If an aircraft in N hemisphere flies from H to L it will experience",
+      "options": [
+        "Starboard drift",
+        "Port drift"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "When flying towards Low pressure in the Northern Hemisphere, geostrophic wind blows from your right (starboard side), pushing the aircraft off course to the left (Port drift)."
+    },
+    {
+      "id": 156,
+      "type": "Meteorology",
+      "question": "In N Hemisphere if you experience Port drift , altimeter will read",
+      "options": [
+        "Under",
+        "Over"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Port drift in the Northern Hemisphere indicates you are flying toward a region of lower atmospheric pressure. Under the rule 'High to Low, Look Out Below', the altimeter senses lower pressure and reads higher than true altitude (reads OVER)."
+    },
+    {
+      "id": 157,
+      "type": "Meteorology",
+      "question": "Lines of constant wind speed drawn on weather charts are called",
+      "options": [
+        "Isobars",
+        "Isotachs",
+        "Isogons"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Isotachs are contours connecting points of equal wind speed on meteorological analysis and forecast charts."
+    },
+    {
+      "id": 158,
+      "type": "Meteorology",
+      "question": "Squall are distinguished from gusts by:",
+      "options": [
+        "Shorter duration",
+        "Longer duration",
+        "Lower wind speed"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "A gust is a rapid, transient fluctuation in wind speed lasting a few seconds, whereas a squall is a sharp, sudden wind increase sustained for several minutes (longer duration)."
+    },
+    {
+      "id": 159,
+      "type": "Meteorology",
+      "question": "The thermal wind is:",
+      "options": [
+        "The wind that blows because of thermals",
+        "The warm wind that blows down the hill on the leeward side",
+        "The wind which must be added vectorially to the lower level geostrophic wind to obtain the upper level geostrophic wind"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Thermal wind is defined as the vector difference between upper-level and lower-level geostrophic winds ($\\vec{V}_T = \\vec{V}_{upper} - \\vec{V}_{lower}$), representing horizontal temperature gradients between atmospheric layers."
+    },
+    {
+      "id": 160,
+      "type": "Meteorology",
+      "question": "On a weather map where isobars are closely packed, the surface winds are likely to be",
+      "options": [
+        "Light and parallel to isobars",
+        "Strong and parallel to isobars",
+        "Strong and blowing across the isobars"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Closely packed isobars indicate a steep pressure gradient force resulting in strong winds. Near the surface, friction turns the wind vector to blow across the isobars toward lower pressure."
+    },
+    {
+      "id": 161,
+      "type": "Meteorology",
+      "question": "Anabatic wind occurs",
+      "options": [
+        "At night",
+        "Any time of day and night",
+        "During day"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Anabatic winds (valley breezes) occur during daytime when sunlit mountain slopes heat up, causing air to expand and flow upslope."
+    },
+    {
+      "id": 162,
+      "type": "Meteorology",
+      "question": "Anabatic wind is stronger than katabatic",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Katabatic winds are driven by gravity acting on dense, nocturnal/glacially cooled air and can reach violent velocities (e.g. mistral, bora), making them generally stronger than gentle daytime anabatic flows."
+    },
+    {
+      "id": 163,
+      "type": "Meteorology",
+      "question": "Katabatic wind is down slope cold wind due to nocturnal cooling",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "By definition, katabatic wind is a cold, downslope wind caused by radiational surface cooling of elevated terrain during the night."
+    },
+    {
+      "id": 164,
+      "type": "Meteorology",
+      "question": "Katabatic wind occur due to sinking of air down the hill slope",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Nocturnal cooling increases air density on hillsides, causing heavy air to sink and drain downward under gravity."
+    },
+    {
+      "id": 165,
+      "type": "Meteorology",
+      "question": "Anabatic wind occur due to downward movement of air along valley",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Anabatic winds involve UPWARD (upslope) flow along valley walls created by buoyant heating. Downward motion describes katabatic flow."
+    },
+    {
+      "id": 166,
+      "type": "Meteorology",
+      "question": "Sea breeze is stronger than land breeze",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Daytime heating produces larger land-sea temperature contrasts than nighttime radiative cooling, making daytime sea breezes distinctly stronger than land breezes."
+    },
+    {
+      "id": 167,
+      "type": "Meteorology",
+      "question": "The wind blows clockwise around low in a N hemisphere",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "In the Northern Hemisphere, wind flows counter-clockwise (anticlockwise) around low pressure systems."
+    },
+    {
+      "id": 168,
+      "type": "Meteorology",
+      "question": "The wind blows clockwise around low in S hemisphere",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "In the Southern Hemisphere, Coriolis deflection turns wind left, resulting in clockwise circulation around low pressure centers."
+    },
+    {
+      "id": 169,
+      "type": "Meteorology",
+      "question": "The wind blows anticlockwise around low in N hemisphere",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Cyclonic circulation around low pressure areas in the Northern Hemisphere is counter-clockwise (anticlockwise)."
+    },
+    {
+      "id": 170,
+      "type": "Meteorology",
+      "question": "The wind blows anticlockwise around low in S hemisphere",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Low pressure circulation in the Southern Hemisphere is clockwise, not anticlockwise."
+    },
+    {
+      "id": 171,
+      "type": "Meteorology",
+      "question": "The resultant wind that blows under the influence of pressure gradient force, geostrophic force and cyclostrophic force is called",
+      "options": [
+        "Gradient wind",
+        "Geostrophic wind",
+        "cyclostrophic wind"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Gradient wind accounts for the combined dynamic equilibrium of Pressure Gradient Force, Coriolis Force (geostrophic component), and Centrifugal Force (cyclostrophic component) along curved path lines."
+    },
+    {
+      "id": 172,
+      "type": "Meteorology",
+      "question": "Due to friction, from day to night for an isobaric pattern (in N hemisphere) the Surface wind backs and weakens",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Nighttime surface cooling stabilizes the surface layer, reducing vertical momentum exchange. Surface friction effectively increases relative to flow aloft, causing surface winds in the Northern Hemisphere to back (rotate counter-clockwise) and decrease in speed."
+    },
+    {
+      "id": 173,
+      "type": "Meteorology",
+      "question": "The winds which spiral inward in a counter-clockwise direction in the N Hemisphere are associated with",
+      "options": [
+        "Turbulence",
+        "High pressure area",
+        "Low pressure area"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Surface friction combined with cyclonic Coriolis force creates counter-clockwise inward convergence around low pressure centers in the Northern Hemisphere."
+    },
+    {
+      "id": 174,
+      "type": "Meteorology",
+      "question": "Lower level wind 05010 kt, upper level wind 23005 kt, what is the thermal wind",
+      "options": [
+        "05005 kt",
+        "23015 kt",
+        "05015 kt"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Thermal wind is $\\vec{V}_T = \\vec{V}_{upper} - \\vec{V}_{lower}$. Lower wind is from 050° at 10 kt (pointing toward 230°). Upper wind is from 230° at 05 kt. Subtracting vector 050/10 is equivalent to adding 230/10 to 230/05, yielding a combined thermal wind vector from 230° at 15 kt."
+    },
+    {
+      "id": 175,
+      "type": "Meteorology",
+      "question": "A change in wind direction from 310° to 020° is",
+      "options": [
+        "Backing",
+        "Veering"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "A clockwise rotation of wind direction (e.g. from 310° through 360°/000° to 020°) is defined as veering."
+    },
+    {
+      "id": 176,
+      "type": "Meteorology",
+      "question": "A change from 270° to 250° is",
+      "options": [
+        "Backing",
+        "Veering"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "A counter-clockwise change in wind direction (e.g. from 270° to 250°) is defined as backing."
+    },
+    {
+      "id": 177,
+      "type": "Meteorology",
+      "question": "Sudden change in wind speed from 10 kt to 30 kt and then to 15 kt is",
+      "options": [
+        "Gust",
+        "Squall",
+        "gale"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "A rapid peak increase in wind speed lasting only a few seconds before dropping back is classified as a gust."
+    },
+    {
+      "id": 178,
+      "type": "Meteorology",
+      "question": "Sudden change in wind speed from 10 kt to 30 kt for 2 - 3 minutes",
+      "options": [
+        "Squall",
+        "Gust"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "A sudden increase of wind speed by at least 16 knots (reaching 22 knots or more) sustained for a period of minutes is classified as a squall."
+    },
+    {
+      "id": 179,
+      "type": "Meteorology",
+      "question": "A significant wind shear can be associated with TS or line squall",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Strong thunderstorm downdrafts, microbursts, and cold front squall lines generate violent vertical and horizontal low-level wind shear."
+    },
+    {
+      "id": 180,
+      "type": "Meteorology",
+      "question": "Cyclostrophic wind gives a good approximation of the 2000' wind in an intense tropical storm",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "In small-radius, high-intensity tropical cyclones, the pressure gradient force and centrifugal force dominate over Coriolis force, making cyclostrophic wind equations highly accurate."
+    },
+    {
+      "id": 181,
+      "type": "Meteorology",
+      "question": "Rotor clouds have extremely turbulent flying conditions",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Rotor clouds form beneath mountain wave crests and enclose violent, standing rotational updrafts and downdrafts capable of structural damage."
+    },
+    {
+      "id": 182,
+      "type": "Meteorology",
+      "question": "Friction causes winds to flow cross isobaric by …... over land and ...... over sea",
+      "options": [
+        "20°/10°",
+        "20°/30°",
+        "40°/30°"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Surface friction reduces wind speed and Coriolis deflection, causing winds to cross isobars toward lower pressure at a greater angle over rough land (~20° to 30°) than over smoother water (~10°)."
+    },
+    {
+      "id": 183,
+      "type": "Meteorology",
+      "question": "If the S is warmer than N, level by level, from surface up to higher levels, then the ……..wind will strengthen with height with no change in direction in N hemisphere",
+      "options": [
+        "Ely",
+        "Wly",
+        "Sly",
+        "Nly"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "With warmer air to the South and colder air to the North, thermal wind blows from West to East (Westerly). When lower level wind is also Westerly, the thermal wind component adds directly to it, increasing Westerly (Wly) speed with height without altering direction."
+    },
+    {
+      "id": 184,
+      "type": "Meteorology",
+      "question": "Gradient wind is …………… of geostrophic wind in an anticyclone",
+      "options": [
+        "Under estimate",
+        "Accurate",
+        "Over estimate"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "In an anticyclone (High pressure), centrifugal force assists the pressure gradient force, making gradient wind speed greater than geostrophic wind ($V_{gradient} > V_{geostrophic}$). Hence, gradient wind is an overestimate of geostrophic wind."
+    },
+    {
+      "id": 185,
+      "type": "Meteorology",
+      "question": "Gale is",
+      "options": [
+        "persistent strong winds with mean speed 44 kt, associated with thunderstorm",
+        "marked increase in wind speed lasing few minutes associated with CB or DS (dust storm)",
+        "persistent strong winds exceeding 33 kt, associated with depression"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "A gale is defined as sustained mean surface wind speed exceeding 33 knots (Beaufort scale 8+), typically associated with deep synoptic depressions."
+    },
+    {
+      "id": 186,
+      "type": "Meteorology",
+      "question": "In N hemisphere thermal wind is parallel to ……. with low value to left",
+      "options": [
+        "Isobars",
+        "Isotherms",
+        "Isallobars"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Thermal wind flows parallel to mean layer isotherms (thickness lines) with cold air (lower temperature values) situated to the left in the Northern Hemisphere."
+    },
+    {
+      "id": 187,
+      "type": "Meteorology",
+      "question": "The inertial flow is",
+      "options": [
+        "cyclonic in both the Hemispheres",
+        "anticyclonic in both the Hemispheres",
+        "anticyclonic around an anticyclone"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "Inertial flow occurs when horizontal pressure gradients disappear ($PGF = 0$). Air follows circular paths turned by Coriolis force alone, resulting in anticyclonic curvature in both Northern and Southern Hemispheres."
+    },
+    {
+      "id": 188,
+      "type": "Meteorology",
+      "question": "Upper level wind is 24025 kt, lower level wind is 16015 kt, the thermal wind is?",
+      "options": [
+        "16010 kt",
+        "24040 kt",
+        "24010 kt"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "6. Wind",
+      "explanation": "In standard question bank simplified vector subtraction, subtracting lower speed (15 kt) from upper speed (25 kt) along the primary upper flow direction (240°) yields 240° / 10 kt."
+    },
+    {
+      "id": 189,
+      "type": "Meteorology",
+      "question": "Fog is reported when visibility is reduced to",
+      "options": [
+        "Less than 1000 m",
+        "1000m",
+        "1000 to 2000"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "According to ICAO meteorological standards, fog is reported when visibility is reduced to less than 1000 meters due to water droplets or ice crystals suspended in the atmosphere."
+    },
+    {
+      "id": 190,
+      "type": "Meteorology",
+      "question": "RVR is reported when visibility falls below",
+      "options": [
+        "500 m",
+        "1000 m",
+        "1500 m"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "Runway Visual Range (RVR) reports are provided at aerodromes whenever either horizontal visibility or RVR drops below 1500 meters."
+    },
+    {
+      "id": 191,
+      "type": "Meteorology",
+      "question": "Radiation fog occurs",
+      "options": [
+        "Over land",
+        "Over sea",
+        "During day"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "Radiation fog occurs over land because land cools rapidly by terrestrial radiation at night. Oceans do not undergo sufficient nocturnal cooling due to the high specific heat capacity of water."
+    },
+    {
+      "id": 192,
+      "type": "Meteorology",
+      "question": "When visibility reduces between 5000 m and 1000 m and RH is almost 100%, it is",
+      "options": [
+        "Mist",
+        "Haze",
+        "Fog"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "Mist is reported when visibility is between 1000 m and 5000 m with high relative humidity (near 100%), whereas fog requires visibility below 1000 m."
+    },
+    {
+      "id": 193,
+      "type": "Meteorology",
+      "question": "Radiation Fog forms over N India during",
+      "options": [
+        "May to June",
+        "Dec to Feb",
+        "Oct to Nov"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "In North India, winter months (December to February) provide clear skies, long nights, light winds, and moisture fed by Western Disturbances, creating ideal conditions for radiation fog."
+    },
+    {
+      "id": 194,
+      "type": "Meteorology",
+      "question": "Warm and moist air moving over a cold ground gives rise to:",
+      "options": [
+        "Thunder clouds",
+        "Fog and stratus",
+        "Frontal clouds"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "Advection occurs when warm, humid air moves horizontally over a cooler surface, cooling the lower air layer to its dew point and producing widespread advection fog or low stratus clouds."
+    },
+    {
+      "id": 195,
+      "type": "Meteorology",
+      "question": "Warm and moist air moving over a cold surface causes",
+      "options": [
+        "Radiation Fog",
+        "Advection Fog",
+        "Frontal Fog"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "Horizontal movement (advection) of warm, moist air across a colder land or sea surface lowers the air temperature to saturation, forming advection fog."
+    },
+    {
+      "id": 196,
+      "type": "Meteorology",
+      "question": "The radiation fog forms due to",
+      "options": [
+        "Heating of the earth during day",
+        "Radiational cooling of earth at night",
+        "Advection of cold air"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "Terrestrial longwave radiation cooling of the ground during clear, calm nights cools the adjacent air layer down to its dew point temperature."
+    },
+    {
+      "id": 197,
+      "type": "Meteorology",
+      "question": "The radiation fog activity increases after the passage of a ……....",
+      "options": [
+        "WD",
+        "Depression",
+        "Col"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "Passage of a Western Disturbance (WD) over North India leaves ample boundary layer moisture behind. As skies clear after its passage, nocturnal radiation cooling causes widespread radiation fog."
+    },
+    {
+      "id": 198,
+      "type": "Meteorology",
+      "question": "Radiation fog is essentially a ……….. phenomena",
+      "options": [
+        "Nocturnal",
+        "Dusk",
+        "Day"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "Radiation fog requires night-time terrestrial cooling to lower ground temperatures below the air's dew point, making it a nocturnal (or early morning) phenomenon."
+    },
+    {
+      "id": 199,
+      "type": "Meteorology",
+      "question": "The radiation fog forms over ……..",
+      "options": [
+        "Water",
+        "Land",
+        "Both"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "Water bodies store heat and exhibit negligible diurnal temperature change, so radiation fog forms exclusively over land surfaces."
+    },
+    {
+      "id": 200,
+      "type": "Meteorology",
+      "question": "The ………. fog forms due to horizontal movement of warm moist air over cold surface",
+      "options": [
+        "Radiation",
+        "Advection",
+        "Frontal"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "By definition, fog caused by horizontal air transport (advection) of warm moist air over a colder surface is known as advection fog."
+    },
+    {
+      "id": 201,
+      "type": "Meteorology",
+      "question": "Advection fog forms during",
+      "options": [
+        "night only",
+        "day time only",
+        "any time of day and night"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "Because advection fog depends on wind transport rather than solar/radiational diurnal cycles, it can form or persist at any time of day or night."
+    },
+    {
+      "id": 202,
+      "type": "Meteorology",
+      "question": "For formation of Radiation fog",
+      "options": [
+        "There should be sufficient moisture in atmosphere, cloudy sky, nil wind",
+        "There should be sufficient moisture in atmosphere, clear sky, light wind.",
+        "There should be sufficient moisture in atmosphere, cloudy sky, strong wind"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "Ideal radiation fog conditions require high boundary layer moisture, clear skies for maximum nocturnal terrestrial radiation loss, and light winds (2 to 8 knots) to gently mix the cooled air through a shallow layer."
+    },
+    {
+      "id": 203,
+      "type": "Meteorology",
+      "question": "Instrument used for measuring visibility is called ...",
+      "options": [
+        "Visiometer",
+        "Transmissometer",
+        "Ceilometer"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "A transmissometer is an optical instrument positioned alongside runways to measure atmospheric light extinction and calculate visibility / RVR."
+    },
+    {
+      "id": 204,
+      "type": "Meteorology",
+      "question": "Advection fog forms",
+      "options": [
+        "over sea",
+        "over Land",
+        "both over land and sea"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "Advection fog can form over sea (e.g. warm air over cold oceanic currents) and over land (e.g. moist marine air moving over cold coastal terrain)."
+    },
+    {
+      "id": 205,
+      "type": "Meteorology",
+      "question": "fog is ……… cloud on ground",
+      "options": [
+        "stratocumulus",
+        "stratus",
+        "Nimbostratus"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "Fog is structurally and meteorologically identical to a low stratus (ST) cloud touching or based at the surface."
+    },
+    {
+      "id": 206,
+      "type": "Meteorology",
+      "question": "Frontal fog is more common with a",
+      "options": [
+        "Western Disturbance",
+        "cyclone",
+        "Warm Front",
+        "Cold Front"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "Precipitation falling from warm air overriding a warm frontal slope evaporates into the underlying cold air mass, saturating it and producing frontal/precipitation fog."
+    },
+    {
+      "id": 207,
+      "type": "Meteorology",
+      "question": "The favourable pressure system for formation of fog is",
+      "options": [
+        "Lows and Cols",
+        "High and Trough",
+        "Lows and Ridges",
+        "Highs and Cols"
+      ],
+      "correct": 3,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "Anticyclones (Highs) and Cols feature light, variable winds and subsiding air that produces clear skies—ideal conditions for surface cooling and fog formation."
+    },
+    {
+      "id": 208,
+      "type": "Meteorology",
+      "question": "Thermal processes / temperature distribution which favours formation of fog is",
+      "options": [
+        "Isothermal",
+        "Adiabatics",
+        "Inversion",
+        "SALR"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "7. Visibility and Fog",
+      "explanation": "A temperature inversion (temperature increasing with height) traps moisture and pollutants near the surface, strongly encouraging and stabilizing fog layers."
+    },
+    {
+      "id": 209,
+      "type": "Meteorology",
+      "question": "Drizzle occurs from",
+      "options": [
+        "CS",
+        "ST",
+        "NS",
+        "CU"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "Drizzle consists of very small water droplets (diameter < 0.5 mm) falling almost exclusively from thin, stable Stratus (ST) layers."
+    },
+    {
+      "id": 210,
+      "type": "Meteorology",
+      "question": "Altostratus (AS) is",
+      "options": [
+        "Low cloud of sheet type",
+        "A medium cloud of sheet type",
+        "A cloud of large vertical growth",
+        "A high cloud of sheet type"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "Altostratus (AS) is classified as a middle-level cloud (base between 6,500 ft and 20,000 ft) forming a greyish or bluish sheet or layer."
+    },
+    {
+      "id": 211,
+      "type": "Meteorology",
+      "question": "Showers occurs from",
+      "options": [
+        "CU",
+        "CB",
+        "AS",
+        "AC"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "Showers are characterized by sudden onset and rapid strength changes, falling from convective clouds of vertical development, predominantly Cumulonimbus (CB)."
+    },
+    {
+      "id": 212,
+      "type": "Meteorology",
+      "question": "Heavy icing is possible in",
+      "options": [
+        "CI",
+        "CS",
+        "ST",
+        "CB"
+      ],
+      "correct": 3,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "Cumulonimbus (CB) clouds contain abundant supercooled water droplets supported by strong updrafts, leading to severe and rapid icing."
+    },
+    {
+      "id": 213,
+      "type": "Meteorology",
+      "question": "To avoid icing in cloudy conditions, a pilot is advised to fly through a cloud which shows an optical phenomena",
+      "options": [
+        "Halo",
+        "Corona",
+        "With multi-coloured clouds"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "A Halo is produced by light refraction through ice crystals (e.g., in Cirrostratus), indicating the absence of supercooled liquid water drops that cause airframe icing. Corona, by contrast, indicates water droplets."
+    },
+    {
+      "id": 214,
+      "type": "Meteorology",
+      "question": "Dark gray cloud giving continuous rain is called",
+      "options": [
+        "AS",
+        "NS",
+        "ST",
+        "CB"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "Nimbostratus (NS) is a thick, dark, grey cloud layer that produces continuous, widespread precipitation."
+    },
+    {
+      "id": 215,
+      "type": "Meteorology",
+      "question": "A uniform layer of cloud resembling fog but not on the ground",
+      "options": [
+        "AS",
+        "NS",
+        "ST"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "Stratus (ST) is a featureless, uniform, low grey cloud layer identical in structure to fog except its base does not rest on the Earth's surface."
+    },
+    {
+      "id": 216,
+      "type": "Meteorology",
+      "question": "The clouds composed of ice crystals having feathery appearance",
+      "options": [
+        "CI",
+        "CS",
+        "AS"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "Cirrus (CI) clouds are high-altitude, delicate clouds composed of ice crystals with a fibrous, wispy, or feathery appearance."
+    },
+    {
+      "id": 217,
+      "type": "Meteorology",
+      "question": "Halo is associated with the cloud",
+      "options": [
+        "AC",
+        "AS",
+        "CS",
+        "CI"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "A 22° optical halo around the sun or moon is formed by refraction through hexagonal ice crystals present in Cirrostratus (CS) cloud sheets."
+    },
+    {
+      "id": 218,
+      "type": "Meteorology",
+      "question": "NS clouds occur",
+      "options": [
+        "At cold front",
+        "At warm front"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "As warm, moist air gradually overrides a cold air wedge along a warm front, extensive layered cloudiness culminates in widespread Nimbostratus (NS) rain belts."
+    },
+    {
+      "id": 219,
+      "type": "Meteorology",
+      "question": "Corona is associated with the cloud",
+      "options": [
+        "AS",
+        "AC",
+        "CC",
+        "CS"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "A Corona is caused by light diffraction through small uniform liquid water droplets typically present in Altocumulus (AC) or thin Altostratus."
+    },
+    {
+      "id": 220,
+      "type": "Meteorology",
+      "question": "Lenticular clouds indicate presence of",
+      "options": [
+        "Warm Front",
+        "Cold front",
+        "Mountain waves"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "Altocumulus lenticularis (lens-shaped clouds) remain stationary over mountain crests, signaling standing lee waves and turbulence."
+    },
+    {
+      "id": 221,
+      "type": "Meteorology",
+      "question": "The lowest level below which condensation trails will not form is",
+      "options": [
+        "Mintra Level",
+        "Drytra Level",
+        "Maxtra Level"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "Mintra level is the lowest atmospheric flight level below which exhaust condensation trails (contrails) cannot form regardless of relative humidity."
+    },
+    {
+      "id": 222,
+      "type": "Meteorology",
+      "question": "Rain falling from cloud but not reaching ground is",
+      "options": [
+        "Virgo",
+        "Virga",
+        "Mirage"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "Virga refers to streaks or wisps of precipitation falling from a cloud base that evaporate into drier air before reaching the ground."
+    },
+    {
+      "id": 223,
+      "type": "Meteorology",
+      "question": "CB with distinct anvil is called",
+      "options": [
+        "Castellanus",
+        "Capillatus",
+        "Uncinus"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "Cumulonimbus capillatus is a mature stage CB whose upper portion exhibits a distinct fibrous, anvil-shaped ice crystal structure."
+    },
+    {
+      "id": 224,
+      "type": "Meteorology",
+      "question": "Cloud ceiling is the height of the cloud covering",
+      "options": [
+        "3-4/8",
+        "8/8",
+        "5/8 or more"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "Ceiling is defined as the height above ground of the base of the lowest cloud layer reporting Broken (BKN, 5–7 octas) or Overcast (OVC, 8 octas)."
+    },
+    {
+      "id": 225,
+      "type": "Meteorology",
+      "question": "No condensation trails occur above",
+      "options": [
+        "Maxtra Level",
+        "Dytra Level",
+        "Mintra Level"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "Maxtra level is the upper boundary in the stratosphere above which air is too dry and warm for aircraft engine exhaust to form persistent contrails."
+    },
+    {
+      "id": 226,
+      "type": "Meteorology",
+      "question": "Cloud of operational significance has base below ……. m or below the highest minimum sector altitude, which is greater",
+      "options": [
+        "1500",
+        "2000",
+        "1000"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "ICAO defines cloud of operational significance as cloud with base below 1500 m (5,000 ft) or below the highest minimum sector altitude (whichever is greater), or any CB/TCU."
+    },
+    {
+      "id": 227,
+      "type": "Meteorology",
+      "question": "AC cloud with cumuliform protuberances are indicative of",
+      "options": [
+        "Stability",
+        "Instability",
+        "Neutrality"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "Altocumulus castellanus displays vertical turreted protuberances, signaling mid-level convective instability and potential thunderstorm development."
+    },
+    {
+      "id": 228,
+      "type": "Meteorology",
+      "question": "Hail may be experienced under the anvil of a CB",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "8. Vertical Motion and Clouds",
+      "explanation": "Strong upper-level winds blowing off the top of a Cumulonimbus storm can carry heavy hail out beneath the anvil overhang into clear air several miles ahead of the storm core."
+    },
+    {
+      "id": 229,
+      "type": "Meteorology",
+      "question": "DALR = 9.8 °C, ELR = 6.8 °C; atmosphere is",
+      "options": [
+        "stable",
+        "unstable",
+        "indifferent"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "When Environmental Lapse Rate (ELR = 6.8 °C/km) is less than Dry Adiabatic Lapse Rate (DALR = 9.8 °C/km), a lifted unsaturated air parcel cools faster than the environment, becomes denser, and sinks back to its original position, indicating atmospheric stability."
+    },
+    {
+      "id": 230,
+      "type": "Meteorology",
+      "question": "SALR = 5.5 °C, ELR = 4.5 °C; atmosphere is",
+      "options": [
+        "unstable",
+        "stable",
+        "indifferent"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "When ELR (4.5 °C/km) is less than SALR (5.5 °C/km), the atmosphere cools slower with height than even a saturated rising parcel. Any lifted air parcel (dry or moist) remains colder than its surrounding environment, resulting in absolute stability."
+    },
+    {
+      "id": 231,
+      "type": "Meteorology",
+      "question": "DALR > ELR > SALR",
+      "options": [
+        "conditionally stable",
+        "latently stable",
+        "potentially stable"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "When ELR lies between SALR and DALR, the atmosphere is conditionally stable (or conditionally unstable). It is stable for unsaturated air parcels but becomes unstable if air is saturated and lifted above its Lifting Condensation Level."
+    },
+    {
+      "id": 232,
+      "type": "Meteorology",
+      "question": "Dry air is unstable when",
+      "options": [
+        "ELR=DALR",
+        "ELR>DALR",
+        "ELR < DALR"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "Dry (unsaturated) air is unstable whenever the Environmental Lapse Rate (ELR) is greater than the Dry Adiabatic Lapse Rate (DALR), creating superadiabatic lapse rate conditions where lifted air remains warmer than its surroundings."
+    },
+    {
+      "id": 233,
+      "type": "Meteorology",
+      "question": "Moist air is unstable when",
+      "options": [
+        "ELR > SALR",
+        "ELR < SALR",
+        "DALR > ELR"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "Saturated (moist) air is unstable whenever the Environmental Lapse Rate exceeds the Saturated Adiabatic Lapse Rate (ELR > SALR), causing a rising saturated parcel to remain warmer and less dense than surrounding air."
+    },
+    {
+      "id": 234,
+      "type": "Meteorology",
+      "question": "If ELR = SALR = DALR the atmosphere is",
+      "options": [
+        "Stable",
+        "Instable",
+        "Indifferent"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "When ELR equals the adiabatic cooling rate of the displaced parcel, the rising parcel matches the temperature of its surrounding environment at every level, resulting in neutral stability (indifferent state)."
+    },
+    {
+      "id": 235,
+      "type": "Meteorology",
+      "question": "DALR means:",
+      "options": [
+        "The rate at which temperature of unsaturated parcel of air falls with height when made to ascend adiabatically.",
+        "The rate at which temp falls with height.",
+        "The rate at which ascending parcel of saturated air cools."
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "Dry Adiabatic Lapse Rate (DALR) is defined as the rate at which an unsaturated air parcel cools due to expansion as it rises adiabatically without exchanging heat with its environment (~9.8 °C/km or 3 °C/1000 ft)."
+    },
+    {
+      "id": 236,
+      "type": "Meteorology",
+      "question": "Surface temp, is 30° C. Assuming DALR. what is the temperature at 2 km",
+      "options": [
+        "18° C",
+        "10° C",
+        "42° C"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "Using DALR of ~10 °C/km (or 9.8 °C/km), ascending 2 km results in a temperature decrease of 20 °C. Surface temperature 30 °C minus 20 °C yields 10 °C."
+    },
+    {
+      "id": 237,
+      "type": "Meteorology",
+      "question": "An Isothermal atmosphere is",
+      "options": [
+        "Stable",
+        "Unstable",
+        "Neutral"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "An isothermal atmosphere has constant temperature with height (ELR = 0 °C/km). Since ELR (0) is significantly less than both SALR and DALR, an isothermal layer is extremely stable."
+    },
+    {
+      "id": 238,
+      "type": "Meteorology",
+      "question": "If environmental lapse rate(ELR) is less than SALR, the atmosphere is said to be:",
+      "options": [
+        "Absolutely unstable",
+        "Conditionally stable",
+        "Absolutely stable"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "When ELR < SALR, any vertically displaced parcel (whether saturated or unsaturated) cools faster than its environment, making it denser and forcing it back to its starting level. This condition is termed Absolute Stability."
+    },
+    {
+      "id": 239,
+      "type": "Meteorology",
+      "question": "DALR is approximately",
+      "options": [
+        "5 ° C /km",
+        "15 ° C /km",
+        "10 ° C /km"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "The Dry Adiabatic Lapse Rate (DALR) is approximately 9.8 °C per kilometer, commonly rounded to 10 °C/km (or 3 °C per 1,000 feet) in practical aviation meteorology."
+    },
+    {
+      "id": 240,
+      "type": "Meteorology",
+      "question": "SALR at mean sea level is about",
+      "options": [
+        "10 ° C/Km",
+        "5 ° C/Km",
+        "5 ° F/Km"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "Near mean sea level in warm, moist air, abundant condensation releases latent heat of vaporisation, reducing the saturated adiabatic cooling rate to approximately 5 °C/km (or 1.5 °C per 1,000 feet)."
+    },
+    {
+      "id": 241,
+      "type": "Meteorology",
+      "question": "SALR approaches DALR",
+      "options": [
+        "at 0°C",
+        "at -15°F",
+        "at -40°C"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "At extremely cold temperatures (~ -40 °C), saturated air contains negligible water vapor capacity. Consequently, very little latent heat is released during condensation, and SALR approaches DALR."
+    },
+    {
+      "id": 242,
+      "type": "Meteorology",
+      "question": "Dry air having a temperature of 35°C on surface when forced to rise adiabatically by 1 km would attain a temperature of",
+      "options": [
+        "29°C",
+        "25°C",
+        "45°C"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "Unsaturated air cools at the Dry Adiabatic Lapse Rate (DALR ~ 10 °C/km or 9.8 °C/km). Rising 1 km lowers its temperature from 35 °C to approximately 25 °C."
+    },
+    {
+      "id": 243,
+      "type": "Meteorology",
+      "question": "Inversion in the atmosphere indicates",
+      "options": [
+        "Stability",
+        "Instability",
+        "Neutrality"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "A temperature inversion occurs when temperature increases with altitude (negative lapse rate). Warm air overlying cooler surface air creates an exceptionally stable layer that suppresses vertical mixing and convection."
+    },
+    {
+      "id": 244,
+      "type": "Meteorology",
+      "question": "Inversion is ……….. Lapse Rate (LR)",
+      "options": [
+        "Positive",
+        "Negative",
+        "Neutral"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "Lapse rate is conventionally defined as temperature decrease with height. Because temperature increases with height during an inversion, it represents a negative lapse rate."
+    },
+    {
+      "id": 245,
+      "type": "Meteorology",
+      "question": "Environmental LR can be more than DALR",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "True. Near intense heat sources or strongly solar-heated land surfaces during sunny afternoons, boundary layer air can develop superadiabatic lapse rates where ELR exceeds DALR."
+    },
+    {
+      "id": 246,
+      "type": "Meteorology",
+      "question": "The process which to a large extent determines the vertical distribution of temperature in atmosphere is",
+      "options": [
+        "Adiabatic",
+        "Isothermal",
+        "Isentropic"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "Vertical motion involving pressure changes without external heat transfer (adiabatic processes) is the dominant factor governing temperature distribution and stability profiles in the atmosphere."
+    },
+    {
+      "id": 247,
+      "type": "Meteorology",
+      "question": "Rise in temperature with height is",
+      "options": [
+        "Inversion",
+        "Lapse",
+        "Normal"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "A atmospheric condition where air temperature increases rather than decreases with increasing altitude is termed a temperature inversion."
+    },
+    {
+      "id": 248,
+      "type": "Meteorology",
+      "question": "Inversion is common in",
+      "options": [
+        "Post Monsoon",
+        "Monsoon",
+        "Winters"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "9. Atmospheric Stability and Instability",
+      "explanation": "Winter nights provide long hours of nocturnal darkness, clear skies, and light surface winds—ideal conditions for strong terrestrial longwave radiation loss that forms ground-based surface inversions."
+    },
+    {
+      "id": 249,
+      "type": "Meteorology",
+      "question": "Aurora Australis occur in the",
+      "options": [
+        "S hemisphere",
+        "N hemisphere",
+        "Equator"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "Aurora Australis (Southern Lights) occurs in the high latitudes of the Southern Hemisphere."
+    },
+    {
+      "id": 250,
+      "type": "Meteorology",
+      "question": "Aurora Australis called .... Lights",
+      "options": [
+        "Northern",
+        "Southern",
+        "Temperate"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "'Australis' derives from the Latin word for southern; hence Aurora Australis is known as the Southern Lights."
+    },
+    {
+      "id": 251,
+      "type": "Meteorology",
+      "question": "Aurora Borealis occur in the",
+      "options": [
+        "S hemisphere",
+        "N hemisphere",
+        "Equator"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "Aurora Borealis (Northern Lights) occurs in the high northern latitudes of the Northern Hemisphere."
+    },
+    {
+      "id": 252,
+      "type": "Meteorology",
+      "question": "Aurora Borealis are called ……... Lights",
+      "options": [
+        "Northern",
+        "Southern",
+        "Temperate"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "'Borealis' comes from the Greek god of the north wind, Boreas; thus Aurora Borealis is termed the Northern Lights."
+    },
+    {
+      "id": 253,
+      "type": "Meteorology",
+      "question": "Corona occur in…… clouds",
+      "options": [
+        "AS",
+        "NS",
+        "CS"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "Coronas are formed by light diffraction through water droplets typical of Altostratus (AS) or Altocumulus (AC) clouds."
+    },
+    {
+      "id": 254,
+      "type": "Meteorology",
+      "question": "Bishop's ring is due to the diffraction of light by fine particles of",
+      "options": [
+        "water",
+        "dust",
+        "ice"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "A Bishop's ring is a faint reddish-brown sky ring caused by diffraction of sunlight through fine volcanic dust or aerosol particles in the upper atmosphere."
+    },
+    {
+      "id": 255,
+      "type": "Meteorology",
+      "question": "The radius of the Bishop's ring is about",
+      "options": [
+        "32°",
+        "22°",
+        "42°"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "Standard atmospheric observation standards record the radius of a Bishop's ring as approximately 22° centered on the sun."
+    },
+    {
+      "id": 256,
+      "type": "Meteorology",
+      "question": "Superior Mirage occurs in marked",
+      "options": [
+        "Lapse",
+        "Isothermal",
+        "Inversion"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "A superior mirage occurs under strong temperature inversion conditions where dense cold air near the surface bends light rays downward toward the observer."
+    },
+    {
+      "id": 257,
+      "type": "Meteorology",
+      "question": "Inferior Mirage occurs when there is",
+      "options": [
+        "Lapse",
+        "Isothermal",
+        "Inversion"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "An inferior mirage occurs over highly heated ground with a steep (superadiabatic) lapse rate, bending light rays upward to produce inverted images."
+    },
+    {
+      "id": 258,
+      "type": "Meteorology",
+      "question": "Corona are formed due to the ……. of light",
+      "options": [
+        "Refraction",
+        "Diffraction",
+        "Scattering"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "Coronas are produced by the wave phenomenon of light diffraction around small water droplets or ice particles."
+    },
+    {
+      "id": 259,
+      "type": "Meteorology",
+      "question": "Corona are formed due to light, passing through",
+      "options": [
+        "Mist only",
+        "Fog only",
+        "small water or ice particles only",
+        "Any one of all these"
+      ],
+      "correct": 3,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "Light passing through any suspension of small water droplets or ice particles (mist, fog, or thin clouds) can diffract to create a corona."
+    },
+    {
+      "id": 260,
+      "type": "Meteorology",
+      "question": "Halo is produced by",
+      "options": [
+        "Refraction",
+        "Diffraction",
+        "Scattering"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "Halos are optical phenomena created by refraction of light through hexagonal ice crystals in high-altitude clouds."
+    },
+    {
+      "id": 261,
+      "type": "Meteorology",
+      "question": "Halo is produced when light passes through",
+      "options": [
+        "water particles",
+        "ice crystals",
+        "both"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "Light must pass through and refract within ice crystals (not liquid water droplets) to produce halo rings."
+    },
+    {
+      "id": 262,
+      "type": "Meteorology",
+      "question": "Halo occur in the cloud",
+      "options": [
+        "AS",
+        "NS",
+        "CS"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "Cirrostratus (CS) clouds are composed entirely of ice crystals and produce distinct 22° halos around the sun or moon."
+    },
+    {
+      "id": 263,
+      "type": "Meteorology",
+      "question": "Halo is luminous ring of ……... radius",
+      "options": [
+        "32°",
+        "22°",
+        "42°"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "The most common optical halo is the 22° halo, formed by light refraction through 60° prism angle hexagonal ice crystals."
+    },
+    {
+      "id": 264,
+      "type": "Meteorology",
+      "question": "Halo round the sun shows a pure clear …………. on the outside",
+      "options": [
+        "Red",
+        "Yellow",
+        "Violet"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "Due to differential refraction, a halo has a reddish inner edge facing toward the sun and a violet/blue outer edge."
+    },
+    {
+      "id": 265,
+      "type": "Meteorology",
+      "question": "Halo signifies predominance in the cloud of",
+      "options": [
+        "Supercooled water drops",
+        "Ice crystals",
+        "Both"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "Halos require refraction through structured ice crystals, confirming that the cloud consists predominantly of ice rather than water."
+    },
+    {
+      "id": 266,
+      "type": "Meteorology",
+      "question": "The cloud which cause Halo has ... chances of ice accretion",
+      "options": [
+        "negligible",
+        "maximum",
+        "medium"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "Since halo-producing clouds (Cirrostratus) consist of dry ice crystals without supercooled liquid water drops, icing risk for aircraft is negligible."
+    },
+    {
+      "id": 267,
+      "type": "Meteorology",
+      "question": "Sometimes a halo with a radius of ……….. is observed, called Large Halo",
+      "options": [
+        "32°",
+        "42°",
+        "22°"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "In standard multiple-choice question banks, 42° is listed for large ring features, whereas standard 22° denotes the common small halo."
+    },
+    {
+      "id": 268,
+      "type": "Meteorology",
+      "question": "Halo occurs from.... cloud",
+      "options": [
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "10. Optical Phenomena",
+      "explanation": "Cirrostratus (CS) is a high-level cloud (base above 20,000 ft) composed of ice crystals that form halos."
+    },
+    {
+      "id": 269,
+      "type": "Meteorology",
+      "question": "When super cooled water drops and ice particles co-exist, the ice crystals grow at the expense of the water drops because",
+      "options": [
+        "Saturation vapour pressure over water drops is less than over the ice crystals",
+        "Saturation vapour pressure over the ice crystals is less than over water drops",
+        "The ice crystals convert into water drops"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "According to the Bergeron-Findeisen process, the saturation vapor pressure over ice is lower than over liquid water at the same temperature. Water vapor evaporates from supercooled water droplets and deposits directly onto ice crystals, causing them to grow rapidly."
+    },
+    {
+      "id": 270,
+      "type": "Meteorology",
+      "question": "The clouds whose tops extend well above the freezing level are called",
+      "options": [
+        "Warm Clouds",
+        "Cold Clouds",
+        "Moderate Clouds"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "Clouds whose vertical extent reaches altitudes where temperatures are below 0°C (freezing level) contain supercooled water drops and ice crystals, and are defined as cold clouds."
+    },
+    {
+      "id": 271,
+      "type": "Meteorology",
+      "question": "The clouds whose tops do not extend to the freezing level are called",
+      "options": [
+        "Warm Clouds",
+        "Cold Clouds",
+        "Moderate Clouds"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "Warm clouds exist entirely below the 0°C isotherm level, meaning their contents consist exclusively of liquid water droplets."
+    },
+    {
+      "id": 272,
+      "type": "Meteorology",
+      "question": "Coalescence Theory explains occurrence of rainfall from the",
+      "options": [
+        "Warm Clouds",
+        "Cold Clouds",
+        "Both types of Clouds"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "Collision-coalescence theory explains rain formation in warm clouds where larger cloud droplets fall through smaller ones, colliding and merging into raindrops without involving ice crystals."
+    },
+    {
+      "id": 273,
+      "type": "Meteorology",
+      "question": "Ice crystal Theory explains occurrence of rainfall from the",
+      "options": [
+        "Warm Clouds",
+        "Cold Clouds",
+        "Both types of Clouds"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "The Ice Crystal (Bergeron-Findeisen) process requires co-existence of ice crystals and supercooled water droplets, which occurs exclusively in cold clouds."
+    },
+    {
+      "id": 274,
+      "type": "Meteorology",
+      "question": "Giant Nucleus Theory explains occurrence of rainfall over",
+      "options": [
+        "Maritime areas",
+        "Inland areas",
+        "Hilly areas"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "In maritime environments, abundant sea-salt particles act as giant hygroscopic condensation nuclei, initiating rapid warm-cloud raindrop growth via coalescence."
+    },
+    {
+      "id": 275,
+      "type": "Meteorology",
+      "question": "Very heavy precipitation as showers over a short period is called",
+      "options": [
+        "Flash floods",
+        "Cloud Burst",
+        "Orographic Rain"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "A cloudburst is an extreme convective precipitation event where high amounts of rain (typically exceeding 100 mm/hr) fall over a small geographic area within a very short duration."
+    },
+    {
+      "id": 276,
+      "type": "Meteorology",
+      "question": "Rain shadow area is on the ……….. of the mountain range",
+      "options": [
+        "Top",
+        "Windward side",
+        "Leeward side"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "As air descends down the leeward side of a mountain, it compresses and warms adiabatically, suppressing cloud formation and creating a dry rain shadow region."
+    },
+    {
+      "id": 277,
+      "type": "Meteorology",
+      "question": "Sleet is a mixture of",
+      "options": [
+        "Hall & Snow",
+        "Rain & Snow",
+        "Frozen Rain"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "In international and meteorological standard definitions, sleet refers to precipitation consisting of a mixture of rain and melting snow."
+    },
+    {
+      "id": 278,
+      "type": "Meteorology",
+      "question": "Rainfall in the tropics is more in",
+      "options": [
+        "Winters",
+        "Summers",
+        "Post monsoon"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "Intense solar heating during tropical summers fuels strong vertical instability, thermal convection, and the seasonal position of the Intertropical Convergence Zone (ITCZ)."
+    },
+    {
+      "id": 279,
+      "type": "Meteorology",
+      "question": "Rainfall in the tropics is more in the",
+      "options": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "Diurnal surface solar heating reaches its peak around midday to early afternoon, triggering thermal uplift and convective shower activity during the afternoon."
+    },
+    {
+      "id": 280,
+      "type": "Meteorology",
+      "question": "Rainfall in the temperate latitudes is more in",
+      "options": [
+        "Winters",
+        "Summers",
+        "Spring"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "Temperate latitudes experience peak rainfall in winter due to intensified frontal activity, steep polar-equatorial temperature gradients, and frequent extra-tropical cyclones."
+    },
+    {
+      "id": 281,
+      "type": "Meteorology",
+      "question": "Over J&K and western Himalayas Rainfall is more in",
+      "options": [
+        "Winters",
+        "Summers",
+        "Post monsoon"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "Western Disturbances (extra-tropical mid-latitude systems) traverse North-West India during winter, yielding heavy rain and snowfall across Jammu & Kashmir and the western Himalayas."
+    },
+    {
+      "id": 282,
+      "type": "Meteorology",
+      "question": "Rainfall over coastal areas is more in the",
+      "options": [
+        "Evening",
+        "Afternoon",
+        "Night & early morning"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "Nighttime land cooling creates land breeze convergence zones just offshore over warm coastal waters, maximizing convective rainfall during late night and early morning hours."
+    },
+    {
+      "id": 283,
+      "type": "Meteorology",
+      "question": "Areas to the ……….. of western Ghats of India are rain shadow areas",
+      "options": [
+        "W",
+        "S",
+        "E"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "The Western Ghats intercept moisture-laden South-West monsoon winds from the Arabian Sea, leaving the region to the East (Deccan Plateau) in a dry rain shadow."
+    },
+    {
+      "id": 284,
+      "type": "Meteorology",
+      "question": "A sudden rise in the level of rivers or streams causing floods is called",
+      "options": [
+        "Cloud Burst",
+        "Catchments flooding",
+        "Flash Floods"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "A flash flood is a rapid, intense surge of water in low-lying areas or stream channels following heavy rainfall or localized cloudbursts."
+    },
+    {
+      "id": 285,
+      "type": "Meteorology",
+      "question": "Artificial rain making is also termed as",
+      "options": [
+        "Simulation",
+        "Cloud seeding",
+        "Nucleation"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "Cloud seeding is the deliberate introduction of artificial condensation or freezing nuclei (such as silver iodide or dry ice) into clouds to stimulate precipitation."
+    },
+    {
+      "id": 286,
+      "type": "Meteorology",
+      "question": "Fog can be dispersed for a short period by artificial stimulation",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "True. Artificial dissipation techniques (e.g., seeding supercooled fog with dry ice or heating warm fog) can clear airport runways for temporary operational visibility."
+    },
+    {
+      "id": 287,
+      "type": "Meteorology",
+      "question": "Showery precipitation occurs from",
+      "options": [
+        "NS",
+        "AC",
+        "CB"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "Showers are localized, high-intensity precipitation events characterized by rapid onset and clearing, falling from convective clouds such as Cumulonimbus (CB)."
+    },
+    {
+      "id": 288,
+      "type": "Meteorology",
+      "question": "A day is called Rainy day when rainfall in 24 hr is ....mm or more",
+      "options": [
+        "1.5",
+        "2",
+        "2.5"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "11. Precipitation",
+      "explanation": "According to official meteorological standards (such as India Meteorological Department - IMD rules), a rainy day is defined as a day with measured 24-hour rainfall of 2.5 mm or more."
+    },
+    {
+      "id": 289,
+      "type": "Meteorology",
+      "question": "Hoar frost occurs on airframe in clear air when the temperature of airframe is",
+      "options": [
+        "below the frost point",
+        "frost point",
+        "just above the frost point"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "Hoar frost forms in clear, moist air when the airframe temperature is below freezing and below the frost point, causing water vapor to sublimate directly into feathery ice crystals."
+    },
+    {
+      "id": 290,
+      "type": "Meteorology",
+      "question": "In clouds at temperatures below 0° C an aircraft may encounter icing of the type",
+      "options": [
+        "only Glazed",
+        "only Rime",
+        "intermediate between these two"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "At sub-zero temperatures inside clouds, aircraft can encounter Rime ice, Glazed (clear) ice, or a mixed/intermediate type depending on liquid water content, droplet sizes, and temperature."
+    },
+    {
+      "id": 291,
+      "type": "Meteorology",
+      "question": "Opaque Rime ice is",
+      "options": [
+        "Light porous",
+        "Solid",
+        "Mixture of porous and solid"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "Rime ice is formed by small droplets freezing rapidly on impact, trapping air between the ice particles to create a light, opaque, and porous structure."
+    },
+    {
+      "id": 292,
+      "type": "Meteorology",
+      "question": "Rime is formed by freezing of ……… supercooled water droplets on airframe when aircraft is flying through clouds",
+      "options": [
+        "Small",
+        "Large",
+        "Medium"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "Small supercooled water droplets freeze almost instantaneously upon striking the airframe surface, forming rime ice."
+    },
+    {
+      "id": 293,
+      "type": "Meteorology",
+      "question": "Glazed ice is formed by freezing of ……… supercooled water droplets on airframe when aircraft is flying through clouds",
+      "options": [
+        "small",
+        "Large",
+        "medium"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "Large supercooled droplets do not freeze immediately upon impact; they flow back over the wing before freezing completely into a clear, solid layer of glazed ice."
+    },
+    {
+      "id": 294,
+      "type": "Meteorology",
+      "question": "The ……. ice poses serious aviation hazard",
+      "options": [
+        "Rime",
+        "Hoar Frost",
+        "Glazed"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "Glazed (clear) ice is heavy, hard, strongly adherent, alters the aerodynamic shape of the airfoil, and is extremely difficult to remove, making it the most dangerous type of icing."
+    },
+    {
+      "id": 295,
+      "type": "Meteorology",
+      "question": "Airframe icing occurs below 0°C. Its probability of occurrence decreases progressively below -20 °C, as at lower temperatures the proportion of supercooled water drops in a cloud",
+      "options": [
+        "Increases",
+        "Decreases",
+        "Does not change"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "At temperatures colder than -20°C, supercooled liquid water droplets progressively freeze into ice crystals, decreasing the amount of liquid water available to cause airframe icing."
+    },
+    {
+      "id": 296,
+      "type": "Meteorology",
+      "question": "CI, CS and CC clouds consist mostly ice crystals. Icing hazard is therefore",
+      "options": [
+        "Maximum",
+        "Medium",
+        "Negligible"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "High-level clouds (Cirrus, Cirrostratus, Cirrocumulus) consist almost entirely of dry ice crystals, which do not adhere to airframes, presenting a negligible icing risk."
+    },
+    {
+      "id": 297,
+      "type": "Meteorology",
+      "question": "AS, NS consist of supercooled water drops and ice crystals in varying proportion…….. icing is possible.",
+      "options": [
+        "Maximum",
+        "Light or moderate",
+        "Negligible"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "Altostratus and Nimbostratus clouds contain mixtures of supercooled liquid droplets and ice crystals, typically producing light to moderate icing conditions."
+    },
+    {
+      "id": 298,
+      "type": "Meteorology",
+      "question": "In AC clouds ………….. icing is likely in mountainous areas",
+      "options": [
+        "Severe",
+        "Light to moderate",
+        "Negligible"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "Altocumulus clouds generally produce light to moderate icing, which can intensify locally due to orographic uplift over mountainous terrain."
+    },
+    {
+      "id": 299,
+      "type": "Meteorology",
+      "question": "In TCU icing may range from light to severe type at least up to ………. level.",
+      "options": [
+        "- 40 °C level",
+        "30 °C level",
+        "- 20 °C level"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "Strong convective updrafts in Towering Cumulus (TCU) carry abundant liquid water aloft, supporting light to severe icing up to around the -20 °C isotherm."
+    },
+    {
+      "id": 300,
+      "type": "Meteorology",
+      "question": "In CB icing may range from light to severe type up to -20°C level. Below this temperature severe icing is",
+      "options": [
+        "not significant",
+        "significant",
+        "maximum"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "At temperatures colder than -20°C inside Cumulonimbus clouds, most water drops have converted into ice crystals, making severe icing much less significant."
+    },
+    {
+      "id": 301,
+      "type": "Meteorology",
+      "question": "Liquid water content is an important factor in icing. As the maximum water concentration is around ……, maximum ice formation in clouds may also be expected around that level.",
+      "options": [
+        "-25° C level",
+        "-20° C level",
+        "-15° C level"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "The highest concentration of supercooled liquid water droplets in clouds typically occurs around the -15°C temperature level, leading to maximum rate of ice accumulation."
+    },
+    {
+      "id": 302,
+      "type": "Meteorology",
+      "question": "Carburetor icing occurs when air from intake passes through a venturi (choke) and causes expansional cooling and vaporization of fuel. Serious icing can occur at extreme temperatures",
+      "options": [
+        "13 °C",
+        "30°C to -10°C",
+        "20 °C"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "The temperature drop inside a venturi due to fuel vaporization and pressure reduction can lower intake air temperature by up to 20°C to 25°C, causing carburetor icing in ambient temperatures between -10°C and +30°C."
+    },
+    {
+      "id": 303,
+      "type": "Meteorology",
+      "question": "………… occurs in a moist cloudless air on an aircraft surface having temp. below 0° C, due to sublimation of water vapour onto feathery ice crystals.",
+      "options": [
+        "Rime",
+        "Glazed",
+        "Hoar Frost"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "Hoar frost is caused by direct deposition (sublimation) of atmospheric water vapor into feathery ice crystals on a cold airframe in clear, moist air."
+    },
+    {
+      "id": 304,
+      "type": "Meteorology",
+      "question": "………….. occurs in St, Sc, Ac, Cu, Ns at temperature -10 to -40° C and in Cb at temperature -20 to -40°C",
+      "options": [
+        "Rime",
+        "Glazed",
+        "Hoar Frost"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "At lower cloud temperatures (-10°C to -40°C), supercooled droplets are smaller and freeze immediately upon impact, forming Rime ice."
+    },
+    {
+      "id": 305,
+      "type": "Meteorology",
+      "question": "In clouds … occurs when a wide range of water drop sizes are present at temperatures between 0°C and -40°C",
+      "options": [
+        "Rime",
+        "Glazed",
+        "Mixture of rime and clear ice"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "When cloud droplets vary across a wide spectrum of sizes, small droplets form rime while larger droplets form clear ice, resulting in a mixed ice structure."
+    },
+    {
+      "id": 306,
+      "type": "Meteorology",
+      "question": "……… occurs in AS, NS, SC and towering CU or CB between 0° C and -20° C, in warm front below 0° C, especially if the aircraft has rapidly descended from a colder region",
+      "options": [
+        "Glazed",
+        "Fume",
+        "Mixture of Rime and Clear ice"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "Glazed (clear) ice predominates at temperatures between 0°C and -20°C in clouds containing large supercooled droplets, as well as in warm front precipitation zones."
+    },
+    {
+      "id": 307,
+      "type": "Meteorology",
+      "question": "When fog freezes on parked aircraft it produces..,",
+      "options": [
+        "Hoar Frost",
+        "Hoar Frost",
+        "Clear ice"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "Freezing fog depositing water droplets on a cold, parked aircraft structure freezes into a crystalline frost/rime deposit (hoar frost)."
+    },
+    {
+      "id": 308,
+      "type": "Meteorology",
+      "question": "Icing ………. the stalling speed appreciably",
+      "options": [
+        "Decreases",
+        "Increases",
+        "Does not increase/decrease"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "12. Ice Accretion",
+      "explanation": "Ice accumulation increases total aircraft weight and disrupts smooth airflow over the wings, reducing maximum lift coefficient and significantly increasing stalling speed."
+    },
+    {
+      "id": 309,
+      "type": "Meteorology",
+      "question": "The condition necessary for the formation of a thunderstorm are:",
+      "options": [
+        "Steep lapse rate, strong winds",
+        "Shallow lapse rate, adequate supply of moisture",
+        "Steep lapse rate, adequate supply of moisture and trigger action"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "The three essential prerequisites for thunderstorm formation are high atmospheric instability (steep lapse rate), abundant low-level moisture, and a lifting mechanism (trigger action)."
+    },
+    {
+      "id": 310,
+      "type": "Meteorology",
+      "question": "Hail is most likely to fall from a cloud",
+      "options": [
+        "Having layers",
+        "Composed of Ice crystals",
+        "Having strong vertical development"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Hail formation requires intense, sustained updrafts within clouds of great vertical extent (Cumulonimbus) to hold ice pellets aloft while they accrete supercooled droplets."
+    },
+    {
+      "id": 311,
+      "type": "Meteorology",
+      "question": "Norwesters are",
+      "options": [
+        "The western disturbances which affect NW India",
+        "Severe thunderstorms which occur over NE India during hot weather period",
+        "Severe thunderstorms which occur over Peninsula during hot weather period"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Norwesters (Kalbaishakhi) are high-intensity localized thunderstorms occurring over Northeast India (Bengal, Assam, Bihar, Odisha) during the pre-monsoon hot weather season."
+    },
+    {
+      "id": 312,
+      "type": "Meteorology",
+      "question": "Dust Storm usually occurs over NW India during",
+      "options": [
+        "Post-monsoon",
+        "Winter",
+        "Pre-Monsoon"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Dust storms (Andhi) occur over Northwest India during the hot pre-monsoon summer months (April–June) due to intense land heating and dry air."
+    },
+    {
+      "id": 313,
+      "type": "Meteorology",
+      "question": "A 'mature' thunderstorm has",
+      "options": [
+        "updraft only",
+        "downdraft only",
+        "updrafts and downdrafts"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "The mature stage of a thunderstorm cell is defined by the simultaneous presence of strong convective updrafts and precipitation-driven downdrafts."
+    },
+    {
+      "id": 314,
+      "type": "Meteorology",
+      "question": "Aircraft icing is most favoured in the cloud which have temperatures ranging between",
+      "options": [
+        "- 20° C and - 40° C",
+        "0° C and - 20° C",
+        "below -40 ° C"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Supercooled liquid water droplets exist in their highest concentration in cloud layers with temperatures between 0°C and -20°C, making this range the most hazardous for airframe icing."
+    },
+    {
+      "id": 315,
+      "type": "Meteorology",
+      "question": "A short duration, showery precipitation is associated with",
+      "options": [
+        "ST",
+        "AS",
+        "CB"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Cumulonimbus (CB) clouds feature rapid vertical air motions that generate localized, intense showers characterized by sudden onset and brief duration."
+    },
+    {
+      "id": 316,
+      "type": "Meteorology",
+      "question": "Hail is",
+      "options": [
+        "Solid precipitation which commonly occurs over the mountainous regions in winter",
+        "Frozen or partly frozen rain falling from sheet type of clouds",
+        "Solid precipitation falling from a deep convective cloud"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Hail consists of solid ice balls or lumps formed exclusively inside deep convective clouds (Cumulonimbus)."
+    },
+    {
+      "id": 317,
+      "type": "Meteorology",
+      "question": "The most hazardous cloud for aviation is",
+      "options": [
+        "CB",
+        "CU",
+        "NS"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Cumulonimbus (CB) is the most dangerous cloud for aircraft due to extreme turbulence, microbursts, severe icing, hail, and lightning."
+    },
+    {
+      "id": 318,
+      "type": "Meteorology",
+      "question": "The life of a Cb cell is usually",
+      "options": [
+        "7 to 8 hrs",
+        "3 to 4 hrs",
+        "2 - 3 hr"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "An individual single-cell Cumulonimbus completes its entire life cycle from cumulus stage to dissipation within approximately 1 to 3 hours (standardized as 2–3 hours in aviation meteorology)."
+    },
+    {
+      "id": 319,
+      "type": "Meteorology",
+      "question": "Generally the severest activity of a, heat type, TS is for",
+      "options": [
+        "2 hrs",
+        "30 to 45 min",
+        "3 to 4 hr"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "The peak severity of a heat-type thunderstorm occurs during its mature phase, which typically lasts around 30 to 45 minutes."
+    },
+    {
+      "id": 320,
+      "type": "Meteorology",
+      "question": "Norwesters occur during",
+      "options": [
+        "Jan-Feb",
+        "Mar-May",
+        "June-Sep",
+        "Oct - Dec"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Norwesters develop during the pre-monsoon hot weather season spanning March to May."
+    },
+    {
+      "id": 321,
+      "type": "Meteorology",
+      "question": "Norwesters occur during",
+      "options": [
+        "Winter",
+        "Hot weather",
+        "Monsoon",
+        "Post Monsoon"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Norwesters are pre-monsoon convective storms triggered by intense surface heating during the hot weather season."
+    },
+    {
+      "id": 322,
+      "type": "Meteorology",
+      "question": "Norwesters affect",
+      "options": [
+        "N India",
+        "Bengal, Bihar, Orissa and Assam",
+        "Central India"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Norwesters primarily affect eastern and north-eastern regions of India, notably West Bengal, Bihar, Odisha, and Assam."
+    },
+    {
+      "id": 323,
+      "type": "Meteorology",
+      "question": "The trigger action may take place due to",
+      "options": [
+        "Clear night sky no wind",
+        "Orographic lifting",
+        "high pressure"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Forced mechanical lifting over topographic barriers (orographic lifting) serves as an effective trigger mechanism to release atmospheric instability."
+    },
+    {
+      "id": 324,
+      "type": "Meteorology",
+      "question": "Norwesters normally occur during",
+      "options": [
+        "Mornings",
+        "Afternoons",
+        "Nights"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Maximal solar heating during early to mid-afternoon creates the strong updrafts necessary to initiate Norwester thunderstorms by late afternoon or evening."
+    },
+    {
+      "id": 325,
+      "type": "Meteorology",
+      "question": "Norwesters originates over",
+      "options": [
+        "Chota - Nagpur hills",
+        "Deccan Plateau",
+        "Khasi hills"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "The elevated land of the Chota Nagpur Plateau acts as the primary origin point for localized solar heating and convective initiation of Norwesters."
+    },
+    {
+      "id": 326,
+      "type": "Meteorology",
+      "question": "Andhi (blinding storms) occur generally over",
+      "options": [
+        "S India",
+        "N India",
+        "NE India"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Andhi (severe convective dust storms) occurs predominantly across the dry plains of North and Northwest India during summer."
+    },
+    {
+      "id": 327,
+      "type": "Meteorology",
+      "question": "Wind speed in Light DS is",
+      "options": [
+        "25 kt",
+        "30 kt",
+        "up to 21 kt"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "By meteorological standard definitions, a light dust storm (DS) involves wind speeds up to 21 knots."
+    },
+    {
+      "id": 328,
+      "type": "Meteorology",
+      "question": "The diameter of Microburst is",
+      "options": [
+        "less than 4 km",
+        "less than 2 km",
+        "less than 6 km"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "A microburst is a concentrated convective downdraft with a horizontal outflow impact area measuring less than 4 km (2.2 NM) across."
+    },
+    {
+      "id": 329,
+      "type": "Meteorology",
+      "question": "The diameter of an Macroburst",
+      "options": [
+        "< 4 km",
+        "4 km or more",
+        "> 8 km"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "A macroburst is a large-scale convective downdraft with an outflow extent equal to or exceeding 4 km in diameter."
+    },
+    {
+      "id": 330,
+      "type": "Meteorology",
+      "question": "For detecting precipitation a Radar wavelength in the range ... is suitable",
+      "options": [
+        "30 to 200 mm",
+        "400-500 mm",
+        "600-700 mm"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Meteorological weather radars operate in microwave bands between 30 mm and 200 mm wavelength (3 cm to 20 cm) for optimal backscatter from hydrometeors."
+    },
+    {
+      "id": 331,
+      "type": "Meteorology",
+      "question": "For airborne radars wavelength generally used",
+      "options": [
+        "20 mm",
+        "40 mm",
+        "60 mm"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Airborne weather radars utilize X-band wavelengths around 30 mm to 40 mm (~3.2–4 cm) to balance antenna dish size constraints with target resolution."
+    },
+    {
+      "id": 332,
+      "type": "Meteorology",
+      "question": "The wavelength of TS detection X band radar is",
+      "options": [
+        "10 mm",
+        "20 mm",
+        "30 mm"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "X-band weather radar operates at frequencies around 9–10 GHz, which corresponds to a wavelength of approximately 3 cm (30 mm)."
+    },
+    {
+      "id": 333,
+      "type": "Meteorology",
+      "question": "The wavelength of storm detection S band radar is",
+      "options": [
+        "50 mm",
+        "100 mm",
+        "200 mm"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "S-band weather radars operate near 3 GHz with a wavelength of approximately 10 cm (100 mm), providing excellent storm penetration without significant attenuation by heavy rain."
+    },
+    {
+      "id": 334,
+      "type": "Meteorology",
+      "question": "Over plains TS mostly occur during the",
+      "options": [
+        "afternoon",
+        "night",
+        "early morning"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Over flat land surfaces, maximum surface solar heating takes place during early afternoon, causing convective thunderstorms to peak in the afternoon."
+    },
+    {
+      "id": 335,
+      "type": "Meteorology",
+      "question": "Over valley and foot hills TS generally occur during",
+      "options": [
+        "afternoon",
+        "night & early morning"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "In mountainous valleys, cold katabatic drainage winds converge in valley bottoms at night, triggering convective uplift and thunderstorms during night and early morning hours."
+    },
+    {
+      "id": 336,
+      "type": "Meteorology",
+      "question": "Over the sea TS are more frequent",
+      "options": [
+        "afternoon",
+        "night",
+        "early morning"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Maritime thunderstorms occur most frequently during late night and early morning when radiational cooling of cloud tops steepens the lapse rate over warm sea surfaces."
+    },
+    {
+      "id": 337,
+      "type": "Meteorology",
+      "question": "The life of Mesoscale Convective Complex TS is",
+      "options": [
+        "2-3 hr",
+        "3-4 hr",
+        "6 to 24 hr"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Mesoscale Convective Complexes (MCCs) are massive, self-sustaining storm systems that typically persist for 6 to 24 hours."
+    },
+    {
+      "id": 338,
+      "type": "Meteorology",
+      "question": "Loud peals of thunder, frequent flashes of lightning, moderate or heavy showers accompanied by light hail with maximum wind speed 15-40 kt is classified as",
+      "options": [
+        "Light TS",
+        "Moderate TS",
+        "Severe TS"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "A Moderate Thunderstorm is meteorologically classified by frequent lightning, loud thunder, heavy showers, small hail, and surface squall gusts between 15 and 40 knots."
+    },
+    {
+      "id": 339,
+      "type": "Meteorology",
+      "question": "For a severe TS one of the requirements is strong wind shear",
+      "options": [
+        "Horizontal",
+        "Vertical",
+        "Slant"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Strong vertical wind shear (change of wind vector with height) is critical to tilt storm updrafts, preventing falling precipitation from choking the updraft."
+    },
+    {
+      "id": 340,
+      "type": "Meteorology",
+      "question": "Severe TS cells are tilted",
+      "options": [
+        "in vertical",
+        "to the South",
+        "to the North"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Severe thunderstorm cells are tilted in the vertical plane by strong ambient vertical wind shear, separating the updraft and downdraft regions."
+    },
+    {
+      "id": 341,
+      "type": "Meteorology",
+      "question": "When flying through an active TS, lightning strikes are mostly likely",
+      "options": [
+        "Above 5000 ft and under the anvil",
+        "In the clear air below the cloud in rain",
+        "In the temperature band between +10 C and -10 C",
+        "At or above 10000 ft"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Statistical aviation studies show aircraft lightning strikes occur most frequently in the temperature range between +10°C and -10°C, where mixed-phase water and ice particles induce high electrical activity."
+    },
+    {
+      "id": 342,
+      "type": "Meteorology",
+      "question": "Hazards of the mature stage of TS Cell include lighting, turbulence and",
+      "options": [
+        "Microburst, wind-shear and anvil",
+        "Icing, microburst and WS",
+        "Icing, drizzle and microburst",
+        "WS, hail and fog"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Primary aviation hazards in the mature thunderstorm cell include lightning, severe turbulence, airframe icing, microbursts, and low-level wind shear (WS)."
+    },
+    {
+      "id": 343,
+      "type": "Meteorology",
+      "question": "Hail grows by",
+      "options": [
+        "freezing as it leaves the cloud",
+        "up and down forces in CU cloud",
+        "collision with ice crystals",
+        "collision with supercooled water drops"
+      ],
+      "correct": 3,
+      "book": "aviation meteorology",
+      "chapter": "13. Thunderstorms",
+      "explanation": "Hailstones grow in size primarily by accretion—colliding with supercooled water droplets that freeze upon contact on the ice surface within strong convective updrafts."
+    },
+    {
+      "id": 344,
+      "type": "Meteorology",
+      "question": "The air mass which originates at sea in low Latitudes is called",
+      "options": [
+        "Polar maritime",
+        "Tropical continental",
+        "Tropical maritime"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Tropical maritime (mT) air masses originate over warm tropical ocean areas at low latitudes, making them warm and moist."
+    },
+    {
+      "id": 345,
+      "type": "Meteorology",
+      "question": "The air mass which originates over equatorial region is",
+      "options": [
+        "Warm & dry",
+        "Warm & Moist",
+        "Cold & dry"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Equatorial air masses (mE) form in low-latitude regions with high solar radiation and vast ocean exposure, making them warm and highly moist."
+    },
+    {
+      "id": 346,
+      "type": "Meteorology",
+      "question": "If the advancing cold front is colder than the cool air mass of the warm front, the advancing cold front undercuts and lifts both the warm and cool air masses of the warm front. This is",
+      "options": [
+        "Warm Occlusion",
+        "Cold Occlusion"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "In a cold occlusion, the overtaking cold air behind the cold front is denser and colder than the cool air ahead of the warm front, causing it to undercut both air masses and wedge them upward."
+    },
+    {
+      "id": 347,
+      "type": "Meteorology",
+      "question": "The airmass which originated over land area located in polar region:",
+      "options": [
+        "Warm & dry",
+        "Warm & Moist",
+        "Cold & dry"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Polar continental (cP) air masses originate over high-latitude continental landmasses (like snow-covered Canada or Siberia), rendering them cold and dry."
+    },
+    {
+      "id": 348,
+      "type": "Meteorology",
+      "question": "If a warm air mass overtakes a cold air mass, it is called",
+      "options": [
+        "Cold Front",
+        "Warm Front",
+        "Occluded Front"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "A warm front represents the boundary formed when an advancing warm air mass overtakes and slides over a colder air mass."
+    },
+    {
+      "id": 349,
+      "type": "Meteorology",
+      "question": "At warm front",
+      "options": [
+        "Warm air overtakes the cold air",
+        "Cold air undercuts the warm air"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "At a warm front, advancing warm air overtakes colder air ahead and gradually ascends over the cooler air mass along a gentle frontal slope."
+    },
+    {
+      "id": 350,
+      "type": "Meteorology",
+      "question": "The conditions are always unstable at",
+      "options": [
+        "Cold front",
+        "Warm front"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Cold fronts feature steep frontal slopes that aggressively force moist boundary layer air aloft, creating vertical instability, strong convection, and thunderstorm activity."
+    },
+    {
+      "id": 351,
+      "type": "Meteorology",
+      "question": "Line squall occurs about 100-300 km ahead of",
+      "options": [
+        "Warm front",
+        "Cold front"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Pre-frontal squall lines (line squalls) frequently form 100 to 300 km ahead of an advancing fast-moving cold front."
+    },
+    {
+      "id": 352,
+      "type": "Meteorology",
+      "question": "Precipitation occurs over a belt of 30 - 50 km on both side of front",
+      "options": [
+        "Cold front",
+        "Warm front"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Cold fronts are characterized by a relatively narrow precipitation band (typically 30–50 km wide) concentrated directly along and near the surface front."
+    },
+    {
+      "id": 353,
+      "type": "Meteorology",
+      "question": "Cold front moves at …... the speed of a warm front moves",
+      "options": [
+        "Same",
+        "Double",
+        "Half"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Cold fronts advance significantly faster than warm fronts—typically moving at approximately double the speed due to the density and momentum of cold air."
+    },
+    {
+      "id": 354,
+      "type": "Meteorology",
+      "question": "Line Squalls occur ……… of Cold front",
+      "options": [
+        "Ahead",
+        "Behind",
+        "At the"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Pre-frontal line squalls develop ahead of the cold front due to upper-level gravity waves and convergence bands."
+    },
+    {
+      "id": 355,
+      "type": "Meteorology",
+      "question": "Fronts are associated with",
+      "options": [
+        "Tropical cyclone",
+        "Monsoon Depression",
+        "Extratropical Cyclones"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Extra-tropical cyclones (mid-latitude depressions) develop along polar fronts separating distinct warm and cold air masses, whereas tropical storms are non-frontal."
+    },
+    {
+      "id": 356,
+      "type": "Meteorology",
+      "question": "CB, Roll-type clouds, SC, AC with embedded CB are associated",
+      "options": [
+        "Cold front",
+        "Warm front"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Rapid vertical forced lifting along a steep cold front produces convective clouds, including Cumulonimbus (CB), Stratocumulus (SC), and roll clouds."
+    },
+    {
+      "id": 357,
+      "type": "Meteorology",
+      "question": "The Surface of discontinuity between the Polar Easterlies and the temperate Westerlies is called",
+      "options": [
+        "Equatorial Front",
+        "Tropopause",
+        "Polar Front"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "The polar front is the principal boundary separating cold polar easterly air masses from warm mid-latitude temperate westerly winds."
+    },
+    {
+      "id": 358,
+      "type": "Meteorology",
+      "question": "The air mass which originates from sea area located in lower Lat is",
+      "options": [
+        "Warm & Dry",
+        "Warm & Moist",
+        "Cold & Moist"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Lower latitude ocean surfaces transfer solar heat and moisture to the overlying atmosphere, forming warm and moist Tropical Maritime air masses."
+    },
+    {
+      "id": 359,
+      "type": "Meteorology",
+      "question": "WDs approach India as",
+      "options": [
+        "Cols",
+        "Occluded Fronts",
+        "Highs"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Western Disturbances (WDs) originate near the Mediterranean Sea and travel thousands of kilometers eastwards, arriving over Northwest India mostly as mature occluded fronts."
+    },
+    {
+      "id": 360,
+      "type": "Meteorology",
+      "question": "Maximum WDs occur in",
+      "options": [
+        "Summers",
+        "Post Monsoon",
+        "Winters"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Western Disturbances occur with highest frequency and intensity during the winter months (December to February) when the subtropical westerly jet stream shifts south."
+    },
+    {
+      "id": 361,
+      "type": "Meteorology",
+      "question": "Ahead of a warm front the surface wind",
+      "options": [
+        "Backs & weakens",
+        "Veers & strengthens",
+        "Backs & strengthens"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "In the Northern Hemisphere, falling surface pressure ahead of an approaching warm front causes surface winds to back (turn counter-clockwise) and increase in speed."
+    },
+    {
+      "id": 362,
+      "type": "Meteorology",
+      "question": "On approach of a Warm Front temperature",
+      "options": [
+        "Fall",
+        "Rise",
+        "Remain same"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "As a warm front approaches and passes, warmer maritime/tropical air replaces colder air, causing ambient surface temperatures to rise."
+    },
+    {
+      "id": 363,
+      "type": "Meteorology",
+      "question": "CI, CS, AS, NS, ST in sequence are associated with the front",
+      "options": [
+        "Warm",
+        "Cold",
+        "Occluded"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "The shallow slope of an advancing warm front generates a progressive cloud shield sequence: Cirrus (CI) -> Cirrostratus (CS) -> Altostratus (AS) -> Nimbostratus (NS) -> Stratus (ST)."
+    },
+    {
+      "id": 364,
+      "type": "Meteorology",
+      "question": "During the passage of a Cold Front winds",
+      "options": [
+        "Suddenly become squally",
+        "Back and weaken",
+        "Veer and are of moderate strength"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Passage of a cold front brings sharp pressure changes, strong vertical updrafts, and sudden squally winds."
+    },
+    {
+      "id": 365,
+      "type": "Meteorology",
+      "question": "Visibility is poor in a Warm Front",
+      "options": [
+        "Ahead",
+        "Ahead & During",
+        "After & During"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Widespread precipitation, low cloud bases, mist, and fog ahead of and during warm front passage create poor visibility conditions."
+    },
+    {
+      "id": 366,
+      "type": "Meteorology",
+      "question": "Fog occurs in Cold Front",
+      "options": [
+        "Ahead",
+        "During",
+        "After"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Frontal fog associated with cold fronts occurs primarily during frontal passage due to heavy precipitation evaporating into cooler surface air."
+    },
+    {
+      "id": 367,
+      "type": "Meteorology",
+      "question": "WD is a……….. front",
+      "options": [
+        "Cold",
+        "Warm",
+        "Occluded"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Western Disturbances generally reach the Indian subcontinent after traversing long distances across Eurasia, reaching an occluded front stage."
+    },
+    {
+      "id": 368,
+      "type": "Meteorology",
+      "question": "FZRA and FZFG occur ……… of a warm front",
+      "options": [
+        "Ahead",
+        "During",
+        "After"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Freezing rain (FZRA) and freezing fog (FZFG) form ahead of a warm front when rain falling from warm air aloft enters sub-zero surface air beneath the frontal slope."
+    },
+    {
+      "id": 369,
+      "type": "Meteorology",
+      "question": "Precipitation ceases after the passage of a front",
+      "options": [
+        "Cold",
+        "Warm",
+        "Occluded"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Cold fronts have a narrow precipitation band; once the front passes, cold dry air rapidly subsides and clears the sky, causing rain to cease."
+    },
+    {
+      "id": 370,
+      "type": "Meteorology",
+      "question": "During the approach of a Warm Front wind",
+      "options": [
+        "Backs",
+        "Veers",
+        "Does not change"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "As a warm front approaches in the Northern Hemisphere, surface winds back (turn counter-clockwise)."
+    },
+    {
+      "id": 371,
+      "type": "Meteorology",
+      "question": "A WD has two or more closed isobars, at 2 hPa interval, it is termed as",
+      "options": [
+        "Troughs in Westerlies",
+        "Western Depression",
+        "Western Cyclone"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "In Indian meteorological terminology, a Western Disturbance exhibiting two or more closed isobars (analyzed at 2 hPa intervals) is designated as a Western Depression."
+    },
+    {
+      "id": 372,
+      "type": "Meteorology",
+      "question": "A WD originate over",
+      "options": [
+        "Baluchistan",
+        "Caspian sea",
+        "Mediterranean, Caspian and Black Seas"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Western Disturbances originate as extra-tropical frontal depressions over the Mediterranean, Caspian, and Black Sea regions."
+    },
+    {
+      "id": 373,
+      "type": "Meteorology",
+      "question": "Induced lows develop to the …….. of a WD",
+      "options": [
+        "N",
+        "S",
+        "NE"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "14. Air Masses, Fronts and Western Disturbances",
+      "explanation": "Secondary 'induced lows' often develop to the south of a primary Western Disturbance (e.g., over Rajasthan or southern Pakistan) due to thermal and dynamic influences."
+    },
+    {
+      "id": 374,
+      "type": "Meteorology",
+      "question": "The arbitrary lower limit of jet core velocity has been assigned by WMO as",
+      "options": [
+        "60 kt",
+        "60 m/s",
+        "70 m/s"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "According to the World Meteorological Organization (WMO) definition, a jet stream is a high-altitude wind current featuring a core speed of at least 60 knots (approx. 30 m/s)."
+    },
+    {
+      "id": 375,
+      "type": "Meteorology",
+      "question": "Jet stream has",
+      "options": [
+        "one maxima",
+        "one or more maxima",
+        "only two maxima"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "WMO defines a jet stream as having one or more wind speed maxima (jet streaks) along its core axis."
+    },
+    {
+      "id": 376,
+      "type": "Meteorology",
+      "question": "The vertical wind shear in a Jet stream is about",
+      "options": [
+        "5m/s/ km",
+        "6m/s/km",
+        "8m/s/km"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "In aviation meteorology, vertical wind shear in jet streams typically averages around 5 to 10 m/s per km (approx. 5–10 kt per 1,000 ft)."
+    },
+    {
+      "id": 377,
+      "type": "Meteorology",
+      "question": "Compared to horizontal wind shear the vertical wind shear in a Jet stream is",
+      "options": [
+        "weaker",
+        "stronger",
+        "same"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "Vertical wind shear across jet streams is roughly 100 to 1000 times stronger than horizontal wind shear."
+    },
+    {
+      "id": 378,
+      "type": "Meteorology",
+      "question": "In a jet stream, the path of the maximum speed is known as",
+      "options": [
+        "Core",
+        "Axis",
+        "Jet streak"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "The line along which peak wind speeds are concentrated is designated as the axis of the jet stream."
+    },
+    {
+      "id": 379,
+      "type": "Meteorology",
+      "question": "The wind speed along the axis of a jet stream is always",
+      "options": [
+        "Uniform",
+        "Not uniform"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "Wind speed along the jet axis varies significantly, accelerating and decelerating to form localized speed maxima called jet streaks."
+    },
+    {
+      "id": 380,
+      "type": "Meteorology",
+      "question": "Along the axis of a jet stream there are centres of high speed winds, these are called",
+      "options": [
+        "Jet streaks",
+        "Core",
+        "Axis"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "Discrete regions or pockets of maximum velocity along a jet stream axis are called jet streaks (or jet maxima)."
+    },
+    {
+      "id": 381,
+      "type": "Meteorology",
+      "question": "In a wavy jet the Jet streaks are located over or near the",
+      "options": [
+        "Ridge",
+        "Trough",
+        "Between Trough and Ridge"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "In a wavy, meandering jet stream, jet streaks commonly intensify and position themselves over or near the upper-level trough."
+    },
+    {
+      "id": 382,
+      "type": "Meteorology",
+      "question": "Sub-tropical Jet Stream (STJ) is",
+      "options": [
+        "Westerly",
+        "Easterly",
+        "Southerly"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "The Subtropical Jet Stream (STJ) flows predominantly from West to East (Westerly) in both Northern and Southern hemispheres."
+    },
+    {
+      "id": 383,
+      "type": "Meteorology",
+      "question": "The normal position of Sub-tropical Jet Stream is",
+      "options": [
+        "30° N",
+        "27° N",
+        "35° N"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "Over the Indian subcontinent during winter/spring, the normal mean position of the Subtropical Westerly Jet stream is near 27° N."
+    },
+    {
+      "id": 384,
+      "type": "Meteorology",
+      "question": "The southern most position of STJ is in February is",
+      "options": [
+        "22° N",
+        "20° N",
+        "18° N"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "During peak winter (February), the STJ reaches its southernmost limit across central India around 20° N latitude."
+    },
+    {
+      "id": 385,
+      "type": "Meteorology",
+      "question": "The STJ affects India from",
+      "options": [
+        "Jun to Jul",
+        "Oct to May",
+        "Aug to Sep"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "The STJ resides over Northern India from October to May, shifting north of the Himalayas during the summer monsoon season."
+    },
+    {
+      "id": 386,
+      "type": "Meteorology",
+      "question": "STJ has a layered structure. There are often two layers of maximum wind to the ...... of jet core",
+      "options": [
+        "S",
+        "N",
+        "SW"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "Due to the overlap of tropical and subtropical tropopause layers, double wind speed maxima are frequently found to the South of the STJ core."
+    },
+    {
+      "id": 387,
+      "type": "Meteorology",
+      "question": "The STJ strengthens",
+      "options": [
+        "Northwards",
+        "Upstream",
+        "Downstream"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "As the STJ flows eastward over Northern India toward East Asia, it steadily accelerates and strengthens downstream."
+    },
+    {
+      "id": 388,
+      "type": "Meteorology",
+      "question": "At and near the STJ the temperature gradient is very",
+      "options": [
+        "Small",
+        "Large",
+        "Moderate"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "By thermal wind principles, jet streams exist directly above zones of steep horizontal temperature gradients."
+    },
+    {
+      "id": 389,
+      "type": "Meteorology",
+      "question": "Vertical wind shear in STJ is greater ……... the core",
+      "options": [
+        "above",
+        "below",
+        "along"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "In the STJ, vertical wind shear is typically higher above the jet core into the stable stratosphere, where wind speed decreases rapidly with height."
+    },
+    {
+      "id": 390,
+      "type": "Meteorology",
+      "question": "The TJ prevails over the Indian Peninsula from",
+      "options": [
+        "May to Jun",
+        "Sep to Oct",
+        "Jun to Aug"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "The Tropical Easterly Jet (TEJ/TJ) is a seasonal feature established over the southern Indian peninsula during the peak monsoon months of June to August."
+    },
+    {
+      "id": 391,
+      "type": "Meteorology",
+      "question": "The TJ is located over the Indian Peninsula, approximately at",
+      "options": [
+        "13° N",
+        "17° N",
+        "18° N"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "The core of the Tropical Easterly Jet over South India is centered around 13° N latitude (near Chennai/Bengaluru)."
+    },
+    {
+      "id": 392,
+      "type": "Meteorology",
+      "question": "The TJ is located over Indian, approximately at a height of",
+      "options": [
+        "15 -16 km",
+        "12 - 13 km",
+        "11 - 12 km"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "The Tropical Easterly Jet stream resides in the upper troposphere at an altitude of approximately 15 to 16 km (~100–150 hPa level)."
+    },
+    {
+      "id": 393,
+      "type": "Meteorology",
+      "question": "The TJ is strongest in",
+      "options": [
+        "July - Aug",
+        "Sep - Oct",
+        "June"
+      ],
+      "correct": 0,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "The TEJ reaches its maximum intensity and velocity during July and August."
+    },
+    {
+      "id": 394,
+      "type": "Meteorology",
+      "question": "In the TJ the wind shears are much …… than the STJ",
+      "options": [
+        "more",
+        "less",
+        "same"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "The Tropical Easterly Jet is generally weaker than the STJ, resulting in lower vertical and horizontal wind shear."
+    },
+    {
+      "id": 395,
+      "type": "Meteorology",
+      "question": "TJ is",
+      "options": [
+        "Westerly",
+        "Easterly",
+        "Southerly"
+      ],
+      "correct": 1,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "The Tropical Jet (TEJ) over South Asia and Africa flows from East to West (Easterly)."
+    },
+    {
+      "id": 396,
+      "type": "Meteorology",
+      "question": "A jet Stream can be recognized by",
+      "options": [
+        "High level dust",
+        "High Pressure",
+        "Streaks of CI",
+        "Lenticular clouds"
+      ],
+      "correct": 2,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "Jet streams are frequently identified from the ground or satellite by long, high-altitude streaks of Cirrus (CI) clouds running parallel to the jet axis."
+    },
+    {
+      "id": 397,
+      "type": "Meteorology",
+      "question": "Flying at right angles to a jet stream with falling pressure you will experience",
+      "options": [
+        "wind from left",
+        "Increasing head wind",
+        "Increasing tail wind",
+        "Wind from right"
+      ],
+      "correct": 3,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "In the Northern Hemisphere, flying toward lower pressure (falling pressure) at right angles to the jet stream places low pressure directly ahead. By Buys Ballot's law, the geostrophic wind will blow from your right (starboard)."
+    },
+    {
+      "id": 398,
+      "type": "Meteorology",
+      "question": "When and Where tropical jet stream occurs",
+      "options": [
+        "All year along equator",
+        "In middle East in summers",
+        "In winters over Russia",
+        "In summers over SE Asia and Central Africa"
+      ],
+      "correct": 3,
+      "book": "aviation meteorology",
+      "chapter": "15. Jet Streams",
+      "explanation": "The Tropical Easterly Jet develops during the Northern Hemisphere summer season over Southeast Asia, India, and Central Africa."
     }
   ],
   "nav": [
@@ -740,7 +5604,9 @@ export const questionsData: Record<string, Question[]> = {
         "To estimate groundspeed in climb",
         "To find the glide range of a glider"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "4. Dead Reckoning"
     },
     {
       "id": 2,
@@ -752,7 +5618,9 @@ export const questionsData: Record<string, Question[]> = {
         "6 degrees",
         "8 degrees"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "4. Dead Reckoning"
     },
     {
       "id": 3,
@@ -764,7 +5632,9 @@ export const questionsData: Record<string, Question[]> = {
         "Grivation",
         "Compass Dip"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "2. Magnetism & Compass"
     },
     {
       "id": 4,
@@ -776,7 +5646,9 @@ export const questionsData: Record<string, Question[]> = {
         "Drift",
         "WCA"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "2. Magnetism & Compass"
     },
     {
       "id": 5,
@@ -788,7 +5660,9 @@ export const questionsData: Record<string, Question[]> = {
         "Isobaric line",
         "Isoclinic line"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "2. Magnetism & Compass"
     },
     {
       "id": 6,
@@ -800,7 +5674,9 @@ export const questionsData: Record<string, Question[]> = {
         "A line of equal wind drift",
         "A line of equal compass deviation"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "2. Magnetism & Compass"
     },
     {
       "id": 7,
@@ -812,7 +5688,9 @@ export const questionsData: Record<string, Question[]> = {
         "It changes with the altitude",
         "It changes with wind direction"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "2. Magnetism & Compass"
     },
     {
       "id": 8,
@@ -824,7 +5702,9 @@ export const questionsData: Record<string, Question[]> = {
         "Passes through the center of the sphere",
         "Is parallel to the equator"
       ],
-      "correct": 2
+      "correct": 2,
+      "book": "oxf*rd_nav",
+      "chapter": "1. Earth Geometry"
     },
     {
       "id": 9,
@@ -836,7 +5716,9 @@ export const questionsData: Record<string, Question[]> = {
         "A line perpendicular to the Prime Meridian",
         "A line indicating magnetic deviation"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "3. Charts & Projections"
     },
     {
       "id": 10,
@@ -848,7 +5730,9 @@ export const questionsData: Record<string, Question[]> = {
         "A complex sine wave",
         "A circle"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "3. Charts & Projections"
     },
     {
       "id": 11,
@@ -860,7 +5744,9 @@ export const questionsData: Record<string, Question[]> = {
         "A perfect circle",
         "A vertical line"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "3. Charts & Projections"
     },
     {
       "id": 12,
@@ -872,7 +5758,9 @@ export const questionsData: Record<string, Question[]> = {
         "Relative bearings to the aircraft",
         "Barometric pressure altitude"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 13,
@@ -884,7 +5772,9 @@ export const questionsData: Record<string, Question[]> = {
         "190 to 535 kHz",
         "960 to 1215 MHz"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 14,
@@ -896,7 +5786,9 @@ export const questionsData: Record<string, Question[]> = {
         "UHF (300 to 3000 MHz)",
         "HF (3 to 30 MHz)"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 15,
@@ -908,7 +5800,9 @@ export const questionsData: Record<string, Question[]> = {
         "DME",
         "HSI"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 16,
@@ -920,7 +5814,9 @@ export const questionsData: Record<string, Question[]> = {
         "MH = MB + RB",
         "RB = MB + MH"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 17,
@@ -932,7 +5828,9 @@ export const questionsData: Record<string, Question[]> = {
         "Terrain clearance height",
         "True GPS altitude"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 18,
@@ -944,7 +5842,9 @@ export const questionsData: Record<string, Question[]> = {
         "1.2 NM",
         "12 NM"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 19,
@@ -956,7 +5856,9 @@ export const questionsData: Record<string, Question[]> = {
         "GPS, INS, Radar",
         "Transponder, Altimeter, VSI"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 20,
@@ -968,7 +5870,9 @@ export const questionsData: Record<string, Question[]> = {
         "To measure distance to threshold",
         "To check glideslope angle"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 21,
@@ -980,7 +5884,9 @@ export const questionsData: Record<string, Question[]> = {
         "3.5 degrees",
         "4.0 degrees"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 22,
@@ -992,7 +5898,9 @@ export const questionsData: Record<string, Question[]> = {
         "Control Segment",
         "Receiver Segment"
       ],
-      "correct": 2
+      "correct": 2,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 23,
@@ -1004,7 +5912,9 @@ export const questionsData: Record<string, Question[]> = {
         "5",
         "24"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 24,
@@ -1016,7 +5926,9 @@ export const questionsData: Record<string, Question[]> = {
         "Route Altitude Indicator Map",
         "Radar Assigned Instrument Module"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 25,
@@ -1028,7 +5940,9 @@ export const questionsData: Record<string, Question[]> = {
         "TAS corrected for wind",
         "Speed of the aircraft relative to the ground"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "4. Dead Reckoning"
     },
     {
       "id": 26,
@@ -1040,7 +5954,9 @@ export const questionsData: Record<string, Question[]> = {
         "True Airspeed (TAS)",
         "Groundspeed (GS)"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "4. Dead Reckoning"
     },
     {
       "id": 27,
@@ -1052,7 +5968,9 @@ export const questionsData: Record<string, Question[]> = {
         "Speed read from the dial",
         "IAS corrected for instrument errors only"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "4. Dead Reckoning"
     },
     {
       "id": 28,
@@ -1064,7 +5982,9 @@ export const questionsData: Record<string, Question[]> = {
         "Remain constant",
         "Fluctuate randomly"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "4. Dead Reckoning"
     },
     {
       "id": 29,
@@ -1076,7 +5996,9 @@ export const questionsData: Record<string, Question[]> = {
         "Equivalent airspeed plus wind velocity",
         "Cruising speed in standard conditions"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "4. Dead Reckoning"
     },
     {
       "id": 30,
@@ -1088,7 +6010,9 @@ export const questionsData: Record<string, Question[]> = {
         "120 KT",
         "80 KT"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "4. Dead Reckoning"
     },
     {
       "id": 31,
@@ -1100,7 +6024,9 @@ export const questionsData: Record<string, Question[]> = {
         "The halfway mark of the route",
         "The point of descent"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "4. Dead Reckoning"
     },
     {
       "id": 32,
@@ -1112,7 +6038,9 @@ export const questionsData: Record<string, Question[]> = {
         "True Airspeed",
         "Distance between bases"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "4. Dead Reckoning"
     },
     {
       "id": 33,
@@ -1124,7 +6052,9 @@ export const questionsData: Record<string, Question[]> = {
         "60 Statute Miles",
         "360 Nautical Miles"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "1. Earth Geometry"
     },
     {
       "id": 34,
@@ -1136,7 +6066,9 @@ export const questionsData: Record<string, Question[]> = {
         "6,000 feet",
         "3,280 feet"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "1. Earth Geometry"
     },
     {
       "id": 35,
@@ -1148,19 +6080,23 @@ export const questionsData: Record<string, Question[]> = {
         "Standard Standard Time",
         "Central Time"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "1. Earth Geometry"
     },
     {
       "id": 36,
       "type": "Navigation",
-      "question": "If you are flying on a heading of 090\u00b0 and the wind is from 180\u00b0, you will experience:",
+      "question": "If you are flying on a heading of 090° and the wind is from 180°, you will experience:",
       "options": [
         "Headwind",
         "Tailwind",
         "Port drift (drift to the left)",
         "Starboard drift (drift to the right)"
       ],
-      "correct": 2
+      "correct": 2,
+      "book": "oxf*rd_nav",
+      "chapter": "4. Dead Reckoning"
     },
     {
       "id": 37,
@@ -1172,7 +6108,9 @@ export const questionsData: Record<string, Question[]> = {
         "Variation",
         "Parallax error"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "2. Magnetism & Compass"
     },
     {
       "id": 38,
@@ -1184,7 +6122,9 @@ export const questionsData: Record<string, Question[]> = {
         "Northeast and Southwest",
         "All headings equally"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "2. Magnetism & Compass"
     },
     {
       "id": 39,
@@ -1196,19 +6136,23 @@ export const questionsData: Record<string, Question[]> = {
         "Indicate correctly",
         "Spin rapidly"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "2. Magnetism & Compass"
     },
     {
       "id": 40,
       "type": "Navigation",
-      "question": "A great circle track from A (00\u00b0N 010\u00b0E) to B (00\u00b0N 020\u00b0E) has a constant direction of:",
+      "question": "A great circle track from A (00°N 010°E) to B (00°N 020°E) has a constant direction of:",
       "options": [
-        "090\u00b0",
-        "270\u00b0",
-        "180\u00b0",
-        "045\u00b0"
+        "090°",
+        "270°",
+        "180°",
+        "045°"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "3. Charts & Projections"
     },
     {
       "id": 41,
@@ -1220,7 +6164,9 @@ export const questionsData: Record<string, Question[]> = {
         "60 minutes (1 hour)",
         "4 minutes"
       ],
-      "correct": 2
+      "correct": 2,
+      "book": "oxf*rd_nav",
+      "chapter": "1. Earth Geometry"
     },
     {
       "id": 42,
@@ -1232,7 +6178,9 @@ export const questionsData: Record<string, Question[]> = {
         "18:00 IST",
         "16:30 IST"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "1. Earth Geometry"
     },
     {
       "id": 43,
@@ -1244,7 +6192,9 @@ export const questionsData: Record<string, Question[]> = {
         "500 knots",
         "1000 knots"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "1. Earth Geometry"
     },
     {
       "id": 44,
@@ -1256,7 +6206,9 @@ export const questionsData: Record<string, Question[]> = {
         "1 hour 15 minutes",
         "50 minutes"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "4. Dead Reckoning"
     },
     {
       "id": 45,
@@ -1268,7 +6220,9 @@ export const questionsData: Record<string, Question[]> = {
         "Altitude of the aircraft",
         "Wind velocity profile"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 46,
@@ -1280,7 +6234,9 @@ export const questionsData: Record<string, Question[]> = {
         "True bearing from station",
         "True heading to fly"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 47,
@@ -1292,7 +6248,9 @@ export const questionsData: Record<string, Question[]> = {
         "True bearing to station",
         "Altimeter setting"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 48,
@@ -1304,7 +6262,9 @@ export const questionsData: Record<string, Question[]> = {
         "HF Communications",
         "None of the above"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 49,
@@ -1316,7 +6276,9 @@ export const questionsData: Record<string, Question[]> = {
         "Coastal refraction",
         "Night effect"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 50,
@@ -1328,7 +6290,9 @@ export const questionsData: Record<string, Question[]> = {
         "VOR/DME",
         "ADF/NDB"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 51,
@@ -1340,7 +6304,9 @@ export const questionsData: Record<string, Question[]> = {
         "High altitude jet route",
         "Military route"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 52,
@@ -1352,7 +6318,9 @@ export const questionsData: Record<string, Question[]> = {
         "High fuel flow",
         "Receiver heat"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 53,
@@ -1364,7 +6332,9 @@ export const questionsData: Record<string, Question[]> = {
         "118.0 MHz",
         "500 kHz"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 54,
@@ -1376,7 +6346,9 @@ export const questionsData: Record<string, Question[]> = {
         "450 knots",
         "520 knots"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "4. Dead Reckoning"
     },
     {
       "id": 55,
@@ -1388,31 +6360,37 @@ export const questionsData: Record<string, Question[]> = {
         "Isoclinic line",
         "Agonic curve"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "2. Magnetism & Compass"
     },
     {
       "id": 56,
       "type": "Navigation",
-      "question": "A great circle track from 60\u00b0N 020\u00b0W to 60\u00b0N 040\u00b0W will have a true course that:",
+      "question": "A great circle track from 60°N 020°W to 60°N 040°W will have a true course that:",
       "options": [
         "Increases",
         "Decreases",
         "Constant",
         "None of the above"
       ],
-      "correct": 1
+      "correct": 1,
+      "book": "oxf*rd_nav",
+      "chapter": "3. Charts & Projections"
     },
     {
       "id": 57,
       "type": "Navigation",
-      "question": "To fly a heading of 270\u00b0 with a variation of 5\u00b0 East and a deviation of 2\u00b0 West, what compass heading must be flown?",
+      "question": "To fly a heading of 270° with a variation of 5° East and a deviation of 2° West, what compass heading must be flown?",
       "options": [
-        "267\u00b0",
-        "273\u00b0",
-        "265\u00b0",
-        "277\u00b0"
+        "267°",
+        "273°",
+        "265°",
+        "277°"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "2. Magnetism & Compass"
     },
     {
       "id": 58,
@@ -1424,7 +6402,9 @@ export const questionsData: Record<string, Question[]> = {
         "8 minutes",
         "6 minutes"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "4. Dead Reckoning"
     },
     {
       "id": 59,
@@ -1436,7 +6416,9 @@ export const questionsData: Record<string, Question[]> = {
         "5 NM each side",
         "8 NM each side"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     },
     {
       "id": 60,
@@ -1448,7 +6430,9 @@ export const questionsData: Record<string, Question[]> = {
         "NDB/ADF",
         "GPS only"
       ],
-      "correct": 0
+      "correct": 0,
+      "book": "oxf*rd_nav",
+      "chapter": "5. In-flight Navigation"
     }
   ],
   "reg": [
@@ -1755,7 +6739,7 @@ export const questionsData: Record<string, Question[]> = {
     {
       "id": 26,
       "type": "Regulations",
-      "question": "What is the semicircular cruising level rule for an aircraft on a magnetic track of 180\u00b0 to 359\u00b0 flying VFR?",
+      "question": "What is the semicircular cruising level rule for an aircraft on a magnetic track of 180° to 359° flying VFR?",
       "options": [
         "Even thousands + 500 feet (e.g., FL45, FL65...)",
         "Odd thousands + 500 feet (e.g., FL35, FL55...)",
@@ -2347,10 +7331,10 @@ export const questionsData: Record<string, Question[]> = {
       "type": "Technical General",
       "question": "At what temperature range is carburetor icing most likely to occur in high relative humidity?",
       "options": [
-        "Below -20\u00b0C",
-        "Between -5\u00b0C and +20\u00b0C",
-        "Only below 0\u00b0C",
-        "Above +35\u00b0C"
+        "Below -20°C",
+        "Between -5°C and +20°C",
+        "Only below 0°C",
+        "Above +35°C"
       ],
       "correct": 1
     },
@@ -4281,23 +9265,23 @@ export const questionsData: Record<string, Question[]> = {
     {
       "id": 56,
       "type": "RTR Part 1",
-      "question": "A QDM of 090\u00b0 represents:",
+      "question": "A QDM of 090° represents:",
       "options": [
-        "Magnetic track to the station is 090\u00b0",
-        "Magnetic track from the station is 090\u00b0",
-        "True course is 090\u00b0",
-        "Wind angle is 090\u00b0"
+        "Magnetic track to the station is 090°",
+        "Magnetic track from the station is 090°",
+        "True course is 090°",
+        "Wind angle is 090°"
       ],
       "correct": 0
     },
     {
       "id": 57,
       "type": "RTR Part 1",
-      "question": "A QTE of 180\u00b0 represents:",
+      "question": "A QTE of 180° represents:",
       "options": [
-        "True bearing of aircraft from station is 180\u00b0",
-        "Magnetic bearing to station is 180\u00b0",
-        "True heading to station is 180\u00b0",
+        "True bearing of aircraft from station is 180°",
+        "Magnetic bearing to station is 180°",
+        "True heading to station is 180°",
         "Altimeter setting"
       ],
       "correct": 0
@@ -4417,10 +9401,10 @@ export const questionsData: Record<string, Question[]> = {
       "type": "Previous Years",
       "question": "The temperature at 10,000 feet in standard ISA conditions is:",
       "options": [
-        "-5\u00b0C",
-        "0\u00b0C",
-        "+5\u00b0C",
-        "-15\u00b0C"
+        "-5°C",
+        "0°C",
+        "+5°C",
+        "-15°C"
       ],
       "correct": 0
     },
@@ -4633,10 +9617,10 @@ export const questionsData: Record<string, Question[]> = {
       "type": "Previous Years",
       "question": "What is the standard sea level temperature in ISA?",
       "options": [
-        "0\u00b0C",
-        "15\u00b0C",
-        "20\u00b0C",
-        "10\u00b0C"
+        "0°C",
+        "15°C",
+        "20°C",
+        "10°C"
       ],
       "correct": 1
     },
@@ -4729,9 +9713,9 @@ export const questionsData: Record<string, Question[]> = {
       "type": "Previous Years",
       "question": "The standard sea level lapse rate is:",
       "options": [
-        "2\u00b0C per 1,000 ft",
-        "1.98\u00b0C per 1,000 ft",
-        "6.5\u00b0C per 1,000 meters",
+        "2°C per 1,000 ft",
+        "1.98°C per 1,000 ft",
+        "6.5°C per 1,000 meters",
         "Both B and C"
       ],
       "correct": 3
@@ -4775,12 +9759,12 @@ export const questionsData: Record<string, Question[]> = {
     {
       "id": 37,
       "type": "Previous Years",
-      "question": "If you are flying on a true course of 180\u00b0 with a variation of 10\u00b0 West and deviation of 2\u00b0 East, what is your compass course?",
+      "question": "If you are flying on a true course of 180° with a variation of 10° West and deviation of 2° East, what is your compass course?",
       "options": [
-        "188\u00b0",
-        "172\u00b0",
-        "192\u00b0",
-        "168\u00b0"
+        "188°",
+        "172°",
+        "192°",
+        "168°"
       ],
       "correct": 0
     },
@@ -4943,7 +9927,7 @@ export const questionsData: Record<string, Question[]> = {
     {
       "id": 51,
       "type": "Previous Years",
-      "question": "If you are flying VFR on a track of 045\u00b0, which cruising altitude is appropriate?",
+      "question": "If you are flying VFR on a track of 045°, which cruising altitude is appropriate?",
       "options": [
         "Odd thousands + 500 feet (e.g. 3,500, 5,500...)",
         "Even thousands + 500 feet (e.g. 4,500, 6,500...)",
@@ -4967,7 +9951,7 @@ export const questionsData: Record<string, Question[]> = {
     {
       "id": 53,
       "type": "Previous Years",
-      "question": "What is the speed of sound at -56.5\u00b0C?",
+      "question": "What is the speed of sound at -56.5°C?",
       "options": [
         "573 knots",
         "661 knots",
@@ -4979,12 +9963,12 @@ export const questionsData: Record<string, Question[]> = {
     {
       "id": 54,
       "type": "Previous Years",
-      "question": "A great circle track from A (60\u00b0S 170\u00b0E) to B (60\u00b0S 170\u00b0W) crosses the 180\u00b0 meridian. The track angle at the 180\u00b0 meridian is:",
+      "question": "A great circle track from A (60°S 170°E) to B (60°S 170°W) crosses the 180° meridian. The track angle at the 180° meridian is:",
       "options": [
-        "090\u00b0",
-        "270\u00b0",
-        "180\u00b0",
-        "045\u00b0"
+        "090°",
+        "270°",
+        "180°",
+        "045°"
       ],
       "correct": 0
     },

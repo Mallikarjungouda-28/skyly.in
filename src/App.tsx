@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LandingPage } from './pages/LandingPage';
 import { TrainingPage } from './pages/TrainingPage';
+import { BooksPage } from './pages/BooksPage';
+import { ChaptersPage } from './pages/ChaptersPage';
 import { MockConfigPage } from './pages/MockConfigPage';
 import { MockPage } from './pages/MockPage';
 import { Plane, Menu, X } from 'lucide-react';
@@ -204,6 +206,8 @@ export default function App() {
           >
             {currentPage === 'landing' && <LandingPage onNavigate={navigateTo} />}
             {currentPage === 'training' && <TrainingPage onNavigate={navigateTo} />}
+            {currentPage === 'books' && <BooksPage params={pageParams} onNavigate={navigateTo} />}
+            {currentPage === 'chapters' && <ChaptersPage params={pageParams} onNavigate={navigateTo} />}
             {currentPage === 'mock-config' && <MockConfigPage onNavigate={navigateTo} />}
             {currentPage === 'mock' && <MockPage params={pageParams} onNavigate={navigateTo} />}
           </motion.div>

@@ -5,6 +5,9 @@ import { questionsData } from '../data/questions';
 import { CX3Calculator } from '../components/CX3Calculator';
 
 export const getExplanation = (question: any): string => {
+  if (question.explanation) {
+    return question.explanation;
+  }
   const correctText = question.options[question.correct];
   const qTextLower = question.question.toLowerCase();
   
@@ -51,9 +54,57 @@ export const MockPage: React.FC<MockPageProps> = ({ params, onNavigate }) => {
   const limitMinutes = isCustomMock ? (params?.timeLimitMinutes ?? 60) : 60;
   const isUntimed = isCustomMock && limitMinutes === 0;
 
+  const handleBack = () => {
+    if (params?.book && params?.chapter) {
+      onNavigate('chapters', {
+        subject: subjectKey,
+        book: params.book,
+        bookName: params.title ? params.title.split(' - ')[0] : 'Reference Book'
+      });
+    } else if (isCustomMock) {
+      onNavigate('mock-config');
+    } else {
+      onNavigate('training');
+    }
+  };
+
+  const getBackLabel = () => {
+    if (params?.book && params?.chapter) {
+      return 'BACK TO CHAPTERS';
+    }
+    if (isCustomMock) {
+      return 'BACK TO CONFIG';
+    }
+    return 'BACK TO SUBJECTS';
+  };
+
   // Compute initial questions list
   const initialQuestions = useMemo(() => {
-    const allQuestions = questionsData[subjectKey] || questionsData['rtr'];
+    let allQuestions = questionsData[subjectKey] || questionsData['rtr'];
+
+    if (params?.book) {
+      const bookClean = params.book.toLowerCase().trim();
+      const mappings: Record<string, string[]> = {
+        "icjoshi": ["aviation meteorology", "ic joshi", "ic joshi meteorology"],
+        "oxf*rd_met": ["oxf*rd meteorology", "oxf*rd aviation meteorology"],
+        "oxf*rd_nav": ["oxf*rd air navigation", "oxf*rd navigation"]
+      };
+      allQuestions = allQuestions.filter(q => {
+        const qBook = (q.book || "").toLowerCase().trim();
+        let bookMatch = (qBook === bookClean);
+        if (!bookMatch) {
+          const list = mappings[bookClean] || [];
+          bookMatch = list.includes(qBook);
+        }
+        return bookMatch;
+      });
+    }
+
+    if (params?.chapter) {
+      const chapterClean = params.chapter.toLowerCase().trim();
+      allQuestions = allQuestions.filter(q => (q.chapter || "").toLowerCase().trim() === chapterClean);
+    }
+
     if (isPractice) {
       return allQuestions;
     }
@@ -83,7 +134,7 @@ export const MockPage: React.FC<MockPageProps> = ({ params, onNavigate }) => {
     
     const limit = isCustomMock ? (params?.numQuestions || 60) : 60;
     return shuffled.slice(0, limit);
-  }, [subjectKey, isPractice, isCustomMock, params?.difficulty, params?.numQuestions]);
+  }, [subjectKey, isPractice, isCustomMock, params?.difficulty, params?.numQuestions, params?.book, params?.chapter]);
 
   const [mockQuestions, setMockQuestions] = useState<any[]>(initialQuestions);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -196,10 +247,10 @@ export const MockPage: React.FC<MockPageProps> = ({ params, onNavigate }) => {
       {/* Header Back Link & Title */}
       <div className="mb-10 flex items-center justify-between">
         <button 
-          onClick={() => onNavigate(isCustomMock ? 'mock-config' : 'training')}
+          onClick={handleBack}
           className="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all font-label-caps text-xs"
         >
-          <ArrowLeft size={16} /> {isCustomMock ? 'BACK TO CONFIG' : 'BACK TO SUBJECTS'}
+          <ArrowLeft size={16} /> {getBackLabel()}
         </button>
         <div className="font-annotation text-xl text-secondary">Aviation precision required</div>
       </div>
@@ -714,10 +765,10 @@ export const MockPage: React.FC<MockPageProps> = ({ params, onNavigate }) => {
                 <BookOpen size={14} /> REVIEW QUESTIONS
               </button>
               <button 
-                onClick={() => onNavigate(isCustomMock ? 'mock-config' : 'training')}
+                onClick={handleBack}
                 className="border border-outline-variant px-8 py-4 rounded-full font-label-caps text-xs tracking-wider hover:border-primary transition-all active:scale-95 text-primary"
               >
-                {isCustomMock ? 'MOCK CONFIG' : 'OTHER SUBJECTS'}
+                {params?.book && params?.chapter ? 'BACK TO CHAPTERS' : isCustomMock ? 'MOCK CONFIG' : 'OTHER SUBJECTS'}
               </button>
             </div>
           </motion.div>

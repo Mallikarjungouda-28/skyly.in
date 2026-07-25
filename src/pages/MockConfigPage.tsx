@@ -18,45 +18,45 @@ export const MockConfigPage: React.FC<MockConfigPageProps> = ({ onNavigate }) =>
       id: 'met',
       title: 'Meteorology',
       code: 'MET',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD6FBvfim_Z7bEMWwIs_BAsRQg_iYsrCrqnIKYUiboAUYuUlwGJMLueSJQ4hsobjbsMJgW8_3subkKtLmiQjmpqahsV2nuAJHJbLxmv8TQnEsOnAOgD-iue9TdeRPldcAAZE3iB-QdJfmQ4GLKu05TgaYln2Rm5tuZPsyqeVpEUYmFz7A6EDNDW422-Mws-gKHWs2wIzDeNGh4cppJIQ03EZ2L-AwVI_FydWuushXhzjyl7dEipmjxM'
+      img: '/assets/stormy_flight.jpg'
     },
     {
       id: 'nav',
       title: 'Air Navigation',
       code: 'NAV',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAJ7Z-RotfkS8C7Q4QZwy70r27gVQPGkOy-y336zgCJp6b_0PC6WFZ87pl2JhBE_u8Uq_SC7OVuLHQT2SFXA1x_v9F1N0no5RnCL4A_kbbxaAZkA-cglAny7BSQHSVcf4Rs_IsESHFfJe8Ji0r45iyXYCQuD4LsEi_3XKfBvC0St1HIb7O8fHHYGlOfISgnPeRCkOBA5VzSEFCm7rLHxA03CtSQpYH7qcHs70kTlw63B5Vzj5eEpSe3'
+      img: '/assets/cockpit.jpg'
     },
     {
       id: 'reg',
       title: 'Air Regulations',
       code: 'REG',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBajdXfB8LfmxTsu2XqtGelvKXzOvpG_QoqjKB-IeHGAj3gMNKIkQxeE30ygp_CxfaWat7rkoDuDGTKXPa5NlmpflgRQRWJCLFVeDZxBOoTeyMIMm5a7nEdWVL-6qKQ9L49zDMrZrdAPo4U-kNZtdgiWU-zjDhukO_QjuLCOv1XkNOl6jPbVDMyKon6cXK83r8YD9BWev8oceGWix6MXSZ2wzwHxGxJKYLGI2k2Pfd9DzIpoxUBqr6J'
+      img: '/assets/atc_tower.jpg'
     },
     {
       id: 'gen',
       title: 'Technical General',
       code: 'GEN',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCFWtPE2Gv9IViysnBp9Mvt7akpCHyUQu_-MyAwa2ZkErNwuMq8iuZV3WVbL6yUuefgky413W2drACwZ5UQeX1qSTRjY5qX3q8D4WmnhDMoxzuLv9kG2wNM8jbEstyO83K6ezEo_FjcS2mChrZLdQpQ5wMCABcc3VUGpdYL5Ow2RamRYRGRNNvaYYAM-myrXw1lDBJ2iEq_EDBqM7bXJyUnKU_oJGqkl2wlNm8OJv62FKXtLmH6TiCq'
+      img: '/assets/jet_engine.jpg'
     },
     {
       id: 'spec',
       title: 'Technical Specific',
       code: 'SPEC',
       subtitle: 'Piper Archer DX',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDJ4JJIivL7h1anmNRf5O8iDCLFDE1XSbT_Y59DGLLpLnAODOaCj_yvvK5SEID254un144oBScrNhEix0MOG4FSWkQDqFbYKvRT0XPzTUyC6D18qXvneNPPrbieXE2iKOc8tPfY-8W7E6u8CS_Fbp0DoMqB4vTEAVCo0eUYt1JobT-ScsQF_S9BKdRMpUw8_5tDz4NZ36kps9HdUS1RxhKb4cMnRKuxOHTCGmOjKrOJ4VbApHiaUsa4'
+      img: '/assets/jet_engine.jpg'
     },
     {
       id: 'rtr',
       title: 'RTR (Part 1)',
       code: 'RTR',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDHHEUetzNqW_KmiSa14qJ6p2lhAtc5bi-QIKtYhl-ftsOxqMSF45h342Xs89OSJRDR5_VH17kkRsuzcPRCaE6c0iHBk1ZzsU2HtCRMzzUfNWFdZ8yWZOtmrvsIog_QQNxdsSvvbZ9AD7Esq8Lesb2EycdZQz0KXCcQloDEhNa4lcE0Pe7II-HNdspiUuqt5n32Euti3FaS1mRds7WPs5uB5oHPDwyD6S1p0VsmmkMkzOtuV9J-DLby'
+      img: '/assets/atc_tower.jpg'
     },
     {
       id: 'pyq',
       title: 'Previous Years',
       code: 'PYQ',
       subtitle: '2013 — 2024',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCzI9bL3JyGyEzZPuNgQajodxOkZQswFvU1rUW0YgsoB9PXihwVeV3ELsgHArq3TvDwywtSMq6TOZ10lod4Hl90fcm9nda3BmJM1RiTnmTE1M0a1PnjSqrXMNpiitLH97u52BkrWum8XYmtxFoYgcpLqbCoeX1t7UYnIbm_An_V3po7CoYPHyiiTdc-Bej9SYFiIGhILv1cPErWqxHCRQ7dQo6GHvUZ-RYAvgmoYm0Cyi34zf9OTAgn'
+      img: '/assets/exam_paper.jpg'
     }
   ];
 
@@ -130,7 +130,7 @@ export const MockConfigPage: React.FC<MockConfigPageProps> = ({ onNavigate }) =>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {subjects.map((subj) => {
-              const isActive = subj.id === 'nav';
+              const isActive = subj.id === 'nav' || subj.id === 'met';
               const isSelected = selectedSubject === subj.id;
               const qCount = questionsData[subj.id]?.length || 0;
               return (

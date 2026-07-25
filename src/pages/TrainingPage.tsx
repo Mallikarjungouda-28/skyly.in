@@ -16,28 +16,28 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ onNavigate }) => {
       title: 'Meteorology',
       questions: `${questionsData['met']?.length || 0} QUESTIONS`,
       progress: 82,
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD6FBvfim_Z7bEMWwIs_BAsRQg_iYsrCrqnIKYUiboAUYuUlwGJMLueSJQ4hsobjbsMJgW8_3subkKtLmiQjmpqahsV2nuAJHJbLxmv8TQnEsOnAOgD-iue9TdeRPldcAAZE3iB-QdJfmQ4GLKu05TgaYln2Rm5tuZPsyqeVpEUYmFz7A6EDNDW422-Mws-gKHWs2wIzDeNGh4cppJIQ03EZ2L-AwVI_FydWuushXhzjyl7dEipmjxM'
+      img: '/assets/stormy_flight.jpg'
     },
     {
       id: 'nav',
       title: 'Air Navigation',
       questions: `${questionsData['nav']?.length || 0} QUESTIONS`,
       progress: 68,
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAJ7Z-RotfkS8C7Q4QZwy70r27gVQPGkOy-y336zgCJp6b_0PC6WFZ87pl2JhBE_u8Uq_SC7OVuLHQT2SFXA1x_v9F1N0no5RnCL4A_kbbxaAZkA-cglAny7BSQHSVcf4Rs_IsESHFfJe8Ji0r45iyXYCQuD4LsEi_3XKfBvC0St1HIb7O8fHHYGlOfISgnPeRCkOBA5VzSEFCm7rLHxA03CtSQpYH7qcHs70kTlw63B5Vzj5eEpSe3'
+      img: '/assets/cockpit.jpg'
     },
     {
       id: 'reg',
       title: 'Air Regulations',
       questions: `${questionsData['reg']?.length || 0} QUESTIONS`,
       progress: 45,
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBajdXfB8LfmxTsu2XqtGelvKXzOvpG_QoqjKB-IeHGAj3gMNKIkQxeE30ygp_CxfaWat7rkoDuDGTKXPa5NlmpflgRQRWJCLFVeDZxBOoTeyMIMm5a7nEdWVL-6qKQ9L49zDMrZrdAPo4U-kNZtdgiWU-zjDhukO_QjuLCOv1XkNOl6jPbVDMyKon6cXK83r8YD9BWev8oceGWix6MXSZ2wzwHxGxJKYLGI2k2Pfd9DzIpoxUBqr6J'
+      img: '/assets/atc_tower.jpg'
     },
     {
       id: 'gen',
       title: 'Technical General',
       questions: `${questionsData['gen']?.length || 0} QUESTIONS`,
       progress: 65,
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCFWtPE2Gv9IViysnBp9Mvt7akpCHyUQu_-MyAwa2ZkErNwuMq8iuZV3WVbL6yUuefgky413W2drACwZ5UQeX1qSTRjY5qX3q8D4WmnhDMoxzuLv9kG2wNM8jbEstyO83K6ezEo_FjcS2mChrZLdQpQ5wMCABcc3VUGpdYL5Ow2RamRYRGRNNvaYYAM-myrXw1lDBJ2iEq_EDBqM7bXJyUnKU_oJGqkl2wlNm8OJv62FKXtLmH6TiCq'
+      img: '/assets/jet_engine.jpg'
     },
     {
       id: 'spec',
@@ -45,14 +45,14 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ onNavigate }) => {
       subtitle: 'Piper Archer DX',
       questions: `${questionsData['spec']?.length || 0} QUESTIONS`,
       progress: 58,
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDJ4JJIivL7h1anmNRf5O8iDCLFDE1XSbT_Y59DGLLpLnAODOaCj_yvvK5SEID254un144oBScrNhEix0MOG4FSWkQDqFbYKvRT0XPzTUyC6D18qXvneNPPrbieXE2iKOc8tPfY-8W7E6u8CS_Fbp0DoMqB4vTEAVCo0eUYt1JobT-ScsQF_S9BKdRMpUw8_5tDz4NZ36kps9HdUS1RxhKb4cMnRKuxOHTCGmOjKrOJ4VbApHiaUsa4'
+      img: '/assets/jet_engine.jpg'
     },
     {
       id: 'rtr',
       title: 'RTR (Part 1)',
       questions: `${questionsData['rtr']?.length || 0} QUESTIONS`,
       progress: 72,
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDHHEUetzNqW_KmiSa14qJ6p2lhAtc5bi-QIKtYhl-ftsOxqMSF45h342Xs89OSJRDR5_VH17kkRsuzcPRCaE6c0iHBk1ZzsU2HtCRMzzUfNWFdZ8yWZOtmrvsIog_QQNxdsSvvbZ9AD7Esq8Lesb2EycdZQz0KXCcQloDEhNa4lcE0Pe7II-HNdspiUuqt5n32Euti3FaS1mRds7WPs5uB5oHPDwyD6S1p0VsmmkMkzOtuV9J-DLby'
+      img: '/assets/atc_tower.jpg'
     },
     {
       id: 'pyq',
@@ -60,7 +60,7 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ onNavigate }) => {
       subtitle: '2013 — 2024',
       questions: `${questionsData['pyq']?.length || 0} QUESTIONS`,
       progress: 40,
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCzI9bL3JyGyEzZPuNgQajodxOkZQswFvU1rUW0YgsoB9PXihwVeV3ELsgHArq3TvDwywtSMq6TOZ10lod4Hl90fcm9nda3BmJM1RiTnmTE1M0a1PnjSqrXMNpiitLH97u52BkrWum8XYmtxFoYgcpLqbCoeX1t7UYnIbm_An_V3po7CoYPHyiiTdc-Bej9SYFiIGhILv1cPErWqxHCRQ7dQo6GHvUZ-RYAvgmoYm0Cyi34zf9OTAgn'
+      img: '/assets/exam_paper.jpg'
     }
   ];
 
@@ -98,13 +98,17 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ onNavigate }) => {
       {/* Subjects Grid */}
       <div className="flex flex-col gap-6">
         {subjects.map((subj, index) => {
-          const isActive = subj.id === 'nav';
+          const isActive = subj.id === 'nav' || subj.id === 'met';
           return (
             <motion.div
               key={subj.id}
               onClick={() => {
                 if (isActive) {
-                  onNavigate('mock', { subject: subj.id, title: subj.title, mode: 'practice' });
+                  if (subj.id === 'met' || subj.id === 'nav') {
+                    onNavigate('books', { subject: subj.id, title: subj.title });
+                  } else {
+                    onNavigate('mock', { subject: subj.id, title: subj.title, mode: 'practice' });
+                  }
                 }
               }}
               className={`subject-card group relative overflow-hidden rounded-[32px] md:rounded-[40px] h-[280px] md:h-[220px] bg-surface-container-low flex items-center border border-outline-variant/10 shadow-sm transition-all ${
