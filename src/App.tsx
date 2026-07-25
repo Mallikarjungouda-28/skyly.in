@@ -28,10 +28,45 @@ export default function App() {
   const [isWhatsAppOpen, setIsWhatsAppOpen] = useState(false);
   const [isTelegramOpen, setIsTelegramOpen] = useState(false);
 
+  const [booksData, setBooksData] = useState<any>(null);
+  const [chaptersData, setChaptersData] = useState<any>(null);
+  const [questionsData, setQuestionsData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
     document.documentElement.classList.remove('light-mode');
     document.body.classList.remove('light-mode');
     localStorage.removeItem('skyly-theme');
+
+    const fetchData = async () => {
+      try {
+        const [booksRes, chaptersRes, questionsRes] = await Promise.all([
+          fetch('/api/books'),
+          fetch('/api/chapters'),
+          fetch('/api/questions')
+        ]);
+
+        if (!booksRes.ok || !chaptersRes.ok || !questionsRes.ok) {
+          throw new Error('Failed to load database content.');
+        }
+
+        const books = await booksRes.json();
+        const chapters = await chaptersRes.json();
+        const questions = await questionsRes.json();
+
+        setBooksData(books);
+        setChaptersData(chapters);
+        setQuestionsData(questions);
+        setLoading(false);
+      } catch (err: any) {
+        console.error('Error fetching data:', err);
+        setError(err.message || 'Error loading database content. Please try again.');
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
 
@@ -41,6 +76,54 @@ export default function App() {
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  if (loading) {
+    return (
+      <div className="relative min-h-screen flex flex-col font-sans bg-background text-on-background items-center justify-center overflow-hidden">
+        <div className="noise-overlay" />
+        <motion.div 
+          className="z-10 flex flex-col items-center gap-6"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="relative">
+            <div className="w-16 h-16 rounded-full border-4 border-primary/20 border-t-primary animate-spin" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Plane size={24} className="text-primary transform -rotate-45" />
+            </div>
+          </div>
+          <div className="text-center">
+            <h2 className="font-display-lg text-2xl text-white font-bold tracking-tight">Skyly Portal</h2>
+            <p className="text-on-surface-variant font-body-md text-sm mt-1 animate-pulse">
+              Connecting to flight deck database...
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="relative min-h-screen flex flex-col font-sans bg-background text-on-background items-center justify-center overflow-hidden">
+        <div className="noise-overlay" />
+        <div className="z-10 max-w-md p-8 rounded-3xl bg-surface-container-low border border-outline-variant/30 text-center">
+          <X className="w-12 h-12 text-[#FF5A5A] mx-auto mb-4 animate-bounce" />
+          <h2 className="font-display-lg text-2xl text-white font-bold mb-2">Connection Error</h2>
+          <p className="text-on-surface-variant font-body-md text-sm mb-6 leading-relaxed">
+            {error}
+          </p>
+          <button 
+            onClick={() => window.location.reload()}
+            className="bg-primary text-white hover:bg-secondary px-6 py-3 rounded-full font-semibold text-xs tracking-wider transition-all active:scale-95 cursor-pointer border-none"
+          >
+            Retry Connection
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative min-h-screen flex flex-col font-sans bg-background text-on-background">
@@ -205,11 +288,11 @@ export default function App() {
             transition={{ duration: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
           >
             {currentPage === 'landing' && <LandingPage onNavigate={navigateTo} />}
-            {currentPage === 'training' && <TrainingPage onNavigate={navigateTo} />}
-            {currentPage === 'books' && <BooksPage params={pageParams} onNavigate={navigateTo} />}
-            {currentPage === 'chapters' && <ChaptersPage params={pageParams} onNavigate={navigateTo} />}
-            {currentPage === 'mock-config' && <MockConfigPage onNavigate={navigateTo} />}
-            {currentPage === 'mock' && <MockPage params={pageParams} onNavigate={navigateTo} />}
+            {currentPage === 'training' && <TrainingPage onNavigate={navigateTo} questionsData={questionsData} />}
+            {currentPage === 'books' && <BooksPage params={pageParams} onNavigate={navigateTo} booksData={booksData} />}
+            {currentPage === 'chapters' && <ChaptersPage params={pageParams} onNavigate={navigateTo} chaptersData={chaptersData} />}
+            {currentPage === 'mock-config' && <MockConfigPage onNavigate={navigateTo} questionsData={questionsData} />}
+            {currentPage === 'mock' && <MockPage params={pageParams} onNavigate={navigateTo} questionsData={questionsData} />}
           </motion.div>
         </AnimatePresence>
       </main>

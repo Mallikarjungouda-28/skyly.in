@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen } from 'lucide-react';
-import { chaptersData } from '../data/books';
+import type { Chapter } from '../types';
 
 interface ChaptersPageProps {
   params?: {
@@ -10,9 +10,10 @@ interface ChaptersPageProps {
     bookName?: string;
   };
   onNavigate: (page: string, params?: any) => void;
+  chaptersData: Record<string, Record<string, Chapter[]>>;
 }
 
-export const ChaptersPage: React.FC<ChaptersPageProps> = ({ params, onNavigate }) => {
+export const ChaptersPage: React.FC<ChaptersPageProps> = ({ params, onNavigate, chaptersData }) => {
   const subjectId = params?.subject || 'met';
   const bookId = params?.book || 'icjoshi';
   const bookName = params?.bookName || 'Reference Book';

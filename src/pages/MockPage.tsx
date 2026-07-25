@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, CheckCircle, AlertTriangle, RefreshCw, XCircle, BookOpen, Bookmark } from 'lucide-react';
-import { questionsData } from '../data/questions';
+import type { Question } from '../types';
 import { CX3Calculator } from '../components/CX3Calculator';
 
 export const getExplanation = (question: any): string => {
@@ -41,11 +41,14 @@ interface MockPageProps {
     difficulty?: string;
     numQuestions?: number;
     timeLimitMinutes?: number;
+    book?: string;
+    chapter?: string;
   };
-  onNavigate: (page: string) => void;
+  onNavigate: (page: string, params?: any) => void;
+  questionsData: Record<string, Question[]>;
 }
 
-export const MockPage: React.FC<MockPageProps> = ({ params, onNavigate }) => {
+export const MockPage: React.FC<MockPageProps> = ({ params, onNavigate, questionsData }) => {
   const subjectTitle = params?.title || 'RTR Mock Test';
   const subjectKey = params?.subject || 'rtr';
   const mode = params?.mode || 'test';

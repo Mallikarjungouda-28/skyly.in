@@ -1,13 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { questionsData } from '../data/questions';
+import type { Question } from '../types';
 
 interface TrainingPageProps {
   onNavigate: (page: string, params?: any) => void;
+  questionsData: Record<string, Question[]>;
 }
 
-export const TrainingPage: React.FC<TrainingPageProps> = ({ onNavigate }) => {
+export const TrainingPage: React.FC<TrainingPageProps> = ({ onNavigate, questionsData }) => {
 
 
   const subjects = [

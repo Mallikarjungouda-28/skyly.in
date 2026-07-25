@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Play, BookOpen, Sliders, Check } from 'lucide-react';
-import { questionsData } from '../data/questions';
+import type { Question } from '../types';
 
 interface MockConfigPageProps {
   onNavigate: (page: string, params?: any) => void;
+  questionsData: Record<string, Question[]>;
 }
 
-export const MockConfigPage: React.FC<MockConfigPageProps> = ({ onNavigate }) => {
+export const MockConfigPage: React.FC<MockConfigPageProps> = ({ onNavigate, questionsData }) => {
   const [selectedSubject, setSelectedSubject] = useState<string>('nav');
   const [difficulty, setDifficulty] = useState<string>('any');
   const [questionCount, setQuestionCount] = useState<number>(60);
