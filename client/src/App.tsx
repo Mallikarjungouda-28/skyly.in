@@ -107,150 +107,173 @@ export default function App() {
       {/* Global paper noise texture */}
       <div className="noise-overlay" />
 
-      {/* Header Sticky Navigation */}
-      <header className="fixed top-0 left-0 w-full z-40 flex flex-col transition-all duration-300">
-        {/* Dismissible Top Notification Banner */}
-        <AnimatePresence>
-          {showBanner && (
-            <motion.div 
-              className="bg-primary text-on-primary py-2.5 px-6 md:px-16 flex justify-between items-center text-label-caps text-[10px] tracking-wider relative z-50 shadow-sm"
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="flex items-center gap-2">
-                <Plane size={12} className="animate-pulse" />
-                <span>Welcome to the new era of pilot training. Skyly 2.0 is live.</span>
-              </div>
-              <button 
-                className="hover:opacity-70 transition-opacity" 
-                onClick={() => setShowBanner(false)}
-              >
-                <X size={14} />
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Navigation Bar */}
-        <nav className="w-full h-[80px] bg-background/80 backdrop-blur-md border-b border-outline-variant/30 flex items-center">
-          <div className="max-w-7xl mx-auto px-6 md:px-16 flex justify-between items-center w-full">
-            
-            {/* Logo */}
-            <div 
-              onClick={() => navigateTo('landing')}
-              className="flex items-center gap-2 cursor-pointer select-none"
-            >
-              <img src="/logo.png" alt="Skyly Logo" className="h-12 w-auto object-contain" />
-            </div>
-
-            {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center gap-6 font-semibold text-sm">
-              <button 
-                onClick={() => navigateTo('landing')}
-                className={`pb-1 transition-all cursor-pointer relative ${currentPage === 'landing' ? 'text-on-background font-bold' : 'text-on-surface-variant hover:text-on-background'}`}
-              >
-                Home
-                {currentPage === 'landing' && (
-                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary rounded-full" />
-                )}
-              </button>
-              <button 
-                onClick={() => navigateTo('training')}
-                className={`pb-1 transition-all cursor-pointer relative ${currentPage === 'training' || (currentPage === 'mock' && pageParams?.mode === 'practice') ? 'text-on-background font-bold' : 'text-on-surface-variant hover:text-on-background'}`}
-              >
-                Training
-                {(currentPage === 'training' || (currentPage === 'mock' && pageParams?.mode === 'practice')) && (
-                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary rounded-full" />
-                )}
-              </button>
-              <button 
-                onClick={() => navigateTo('mock-config')}
-                className={`pb-1 transition-all cursor-pointer relative ${currentPage === 'mock-config' || (currentPage === 'mock' && pageParams?.mode === 'custom-mock') ? 'text-on-background font-bold' : 'text-on-surface-variant hover:text-on-background'}`}
-              >
-                Mock Tests
-                {(currentPage === 'mock-config' || (currentPage === 'mock' && pageParams?.mode === 'custom-mock')) && (
-                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary rounded-full" />
-                )}
-              </button>
-            </nav>
-
-            {/* Header Controls (CTA & Profile) */}
-            <div className="hidden md:flex items-center gap-4">
-              <button 
-                onClick={() => setIsWhatsAppOpen(true)}
-                className="bg-primary text-white hover:bg-secondary px-5 py-2.5 rounded-lg text-sm font-semibold transition-all active:scale-95 cursor-pointer"
-              >
-                Join WhatsApp Community
-              </button>
-
-              <button 
-                onClick={() => navigateTo('training')}
-                className="bg-primary text-white hover:bg-secondary px-5 py-2.5 rounded-lg text-sm font-semibold transition-all active:scale-95 cursor-pointer flex items-center gap-1.5"
-              >
-                Start Learning &rarr;
-              </button>
-            </div>
-
-            {/* Mobile Menu Toggle Button */}
-            <button 
-              className="md:hidden text-primary hover:text-secondary transition-colors"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </nav>
-      </header>
-
-      {/* Mobile Navigation Menu Dropdown */}
+      {/* Dismissible Top Notification Banner */}
       <AnimatePresence>
-        {mobileMenuOpen && (
+        {showBanner && (
           <motion.div 
-            className={`fixed left-0 w-full bg-surface-bright border-b border-outline-variant/30 z-30 flex flex-col p-6 gap-4 shadow-lg md:hidden transition-all duration-300 ${
-              showBanner ? 'top-[116px]' : 'top-[80px]'
-            }`}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
+            className="bg-primary text-on-primary py-2.5 px-6 md:px-16 flex justify-between items-center text-label-caps text-[10px] tracking-wider relative z-50 shadow-sm w-full"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
+            <div className="flex items-center gap-2">
+              <Plane size={12} className="animate-pulse" />
+              <span>Welcome to the new era of pilot training. Skyly 2.0 is live.</span>
+            </div>
             <button 
-              onClick={() => navigateTo('landing')}
-              className={`text-left py-2 font-headline-md text-xl ${currentPage === 'landing' ? 'text-primary font-bold' : 'text-on-surface-variant'}`}
+              className="hover:opacity-70 transition-opacity cursor-pointer" 
+              onClick={() => setShowBanner(false)}
             >
-              Home
-            </button>
-            <button 
-              onClick={() => navigateTo('training')}
-              className={`text-left py-2 font-headline-md text-xl ${currentPage === 'training' || (currentPage === 'mock' && pageParams?.mode === 'practice') ? 'text-primary font-bold' : 'text-on-surface-variant'}`}
-            >
-              Training portal
-            </button>
-            <button 
-              onClick={() => navigateTo('mock-config')}
-              className={`text-left py-2 font-headline-md text-xl ${currentPage === 'mock-config' || (currentPage === 'mock' && pageParams?.mode === 'custom-mock') ? 'text-primary font-bold' : 'text-on-surface-variant'}`}
-            >
-              Mock test
-            </button>
-
-
-            <button 
-              onClick={() => {
-                setIsWhatsAppOpen(true);
-                setMobileMenuOpen(false);
-              }}
-              className="bg-primary text-white py-4 rounded-lg font-semibold text-xs tracking-wider text-center mt-4 flex items-center justify-center gap-2 cursor-pointer"
-            >
-              Join WhatsApp Community
+              <X size={14} />
             </button>
           </motion.div>
         )}
       </AnimatePresence>
 
+      {/* Header Sticky Navigation */}
+      <header className="sticky top-0 left-0 w-full z-40 bg-background/90 backdrop-blur-md border-b border-outline-variant/30 flex items-center h-[80px]">
+        <div className="max-w-7xl mx-auto px-6 md:px-16 flex justify-between items-center w-full">
+          
+          {/* Logo */}
+          <div 
+            onClick={() => navigateTo('landing')}
+            className="flex items-center gap-2 cursor-pointer select-none"
+          >
+            <img src="/logo.png" alt="Skyly Logo" className="h-12 w-auto object-contain" />
+          </div>
+
+          {/* Desktop Navigation Links */}
+          <nav className="hidden md:flex items-center gap-6 font-semibold text-sm">
+            <button 
+              onClick={() => navigateTo('landing')}
+              className={`pb-1 transition-all cursor-pointer relative ${currentPage === 'landing' ? 'text-on-background font-bold' : 'text-on-surface-variant hover:text-on-background'}`}
+            >
+              Home
+              {currentPage === 'landing' && (
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary rounded-full" />
+              )}
+            </button>
+            <button 
+              onClick={() => navigateTo('training')}
+              className={`pb-1 transition-all cursor-pointer relative ${currentPage === 'training' || (currentPage === 'mock' && pageParams?.mode === 'practice') ? 'text-on-background font-bold' : 'text-on-surface-variant hover:text-on-background'}`}
+            >
+              Training
+              {(currentPage === 'training' || (currentPage === 'mock' && pageParams?.mode === 'practice')) && (
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary rounded-full" />
+              )}
+            </button>
+            <button 
+              onClick={() => navigateTo('mock-config')}
+              className={`pb-1 transition-all cursor-pointer relative ${currentPage === 'mock-config' || (currentPage === 'mock' && pageParams?.mode === 'custom-mock') ? 'text-on-background font-bold' : 'text-on-surface-variant hover:text-on-background'}`}
+            >
+              Mock Tests
+              {(currentPage === 'mock-config' || (currentPage === 'mock' && pageParams?.mode === 'custom-mock')) && (
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary rounded-full" />
+              )}
+            </button>
+          </nav>
+
+          {/* Header Controls (CTA & Profile) */}
+          <div className="hidden md:flex items-center gap-4">
+            <button 
+              onClick={() => setIsWhatsAppOpen(true)}
+              className="bg-primary text-white hover:bg-secondary px-5 py-2.5 rounded-lg text-sm font-semibold transition-all active:scale-95 cursor-pointer"
+            >
+              Join WhatsApp Community
+            </button>
+
+            <button 
+              onClick={() => navigateTo('training')}
+              className="bg-primary text-white hover:bg-secondary px-5 py-2.5 rounded-lg text-sm font-semibold transition-all active:scale-95 cursor-pointer flex items-center gap-1.5"
+            >
+              Start Learning &rarr;
+            </button>
+          </div>
+
+          {/* Mobile Menu Toggle Button */}
+          <button 
+            className="md:hidden text-primary hover:text-secondary transition-colors cursor-pointer"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <Menu size={24} />
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile Navigation Side Drawer */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            {/* Dark blur backdrop */}
+            <motion.div 
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-45 md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+            />
+
+            {/* Slide-out Sidebar Panel */}
+            <motion.div 
+              className="fixed right-0 top-0 h-full w-[280px] bg-surface-dim border-l border-outline-variant/30 z-50 flex flex-col p-6 gap-6 shadow-2xl md:hidden"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            >
+              {/* Header inside Side Menu */}
+              <div className="flex justify-between items-center pb-4 border-b border-outline-variant/10">
+                <span className="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase font-semibold">Menu</span>
+                <button 
+                  className="text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <X size={24} />
+                </button>
+              </div>
+              
+              {/* Menu Links */}
+              <div className="flex flex-col gap-4">
+                <button 
+                  onClick={() => { navigateTo('landing'); setMobileMenuOpen(false); }}
+                  className={`text-left py-2.5 font-headline-md text-xl transition-colors ${currentPage === 'landing' ? 'text-primary font-bold' : 'text-on-surface-variant hover:text-white'}`}
+                >
+                  Home
+                </button>
+                <button 
+                  onClick={() => { navigateTo('training'); setMobileMenuOpen(false); }}
+                  className={`text-left py-2.5 font-headline-md text-xl transition-colors ${currentPage === 'training' || (currentPage === 'mock' && pageParams?.mode === 'practice') ? 'text-primary font-bold' : 'text-on-surface-variant hover:text-white'}`}
+                >
+                  Training Portal
+                </button>
+                <button 
+                  onClick={() => { navigateTo('mock-config'); setMobileMenuOpen(false); }}
+                  className={`text-left py-2.5 font-headline-md text-xl transition-colors ${currentPage === 'mock-config' || (currentPage === 'mock' && pageParams?.mode === 'custom-mock') ? 'text-primary font-bold' : 'text-on-surface-variant hover:text-white'}`}
+                >
+                  Mock Tests
+                </button>
+              </div>
+
+              {/* Buttons */}
+              <div className="mt-auto flex flex-col gap-3">
+                <button 
+                  onClick={() => {
+                    setIsWhatsAppOpen(true);
+                    setMobileMenuOpen(false);
+                  }}
+                  className="bg-primary text-white py-3.5 rounded-xl font-semibold text-xs tracking-wider text-center flex items-center justify-center gap-2 cursor-pointer shadow-md hover:bg-secondary active:scale-95 transition-all"
+                >
+                  Join WhatsApp Community
+                </button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
       {/* Main Content Layout Container */}
-      <main className={`flex-grow transition-all duration-300 ${showBanner ? 'pt-[120px]' : 'pt-[80px]'}`}>
+      <main className="flex-grow">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentPage}
