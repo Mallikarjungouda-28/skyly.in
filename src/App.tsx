@@ -6,6 +6,7 @@ import { BooksPage } from './pages/BooksPage';
 import { ChaptersPage } from './pages/ChaptersPage';
 import { MockConfigPage } from './pages/MockConfigPage';
 import { MockPage } from './pages/MockPage';
+import { LoadingScreen } from './components/LoadingScreen';
 import { Plane, Menu, X } from 'lucide-react';
 
 const WhatsAppIcon = () => (
@@ -76,32 +77,8 @@ export default function App() {
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
   if (loading) {
-    return (
-      <div className="relative min-h-screen flex flex-col font-sans bg-background text-on-background items-center justify-center overflow-hidden">
-        <div className="noise-overlay" />
-        <motion.div 
-          className="z-10 flex flex-col items-center gap-6"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="relative">
-            <div className="w-16 h-16 rounded-full border-4 border-primary/20 border-t-primary animate-spin" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Plane size={24} className="text-primary transform -rotate-45" />
-            </div>
-          </div>
-          <div className="text-center">
-            <h2 className="font-display-lg text-2xl text-white font-bold tracking-tight">Skyly Portal</h2>
-            <p className="text-on-surface-variant font-body-md text-sm mt-1 animate-pulse">
-              Connecting to flight deck database...
-            </p>
-          </div>
-        </motion.div>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   if (error) {
@@ -163,14 +140,9 @@ export default function App() {
             {/* Logo */}
             <div 
               onClick={() => navigateTo('landing')}
-              className="flex items-center gap-2 cursor-pointer select-none font-bold text-2xl"
+              className="flex items-center gap-2 cursor-pointer select-none"
             >
-              <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                <Plane size={18} className="transform -rotate-45 text-primary" />
-              </div>
-              <span className="text-on-background tracking-tight font-extrabold">
-                Skyly<span className="text-primary font-bold">.in</span>
-              </span>
+              <img src="/logo.png" alt="Skyly Logo" className="h-12 w-auto object-contain" />
             </div>
 
             {/* Desktop Navigation Links */}
@@ -291,7 +263,14 @@ export default function App() {
             {currentPage === 'training' && <TrainingPage onNavigate={navigateTo} questionsData={questionsData} />}
             {currentPage === 'books' && <BooksPage params={pageParams} onNavigate={navigateTo} booksData={booksData} />}
             {currentPage === 'chapters' && <ChaptersPage params={pageParams} onNavigate={navigateTo} chaptersData={chaptersData} />}
-            {currentPage === 'mock-config' && <MockConfigPage onNavigate={navigateTo} questionsData={questionsData} />}
+            {currentPage === 'mock-config' && (
+              <MockConfigPage 
+                onNavigate={navigateTo} 
+                questionsData={questionsData} 
+                booksData={booksData} 
+                chaptersData={chaptersData} 
+              />
+            )}
             {currentPage === 'mock' && <MockPage params={pageParams} onNavigate={navigateTo} questionsData={questionsData} />}
           </motion.div>
         </AnimatePresence>
@@ -301,9 +280,8 @@ export default function App() {
       <footer className="bg-surface-container-low border-t border-outline-variant/20 py-12 mt-auto">
         <div className="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row justify-between items-center gap-8 w-full">
           <div className="flex flex-col gap-4 items-center md:items-start text-center md:text-left">
-            <div className="font-display-xl text-xl text-primary flex items-center gap-2 select-none">
-              <Plane size={20} className="transform rotate-45" />
-              <span className="font-bold">Skyly</span>
+            <div className="flex items-center gap-2 select-none">
+              <img src="/logo.png" alt="Skyly Logo" className="h-10 w-auto object-contain" />
             </div>
             <p className="text-on-surface-variant font-body-md text-sm leading-relaxed max-w-xs">
               Zero cookies, zero tracking. Just focused aviation excellence. Built for pilots, by pilots.
@@ -335,7 +313,7 @@ export default function App() {
       </footer>
 
       {/* Floating Support Buttons */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3 floating-support-container">
         {/* Telegram FAB */}
         <motion.button
           onClick={() => setIsTelegramOpen(true)}

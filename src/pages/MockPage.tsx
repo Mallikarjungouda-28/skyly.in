@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, CheckCircle, AlertTriangle, RefreshCw, XCircle, BookOpen, Bookmark } from 'lucide-react';
+import { ArrowLeft, CheckCircle, AlertTriangle, RefreshCw, XCircle, BookOpen, Bookmark } from 'lucide-react';
 import type { Question } from '../types';
 import { CX3Calculator } from '../components/CX3Calculator';
 
@@ -43,6 +43,7 @@ interface MockPageProps {
     timeLimitMinutes?: number;
     book?: string;
     chapter?: string;
+    chapters?: string[];
   };
   onNavigate: (page: string, params?: any) => void;
   questionsData: Record<string, Question[]>;
@@ -83,9 +84,9 @@ export const MockPage: React.FC<MockPageProps> = ({ params, onNavigate, question
 
   // Compute initial questions list
   const initialQuestions = useMemo(() => {
-    let allQuestions = questionsData[subjectKey] || questionsData['rtr'];
+    let allQuestions = questionsData[subjectKey] || questionsData['rtr'] || [];
 
-    if (params?.book) {
+    if (params?.book && params.book !== 'all') {
       const bookClean = params.book.toLowerCase().trim();
       const mappings: Record<string, string[]> = {
         "icjoshi": ["aviation meteorology", "ic joshi", "ic joshi meteorology"],
@@ -106,6 +107,18 @@ export const MockPage: React.FC<MockPageProps> = ({ params, onNavigate, question
     if (params?.chapter) {
       const chapterClean = params.chapter.toLowerCase().trim();
       allQuestions = allQuestions.filter(q => (q.chapter || "").toLowerCase().trim() === chapterClean);
+    }
+
+    if (params?.chapters && Array.isArray(params.chapters) && !params.chapters.includes('all')) {
+      const chapsClean = params.chapters.map((c: string) => c.toLowerCase().trim());
+      allQuestions = allQuestions.filter(q => {
+        const qChap = (q.chapter || "").toLowerCase().trim();
+        return chapsClean.includes(qChap);
+      });
+    }
+
+    if (allQuestions.length === 0) {
+      allQuestions = questionsData[subjectKey] || questionsData['rtr'] || [];
     }
 
     if (isPractice) {
@@ -137,7 +150,7 @@ export const MockPage: React.FC<MockPageProps> = ({ params, onNavigate, question
     
     const limit = isCustomMock ? (params?.numQuestions || 60) : 60;
     return shuffled.slice(0, limit);
-  }, [subjectKey, isPractice, isCustomMock, params?.difficulty, params?.numQuestions, params?.book, params?.chapter]);
+  }, [subjectKey, isPractice, isCustomMock, params?.difficulty, params?.numQuestions, params?.book, params?.chapter, params?.chapters]);
 
   const [mockQuestions, setMockQuestions] = useState<any[]>(initialQuestions);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -150,6 +163,24 @@ export const MockPage: React.FC<MockPageProps> = ({ params, onNavigate, question
   const [showReview, setShowReview] = useState(false);
   const [reviewFilter, setReviewFilter] = useState<'all' | 'correct' | 'incorrect' | 'unanswered'>('all');
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
+
+  // States for the DGCA-like exam interface
+  const [visited, setVisited] = useState<boolean[]>(() => {
+    const arr = new Array(initialQuestions.length).fill(false);
+    if (arr.length > 0) arr[0] = true;
+    return arr;
+  });
+  const [fontSize, setFontSize] = useState<number>(16);
+
+  useEffect(() => {
+    if (mockQuestions.length > 0) {
+      setVisited(prev => {
+        const updated = [...prev];
+        updated[currentIndex] = true;
+        return updated;
+      });
+    }
+  }, [currentIndex, mockQuestions]);
 
   // Timer Effect
   useEffect(() => {
@@ -199,42 +230,33 @@ export const MockPage: React.FC<MockPageProps> = ({ params, onNavigate, question
     setIsFinished(false);
     setShowReview(false);
     setReviewFilter('all');
+    setFontSize(16);
     if (!isPractice) {
-      // Re-shuffle and re-filter
-      const allQuestions = questionsData[subjectKey] || questionsData['rtr'];
-      let filtered = [...allQuestions];
-      if (isCustomMock && params?.difficulty && params?.difficulty !== 'any') {
-        const targetDiff = params.difficulty;
-        const getDifficulty = (q: any) => {
-          const val = q.id % 3;
-          if (val === 0) return 'easy';
-          if (val === 1) return 'medium';
-          return 'hard';
-        };
-        filtered = filtered.filter(q => getDifficulty(q) === targetDiff);
-        if (filtered.length === 0) filtered = [...allQuestions];
-      }
-      const shuffled = [...filtered];
+      // Re-shuffle and re-filter using initialQuestions computed list
+      const shuffled = [...initialQuestions];
       for (let i = shuffled.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
       }
-      const limit = isCustomMock ? (params?.numQuestions || 60) : 60;
-      const newQuestions = shuffled.slice(0, limit);
-      setMockQuestions(newQuestions);
-      setAnswers(new Array(newQuestions.length).fill(null));
+      setMockQuestions(shuffled);
+      setAnswers(new Array(shuffled.length).fill(null));
+      setVisited(() => {
+        const arr = new Array(shuffled.length).fill(false);
+        if (arr.length > 0) arr[0] = true;
+        return arr;
+      });
       setTimeLeft(limitMinutes * 60);
     } else {
       setAnswers(new Array(mockQuestions.length).fill(null));
+      setVisited(() => {
+        const arr = new Array(mockQuestions.length).fill(false);
+        if (arr.length > 0) arr[0] = true;
+        return arr;
+      });
     }
   };
 
-  // Formatted Timer
-  const getFormattedTime = () => {
-    const mins = Math.floor(timeLeft / 60);
-    const secs = timeLeft % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
+
 
   // Score calculations
   const totalCorrect = answers.reduce<number>((acc, ans, i) => {
@@ -278,252 +300,418 @@ export const MockPage: React.FC<MockPageProps> = ({ params, onNavigate, question
 
       <AnimatePresence mode="wait">
         {!isFinished ? (
-          <motion.div 
-            key="test-engine"
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            {/* Question Navigation Sidebar */}
-            <aside className="lg:col-span-3 order-2 lg:order-1">
-              <div className="bg-surface-container-low p-6 rounded-[32px] md:rounded-[40px] border border-outline-variant/30 sticky top-28">
-                <div className="mb-8">
-                  {isPractice ? (
-                    <>
-                      <p className="font-label-caps text-[10px] text-on-surface-variant mb-2 uppercase tracking-widest">SESSION MODE</p>
-                      <div className="font-display-lg text-xl font-bold text-secondary flex items-center gap-1.5 mt-1">
-                        <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                        PRACTICE
-                      </div>
-                    </>
-                  ) : isUntimed ? (
-                    <>
-                      <p className="font-label-caps text-[10px] text-on-surface-variant mb-2 uppercase tracking-widest">SESSION MODE</p>
-                      <div className="font-display-lg text-xl font-bold text-secondary flex items-center gap-1.5 mt-1">
-                        <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse" />
-                        UNTIMED TEST
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <p className="font-label-caps text-[10px] text-on-surface-variant mb-2 uppercase tracking-widest">SESSION TIMER</p>
-                      <div className={`font-display-lg text-4xl font-bold tabular-nums ${timeLeft < 180 ? 'text-error' : 'text-primary'}`}>
-                        {getFormattedTime()}
-                      </div>
-                    </>
-                  )}
-                </div>
+          isPractice ? (
+            <motion.div 
+              key="practice-sheet"
+              className="max-w-4xl mx-auto space-y-8 text-left"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              {mockQuestions.map((q, qIndex) => {
+                const answer = answers[qIndex];
+                const hasAnswered = answer !== null;
 
-                <div className="mb-8">
-                  <p className="font-label-caps text-[10px] text-on-surface-variant mb-2 uppercase tracking-widest">PROGRESS</p>
-                  <div className="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
-                    <div 
-                      className="bg-primary h-full transition-all duration-300"
-                      style={{ width: `${((currentIndex + 1) / mockQuestions.length) * 100}%` }}
-                    />
-                  </div>
-                  <p className="font-label-caps text-[9px] mt-2 text-on-surface-variant">
-                    QUESTION {(currentIndex + 1).toString().padStart(2, '0')} OF {mockQuestions.length.toString().padStart(2, '0')}
-                  </p>
-                </div>
-
-                {/* Dot Grid */}
-                <div className="grid grid-cols-5 gap-2.5 mb-8">
-                  {mockQuestions.map((_, i) => {
-                    let dotClass = "border border-outline-variant/40 hover:border-primary cursor-pointer";
-                    if (i === currentIndex) {
-                      dotClass = "bg-primary border-primary text-white cursor-pointer";
-                    } else if (answers[i] !== null) {
-                      dotClass = "bg-secondary-container border-secondary-container text-primary font-medium cursor-pointer";
-                    }
-
-                    return (
-                      <button
-                        key={i}
-                        onClick={() => setCurrentIndex(i)}
-                        className={`aspect-square rounded-xl flex items-center justify-center text-xs transition-all active:scale-90 ${dotClass}`}
-                      >
-                        {i + 1}
+                return (
+                  <div 
+                    key={q.id || qIndex}
+                    className="bg-surface-container p-6 md:p-10 rounded-[32px] md:rounded-[40px] border border-outline-variant/20 relative overflow-hidden shadow-sm"
+                  >
+                    <div className="flex justify-between items-center mb-6">
+                      <span className="text-sm font-semibold text-blue-500 font-label-caps">
+                        Question {qIndex + 1}
+                      </span>
+                      <button className="text-on-surface-variant hover:text-primary transition-colors cursor-pointer bg-transparent border-none p-1">
+                        <Bookmark size={18} />
                       </button>
-                    );
-                  })}
+                    </div>
+
+                    <h2 className="text-lg font-bold text-on-background leading-snug mb-8">
+                      {q.question}
+                    </h2>
+
+                    {/* Clear Static Options */}
+                    <div className="space-y-3">
+                      {q.options.map((opt: string, optIndex: number) => {
+                        const isSelected = answer === optIndex;
+                        const isCorrectOption = optIndex === q.correct;
+                        const isUserWrongSelection = isSelected && !isCorrectOption;
+
+                        let borderClass = "border-outline-variant/30 bg-surface/35";
+                        let labelColor = "text-primary font-bold";
+                        let textColor = "text-on-surface";
+
+                        if (hasAnswered) {
+                          if (isCorrectOption) {
+                            borderClass = "border-emerald-500/50 bg-emerald-500/5";
+                            labelColor = "text-emerald-400 font-bold";
+                            textColor = "text-emerald-200 font-medium";
+                          } else if (isUserWrongSelection) {
+                            borderClass = "border-rose-500/50 bg-rose-500/5";
+                            labelColor = "text-rose-400 font-bold";
+                            textColor = "text-rose-200 font-medium";
+                          } else {
+                            borderClass = "border-outline-variant/10 bg-surface/10 opacity-40";
+                            labelColor = "text-on-surface-variant/40";
+                            textColor = "text-on-surface-variant/40";
+                          }
+                        } else if (isSelected) {
+                          borderClass = "border-primary bg-primary/5";
+                          labelColor = "text-primary font-bold";
+                          textColor = "text-white font-medium";
+                        }
+
+                        return (
+                          <div
+                            key={optIndex}
+                            className={`w-full p-4 rounded-2xl border flex items-start gap-4 transition-all duration-200 ${borderClass}`}
+                          >
+                            <span className={`text-sm min-w-[15px] select-none ${labelColor}`}>
+                              {String.fromCharCode(65 + optIndex)})
+                            </span>
+                            <span className={`text-sm leading-relaxed ${textColor}`}>
+                              {opt}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Dedicated A, B, C, D Tapping Row */}
+                    <div className="mt-6 flex flex-col gap-2 bg-surface-container-low/40 p-4 rounded-2xl border border-outline-variant/10">
+                      <span className="font-label-caps text-[10px] text-on-surface-variant tracking-wider uppercase font-semibold">Select your answer:</span>
+                      <div className="flex gap-4 mt-1">
+                        {q.options.map((_: string, optIndex: number) => {
+                          const isSelected = answer === optIndex;
+                          const isCorrect = optIndex === q.correct;
+                          const isWrong = isSelected && !isCorrect;
+
+                          let btnStyle = "border-outline-variant hover:border-primary text-on-surface bg-surface hover:bg-surface-variant";
+                          if (hasAnswered) {
+                            if (isCorrect) {
+                              btnStyle = "bg-emerald-500 border-emerald-500 text-white font-bold";
+                            } else if (isWrong) {
+                              btnStyle = "bg-rose-500 border-rose-500 text-white font-bold";
+                            } else {
+                              btnStyle = "opacity-35 border-outline-variant/15 text-on-surface-variant/30 bg-surface/5 cursor-default";
+                            }
+                          } else if (isSelected) {
+                            btnStyle = "bg-primary border-primary text-on-primary font-bold shadow-md scale-105";
+                          }
+
+                          return (
+                            <button
+                              key={optIndex}
+                              disabled={hasAnswered}
+                              onClick={() => {
+                                const updated = [...answers];
+                                updated[qIndex] = optIndex;
+                                setAnswers(updated);
+                              }}
+                              className={`w-12 h-12 rounded-xl border flex items-center justify-center font-display-lg text-lg transition-all active:scale-95 cursor-pointer font-bold ${btnStyle}`}
+                            >
+                              {String.fromCharCode(65 + optIndex)}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {hasAnswered && (
+                      <motion.div 
+                        className={`mt-6 p-5 rounded-2xl border flex flex-col gap-3 ${
+                          answer === q.correct
+                            ? 'bg-emerald-950/40 border-emerald-500/40 text-emerald-300'
+                            : 'bg-rose-950/40 border-rose-500/40 text-rose-300'
+                        }`}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
+                        <div className="flex items-center gap-3">
+                          {answer === q.correct ? (
+                            <>
+                              <CheckCircle className="text-emerald-400 flex-shrink-0" size={20} />
+                              <div className="text-sm font-medium">
+                                <strong className="text-emerald-300">Correct!</strong> Well done. You selected the right answer.
+                              </div>
+                            </>
+                          ) : (
+                            <>
+                              <XCircle className="text-rose-400 flex-shrink-0" size={20} />
+                              <div className="text-sm font-medium">
+                                <strong className="text-rose-300 font-bold">Incorrect.</strong> The correct answer is: <strong className="underline text-emerald-300">{String.fromCharCode(65 + q.correct)}) {q.options[q.correct]}</strong>.
+                              </div>
+                            </>
+                          )}
+                        </div>
+                        
+                        <div className="mt-2 pt-3 border-t border-current/10 text-xs leading-relaxed opacity-95">
+                          <strong className="block mb-1 text-on-surface">Explanation:</strong>
+                          <span className="text-on-surface-variant font-medium">{getExplanation(q)}</span>
+                        </div>
+                      </motion.div>
+                    )}
+                  </div>
+                );
+              })}
+
+              {/* Bottom Actions for Practice Sheet */}
+              <div className="pt-6 flex flex-col sm:flex-row gap-4 items-center justify-between">
+                <div className="text-sm font-medium text-on-surface-variant font-annotation">
+                  Answered {answers.filter(a => a !== null).length} of {mockQuestions.length} questions
                 </div>
-
-                <button 
-                  onClick={handleSubmit}
-                  className="w-full bg-primary text-on-primary py-4 rounded-full font-label-caps text-xs tracking-widest hover:bg-secondary transition-all active:scale-95 shadow-sm cursor-pointer"
-                >
-                  {isPractice ? 'FINISH SESSION' : 'TERMINATE TEST'}
-                </button>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => setIsCalculatorOpen(true)}
+                    className="flex items-center gap-2 border border-secondary text-secondary hover:bg-secondary hover:text-white px-6 py-3.5 rounded-full font-label-caps text-xs tracking-wider transition-all active:scale-95 cursor-pointer shadow-sm font-bold"
+                  >
+                    🧮 CX-3 CALCULATOR
+                  </button>
+                  <button 
+                    onClick={handleSubmit}
+                    className="bg-primary text-on-primary px-8 py-3.5 rounded-full font-label-caps text-xs tracking-wider hover:bg-secondary transition-all active:scale-95 shadow-sm cursor-pointer"
+                  >
+                    FINISH SESSION
+                  </button>
+                </div>
               </div>
-            </aside>
-
-            {/* Question Panel */}
-            <main className="lg:col-span-9 order-1 lg:order-2">
-              <div className="bg-surface-container p-6 md:p-10 rounded-[32px] md:rounded-[40px] min-h-[500px] flex flex-col justify-between border border-outline-variant/20 relative overflow-hidden shadow-sm">
-                
-
-
-                <div className="flex-grow text-left">
-                  {/* Top Row: Question number & Bookmark icon */}
-                  <div className="flex justify-between items-center mb-6">
-                    <span className="text-sm font-semibold text-blue-500">
-                      Question {currentIndex + 1}
-                    </span>
-                    <button className="text-on-surface-variant hover:text-primary transition-colors cursor-pointer bg-transparent border-none p-1">
-                      <Bookmark size={18} />
-                    </button>
+            </motion.div>
+          ) : (
+            <motion.div 
+              key="mock-exam-portal"
+              className="max-w-7xl mx-auto space-y-6 text-left"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              {/* Top Panel: Legend & Timer & Question Palette */}
+              <div className="bg-surface-container border border-outline-variant/30 p-6 rounded-2xl shadow-sm">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-4 border-b border-outline-variant/20">
+                  {/* Status Legend */}
+                  <div className="flex flex-wrap items-center gap-6 text-xs font-semibold">
+                    <div className="flex items-center gap-2">
+                      <span className="w-6 h-6 rounded bg-emerald-600 dark:bg-emerald-700 text-white flex items-center justify-center font-bold">✓</span>
+                      <span className="text-on-surface">Answered</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-6 h-6 rounded bg-rose-600 dark:bg-rose-700 text-white flex items-center justify-center font-bold">✗</span>
+                      <span className="text-on-surface">Not Answered</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-6 h-6 rounded bg-amber-500/20 dark:bg-amber-500/10 border border-amber-500/40 text-amber-800 dark:text-amber-300 flex items-center justify-center font-bold">•</span>
+                      <span className="text-on-surface">Not Visited</span>
+                    </div>
                   </div>
 
-                  <h2 className="text-lg font-bold text-on-background leading-snug mb-8">
-                    {mockQuestions[currentIndex].question}
-                  </h2>
+                  {/* Timer */}
+                  <div className="text-lg md:text-xl font-bold font-mono text-primary flex items-center gap-2">
+                    <span>⏱</span>
+                    <span>Time Left : {
+                      isUntimed ? 'UNTIMED' : (
+                        (() => {
+                          const hrs = Math.floor(timeLeft / 3600);
+                          const mins = Math.floor((timeLeft % 3600) / 60);
+                          const secs = timeLeft % 60;
+                          return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                        })()
+                      )
+                    }</span>
+                  </div>
+                </div>
 
-                  <div className="space-y-3">
-                    {mockQuestions[currentIndex].options.map((opt: string, optIndex: number) => {
-                      const isSelected = answers[currentIndex] === optIndex;
-                      const hasAnswered = answers[currentIndex] !== null;
-                      const isCorrectOption = optIndex === mockQuestions[currentIndex].correct;
-                      const isUserWrongSelection = isSelected && !isCorrectOption;
+                {/* Question Numbers Palette */}
+                <div className="max-h-[140px] overflow-y-auto pr-2 border border-outline-variant/10 p-4 rounded-xl bg-surface/50">
+                  <div className="flex flex-wrap gap-2">
+                    {mockQuestions.map((_, i) => {
+                      const isCurrent = i === currentIndex;
+                      const hasAns = answers[i] !== null;
+                      const wasVisited = visited[i];
 
-                      let buttonClass = 'border-outline-variant/30 bg-surface/50 hover:border-primary/45 cursor-pointer';
-                      let circleClass = 'border-outline text-outline';
-                      let labelClass = 'text-on-surface-variant/70 font-semibold';
-                      let textClass = 'text-on-surface-variant';
-                      let innerDot = null;
-
-                      if (isSelected) {
-                        buttonClass = 'border-primary bg-primary/5';
-                        circleClass = 'border-primary';
-                        labelClass = 'text-primary font-bold';
-                        textClass = 'text-on-background font-medium';
-                        innerDot = <div className="w-2.5 h-2.5 rounded-full bg-primary" />;
+                      let btnClass = "bg-amber-500/20 dark:bg-amber-500/10 border border-amber-500/40 text-amber-800 dark:text-amber-300"; // Not Visited
+                      if (hasAns) {
+                        btnClass = "bg-emerald-600 dark:bg-emerald-700 text-white border border-emerald-700"; // Answered
+                      } else if (wasVisited) {
+                        btnClass = "bg-rose-600 dark:bg-rose-700 text-white border border-rose-700"; // Not Answered
                       }
 
-                      if (isPractice && hasAnswered) {
-                        if (isCorrectOption) {
-                          buttonClass = 'border-emerald-500 bg-emerald-500/5 cursor-default';
-                          circleClass = 'border-emerald-500';
-                          labelClass = 'text-emerald-500 font-bold';
-                          textClass = 'text-on-background font-semibold';
-                          innerDot = <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />;
-                        } else if (isUserWrongSelection) {
-                          buttonClass = 'border-error bg-error/5 cursor-default';
-                          circleClass = 'border-error';
-                          labelClass = 'text-error font-bold';
-                          textClass = 'text-on-background font-semibold';
-                          innerDot = <div className="w-2.5 h-2.5 rounded-full bg-error" />;
-                        } else {
-                          buttonClass = 'border-outline-variant/10 bg-surface/10 opacity-55 cursor-default';
-                          circleClass = 'border-outline/20';
-                          labelClass = 'text-on-surface-variant/45';
-                          textClass = 'text-on-surface-variant/45';
-                          innerDot = null;
-                        }
-                      }
+                      const activeOutline = isCurrent ? "ring-2 ring-primary ring-offset-2 dark:ring-offset-background font-bold scale-105" : "";
 
                       return (
                         <button
-                          key={optIndex}
-                          onClick={() => handleSelectOption(optIndex)}
-                          disabled={isPractice && hasAnswered}
-                          className={`w-full text-left p-4 rounded-xl border flex items-center gap-4 transition-all duration-200 group active:scale-[0.99] ${buttonClass}`}
+                          key={i}
+                          onClick={() => setCurrentIndex(i)}
+                          className={`w-9 h-9 rounded flex items-center justify-center text-xs font-semibold transition-all hover:brightness-95 active:scale-95 ${btnClass} ${activeOutline}`}
                         >
-                          {/* Circle Radio Indicator */}
-                          <div className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-colors ${circleClass}`}>
-                            {innerDot}
-                          </div>
-
-                          {/* Option Letter prefix */}
-                          <span className={`text-sm min-w-[12px] transition-colors ${labelClass}`}>
-                            {String.fromCharCode(65 + optIndex)}
-                          </span>
-
-                          {/* Option text */}
-                          <span className={`text-sm transition-colors ${textClass}`}>
-                            {opt}
-                          </span>
+                          {i + 1}
                         </button>
                       );
                     })}
                   </div>
+                </div>
+              </div>
 
-                  {isPractice && answers[currentIndex] !== null && (
-                    <motion.div 
-                      className={`mt-6 p-5 rounded-2xl border flex flex-col gap-3 ${
-                        answers[currentIndex] === mockQuestions[currentIndex].correct
-                          ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-800'
-                          : 'bg-error/5 border-error/20 text-error'
-                      }`}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                    >
-                      <div className="flex items-center gap-3">
-                        {answers[currentIndex] === mockQuestions[currentIndex].correct ? (
-                          <>
-                            <CheckCircle className="text-emerald-600 flex-shrink-0" size={20} />
-                            <div className="text-sm font-medium">
-                              <strong>Correct!</strong> Well done. You selected the right answer.
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <XCircle className="text-error flex-shrink-0" size={20} />
-                            <div className="text-sm font-medium">
-                              <strong>Incorrect.</strong> The correct answer is: <strong className="underline">{mockQuestions[currentIndex].options[mockQuestions[currentIndex].correct]}</strong>.
-                            </div>
-                          </>
-                        )}
-                      </div>
-                      
-                      <div className="mt-2 pt-3 border-t border-current/10 text-xs leading-relaxed opacity-95">
-                        <strong className="block mb-1">Explanation:</strong>
-                        {getExplanation(mockQuestions[currentIndex])}
-                      </div>
-                    </motion.div>
-                  )}
+              {/* Middle Control Bar */}
+              <div className="bg-surface-container-low border border-outline-variant/20 p-3 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-3 text-sm font-semibold">
+                <div className="flex flex-wrap items-center gap-6">
+                  <div>
+                    <span className="text-on-surface-variant font-annotation">Question No : </span>
+                    <span className="text-primary font-bold">{currentIndex + 1}</span>
+                  </div>
+                  <div>
+                    <span className="text-on-surface-variant font-annotation">Marks : </span>
+                    <span className="text-primary font-bold">1</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-on-surface-variant font-annotation">Your Answer : </span>
+                    <div className="flex gap-1.5">
+                      {mockQuestions[currentIndex].options.map((_: string, optIndex: number) => {
+                        const isSelected = answers[currentIndex] === optIndex;
+                        const btnText = String.fromCharCode(65 + optIndex);
+                        const btnStyle = isSelected
+                          ? "bg-primary border-primary text-on-primary font-bold shadow-sm"
+                          : "border-outline-variant hover:border-primary text-on-surface bg-surface hover:bg-surface-variant";
+
+                        return (
+                          <button
+                            key={optIndex}
+                            onClick={() => handleSelectOption(optIndex)}
+                            className={`w-8 h-8 rounded-lg border flex items-center justify-center font-bold text-xs transition-all active:scale-90 cursor-pointer ${btnStyle}`}
+                          >
+                            {btnText}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
 
-                {/* Footer Controls */}
-                <div className="mt-10 pt-6 border-t border-outline-variant/10 flex justify-between items-center z-10">
-                  <button 
-                    onClick={handlePrev}
-                    disabled={currentIndex === 0}
-                    className={`flex items-center gap-2 font-label-caps text-xs transition-all ${
-                      currentIndex === 0 ? 'text-outline opacity-40 cursor-not-allowed' : 'text-on-surface-variant hover:text-primary'
-                    }`}
+                <div className="flex items-center gap-3 w-full md:w-auto justify-end">
+                  <button
+                    onClick={() => {
+                      const updated = [...answers];
+                      updated[currentIndex] = null;
+                      setAnswers(updated);
+                    }}
+                    className="flex-1 md:flex-none border border-outline-variant/50 hover:bg-surface-variant px-5 py-2.5 rounded-lg text-xs font-bold transition-all active:scale-95 cursor-pointer text-secondary"
                   >
-                    <ArrowLeft size={16} /> PREVIOUS
+                    Reset Answer
                   </button>
+                  <button
+                    onClick={handleNext}
+                    className="flex-1 md:flex-none bg-primary hover:bg-secondary text-white px-5 py-2.5 rounded-lg text-xs font-bold transition-all active:scale-95 cursor-pointer shadow-sm"
+                  >
+                    Confirm Answer
+                  </button>
+                </div>
+              </div>
 
-                  <div className="hidden md:block font-annotation text-lg text-secondary opacity-70">
-                    Precision over speed
+              {/* Main Question Box */}
+              <div className="bg-surface-container p-6 md:p-10 rounded-[32px] border border-outline-variant/20 relative shadow-sm min-h-[360px] flex flex-col justify-between">
+                <div className="text-left flex-grow">
+                  {/* Question Text */}
+                  <h2 
+                    className="font-bold text-on-background leading-snug mb-8 transition-all"
+                    style={{ fontSize: `${fontSize}px` }}
+                  >
+                    {mockQuestions[currentIndex].question}
+                  </h2>
+
+                  {/* Options */}
+                  <div className="space-y-4">
+                    {mockQuestions[currentIndex].options.map((opt: string, optIndex: number) => {
+                      const isSelected = answers[currentIndex] === optIndex;
+
+                      let borderClass = 'border-outline-variant/30 bg-surface/35';
+                      let labelColor = 'text-primary font-semibold';
+                      let textColor = 'text-on-surface-variant';
+
+                      if (isSelected) {
+                        borderClass = 'border-primary bg-primary/5';
+                        labelColor = 'text-primary font-bold';
+                        textColor = 'text-white font-medium';
+                      }
+
+                      return (
+                        <div
+                          key={optIndex}
+                          className={`w-full text-left p-4 rounded-xl border flex items-start gap-4 transition-all duration-200 ${borderClass}`}
+                        >
+                          <span 
+                            className={`min-w-[15px] select-none ${labelColor}`}
+                            style={{ fontSize: `${fontSize - 2}px` }}
+                          >
+                            {String.fromCharCode(65 + optIndex)})
+                          </span>
+                          <span 
+                            className={`${textColor}`}
+                            style={{ fontSize: `${fontSize - 2}px` }}
+                          >
+                            {opt}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Bottom Navigation & Size Settings */}
+                <div className="mt-10 pt-6 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4 z-10">
+                  {/* Previous / Next buttons */}
+                  <div className="flex items-center gap-3 w-full md:w-auto">
+                    <button
+                      onClick={handlePrev}
+                      disabled={currentIndex === 0}
+                      className={`flex-1 md:flex-none border border-outline-variant px-6 py-3.5 rounded-full font-label-caps text-xs tracking-wider font-bold transition-all active:scale-95 shadow-sm ${
+                        currentIndex === 0 ? 'opacity-40 cursor-not-allowed text-outline border-outline-variant' : 'text-on-surface hover:bg-surface-variant'
+                      }`}
+                    >
+                      Previous
+                    </button>
+                    <button
+                      onClick={handleNext}
+                      className="flex-1 md:flex-none bg-primary-container text-on-primary px-8 py-3.5 rounded-full font-label-caps text-xs tracking-wider transition-all active:scale-95 shadow-sm cursor-pointer"
+                    >
+                      {currentIndex === mockQuestions.length - 1 ? 'Submit Test' : 'Next'}
+                    </button>
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  {/* Calculator and Display Size Controls */}
+                  <div className="flex flex-wrap items-center gap-3 w-full md:w-auto justify-end text-xs font-semibold">
                     <button
                       onClick={() => setIsCalculatorOpen(true)}
                       className="flex items-center gap-2 border border-secondary text-secondary hover:bg-secondary hover:text-white px-5 py-3.5 rounded-full font-label-caps text-xs tracking-wider transition-all active:scale-95 cursor-pointer shadow-sm font-bold"
                     >
                       🧮 CX-3 CALCULATOR
                     </button>
-                    <button 
-                      onClick={handleNext}
-                      className="flex items-center gap-2 bg-primary-container text-on-primary px-6 py-3.5 rounded-full font-label-caps text-xs tracking-wider hover:bg-secondary transition-all active:scale-95 shadow-sm cursor-pointer"
-                    >
-                      {currentIndex === mockQuestions.length - 1 
-                        ? (isPractice ? 'FINISH SESSION' : 'SUBMIT TEST')
-                        : 'NEXT'
-                      } <ArrowRight size={16} />
-                    </button>
+
+                    <span className="text-on-surface-variant font-annotation">Display Size :</span>
+                    <div className="flex items-center border border-outline-variant/30 rounded-full overflow-hidden bg-surface">
+                      <button
+                        onClick={() => setFontSize(prev => Math.min(prev + 2, 26))}
+                        className="px-4 py-3 hover:bg-surface-variant active:scale-95 border-r border-outline-variant/30 transition-all font-bold cursor-pointer"
+                      >
+                        A++
+                      </button>
+                      <button
+                        onClick={() => setFontSize(prev => Math.max(prev - 2, 12))}
+                        className="px-4 py-3 hover:bg-surface-variant active:scale-95 border-r border-outline-variant/30 transition-all font-bold cursor-pointer"
+                      >
+                        A--
+                      </button>
+                      <button
+                        onClick={() => setFontSize(16)}
+                        className="px-4 py-3 hover:bg-surface-variant active:scale-95 transition-all font-bold cursor-pointer"
+                      >
+                        Default
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </main>
           </motion.div>
-        ) : showReview ? (
+        )) : showReview ? (
           /* Review Screen */
           <motion.div
             key="review"

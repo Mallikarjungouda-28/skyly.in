@@ -30,3 +30,6 @@ dist-ssr
 .env.test.local
 .env.production.local
 .env.*.local
+
+# Scripts folder containing local parsers, PDFs, and scratchpads
+scripts/
