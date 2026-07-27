@@ -56,9 +56,32 @@ export default function App() {
         const chapters = await chaptersRes.json();
         const questions = await questionsRes.json();
 
+        // Utility to replace non-breaking spaces with normal spaces and strip soft-hyphens
+        const cleanText = (str: string): string => {
+          if (!str) return '';
+          return str
+            .replace(/\u00a0/g, ' ')
+            .replace(/\u00ad/g, '')
+            .trim();
+        };
+
+        const cleanQuestionsData = (data: any) => {
+          if (!data) return data;
+          const cleaned: any = {};
+          Object.entries(data).forEach(([subjectId, qs]: any) => {
+            cleaned[subjectId] = qs.map((q: any) => ({
+              ...q,
+              question: cleanText(q.question),
+              options: (q.options || []).map((o: string) => cleanText(o)),
+              explanation: q.explanation ? cleanText(q.explanation) : undefined
+            }));
+          });
+          return cleaned;
+        };
+
         setBooksData(books);
         setChaptersData(chapters);
-        setQuestionsData(questions);
+        setQuestionsData(cleanQuestionsData(questions));
         setLoading(false);
       } catch (err: any) {
         console.error('Error fetching data:', err);

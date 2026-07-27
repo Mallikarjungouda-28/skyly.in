@@ -161,11 +161,7 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ onNavigate, question
 
               {/* Blur overlay for inactive subjects */}
               {!isActive && (
-                <div className="absolute inset-0 z-20 bg-black/15 backdrop-blur-[0.5px] pointer-events-none transition-all duration-300 flex items-center justify-end px-8 md:px-16">
-                  <span className="font-display-lg text-lg md:text-xl text-white/70 border border-white/20 px-5 py-2 rounded-full bg-black/10">
-                    Coming Soon
-                  </span>
-                </div>
+                <div className="absolute inset-0 z-20 bg-black/45 backdrop-blur-[1.5px] pointer-events-none transition-all duration-300" />
               )}
             </motion.div>
           );
